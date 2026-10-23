@@ -22,7 +22,7 @@
   ],
   "angles_deg": {
     "start": 0.0,
-    "stop": 45.0,
+    "stop": 0.0,
     "num": 10
   },
   "polarization": "unpolarized",
