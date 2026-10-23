@@ -1,0 +1,51 @@
+{
+  "material_dir": "../../material_example",
+  "material_files": [
+    "Al2O3 (190-800nm, RIT).lm",
+    "GdF (140-500nm, RIT).lm",
+    "HfO2 (190-800nm, RIT).lm",
+    "MgF2 (140-500nm, RIT).lm",
+    "SiO2 (110-800nm, RIT).lm"
+  ],
+  "substrate_file": "CaF2 (110-800nm, RIT).sub",
+  "incident_n": 1.0,
+  "wavelengths_nm": [
+    193.0
+  ],
+  "angles_deg": {
+    "start": 0.0,
+    "stop": 45.0,
+    "num": 10
+  },
+  "polarization": "unpolarized",
+  "target_transmission": 1.0,
+  "reward_metric": "mae",
+  "min_layers": 1,
+  "max_layers": 20,
+  "fill_min": 1,
+  "fill_max": 3,
+  "thickness_min_nm": 10.0,
+  "thickness_max_nm": 140.0,
+  "max_total_thickness_nm": null,
+  "forbid_adjacent_same_material": false,
+  "tmm_device": "cpu",
+  "training": {
+    "seed": 1,
+    "cuda": false,
+    "collector_env_num": 1,
+    "evaluator_env_num": 1,
+    "n_evaluator_episode": 2,
+    "n_sample": 32,
+    "batch_size": 16,
+    "epoch_per_collect": 2,
+    "learning_rate": 0.0003,
+    "entropy_weight": 0.001,
+    "target_kl": 0.02,
+    "max_abs_log_ratio": 10.0,
+    "eval_freq": 1,
+    "stop_value": 1.0,
+    "max_env_step": 64,
+    "max_train_iter": 8,
+    "exp_name": "runs/smoke_masked_hppo"
+  }
+}

@@ -1,0 +1,18 @@
+S3 
+ 
+ 
+Figure S1. Statistics of the radiative cooling device optimization over 30 trials for varying 𝑟 and 
+𝜇. The plot shows the median (top row) and inter-quartile range (bottom row) of the merit 
+function (M.F.) at each generation for 𝑟 =[0.80, 0.90, 0.99] and 𝜇= [0.01, 0.05, 0.10].  
+ 
+Next, we perform the memetic algorithm optimization for the incandescent light bulb filter. 
+As we did above, we keep all optimization parameters the same as those of the manuscript except 
+for 𝑟 and 𝜇. For each combination of 𝑟 and 𝜇 above, we apply the memetic algorithm for 15 trials 
+over 200 generations. In Fig. S2, we plot the median and inter-quartile range of the trials’ minimum 
+merit functions at each generation. Here, we notice that for a given 𝜇, in the initial generations, 
+having a high 𝑟 value accelerated the decrease of the merit function. Nevertheless, the end-result 
+of the optimization differed considerably. For a small 𝜇= 0.01, on average, all 𝑟 values 
+converged to devices with roughly the same performance with similar consistency. On the other 
+hand, for larger 𝜇 values of 0.05 and 0.10, a low reselection rate of 𝑟 = 0.80 more consistently 
+converged to more optimal devices than both a moderate 𝑟 = 0.90 and a high 𝑟 = 0.99. We can 
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

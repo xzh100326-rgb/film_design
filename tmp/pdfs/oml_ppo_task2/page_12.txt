@@ -1,0 +1,65 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+[3] Raman A P , Anoma M A, Zhu L, Rephaeli E and Fan S 2014 Passive radiative cooling below ambient air temperature under direct
+sunlight Nature 515 540–4
+[4] W ei Li, Shi Y , Chen Z and Shanhui F 2018 Photonic thermal management of coloured objectsNat. Commun. 9 1–8
+[5] Schubert M F , Mont F W, Chhajed S, Poxson D J, Kim J K and Schubert E F 2008 Design of multilayer antireflection coatings made
+from co-sputtered and low-refractive-index materials by genetic algorithm Opt. Express 16 5290–8
+[6] Shi Y , W ei Li, Raman A and Fan S 2017 Optimization of multilayer optical films with a memetic algorithm and mixed integer
+programming ACS Photonics 5 684–91
+[7] Y ou C, Matyas C T, Huang Y , Dowling J and V eronis G 2020 Optimized multilayer structures with ultrabroadband near-perfect
+absorption IEEE Photonics J. 12 1–10
+[8] Tikhonravov A V , T rubetskov M K and DeBell G W 1996 Application of the needle optimization technique to the design of optical
+coatings Appl. Opt. 35 5493–508
+[9] Rabady R I and Ababneh A 2014 Global optimal design of optical multilayer thin-film filters using particle swarm optimization
+Optik 125 548–53
+[10] Silver D et al 2017 Mastering the game of go without human knowledge Nature 550 354–9
+[11] Vinyals O et al 2019 Grandmaster level in Starcraft II using multi-agent reinforcement learning Nature 575 350–4
+[12] Bello I, Pham H, Le Q V , Norouzi M, and Bengio S 2016 Neural combinatorial optimization with reinforcement learning
+(arXiv:1611.09940)
+[13] Khalil E, Dai H, Zhang Y , Dilkina B and Song L 2017 Learning combinatorial optimization algorithms over graphs Advances in
+Neural Information Processing Systems pp 6348–58
+[14] Mirhoseini A et al 2017 Device placement optimization with reinforcement learning Proc. 34th Int. Conf. Machine Learning
+vol 70 pp 2430–9
+[15] Mirhoseini A et al 2020 Chip placement with deep reinforcement learning (arXiv: 2004.10746)
+[16] Sutton R S and Barto A G 2018 Reinforcement Learning: An Introduction (Cambridge, MA: MIT Press)
+[17] Hao L, Zhang X and Y ang S 2020 A learning-based iterative method for solving vehicle routing problems Int. Conf. Learning
+Representations
+[18] Sajedian I, Badloe T and Rho J 2019 Optimisation of colour generation from dielectric nanostructures using reinforcement
+learning Opt. Express 27 5874–83
+[19] Sajedian I, Lee H and Rho J 2019 Double-deep q-learning to increase the efficiency of metasurface holograms Sci. Rep. 9 1–8
+[20] W ei M, Cheng F and Liu Y 2018 Deep-learning-enabled on-demand design of chiral metamaterials ACS Nano 12 6326–34
+[21] Liu D, T an Y , Khoram E and Zongfu Y 2018 T raining deep neural networks for the inverse design of nanophotonic structuresACS
+Photonics 5 1365–9
+[22] Liu Z, Zhu D, Rodrigues S P , Lee K-T and Cai W 2018 Generative model for the inverse design of metasurfacesNano Lett. 18 6570–6
+[23] Vinyals O, Fortunato M and Jaitly N 2015 Pointer networks Advances in Neural Information Processing Systems pp 2692–700
+[24] Chen X and Tian Y 2019 Learning to perform local rewriting for combinatorial optimization Advances in Neural Information
+Processing Systems pp 6278–89
+[25] Jiwei Li, Monroe W, Ritter A, Jurafsky D, Galley M and Gao J 2016 Deep reinforcement learning for dialogue generation Proc.
+EMNLP 2016 pp 1192–202
+[26] Popova M, Isayev O and T ropsha A 2018 Deep reinforcement learning for de novo drug design Sci. Adv. 4 eaa7885
+[27] Angermueller C, Dohan D, Belanger D, Deshpande R, Murphy K and Colwell L 2020 Model-based reinforcement learning for
+biological sequence design Int. Conf. Learning Representations
+[28] Jiang J, Sell D, Hoyer S, Hickey J, Y ang J and Fan J A 2019 Free-form diffractive metagrating design based on generative adversarial
+networks ACS Nano 13 8872–8
+[29] Hochreiter S and Schmidhuber Jurgen 1997 Long short-term memory Neural Comput. 9 1735–80
+[30] Graves A 2013 Generating sequences with recurrent neural networks (arXiv: 1308.0850)
+[31] Chung J, Gulcehre C, KyungHyun C, and Y oshua B 2014 Empirical evaluation of gated recurrent neural networks on sequence
+modeling (arXiv:1412.3555)
+[32] Zhu C, Byrd R H, Peihuang L and Nocedal J 1997 Algorithm 778: L-bfgs-b: fortran subroutines for large-scale bound-constrained
+optimization ACM Trans. Math. Softw. (TOMS) 23 550–60
+[33] Goodfellow I, Bengio Y and Courville A 2016 Deep Learning (Cambridge, MA: MIT Press)
+[34] Byrnes S J 2016 Multilayer optical calculations (arXiv: 1603.02720)
+[35] Schulman J, W olski F , Dhariwal P , Radford A, and Klimov O 2017 Proximal policy optimization algorithms (arXiv:1707.06347)
+[36] Schulman J, Moritz P , Levine S, Jordan M and Abbeel P 2015 High-dimensional continuous control using generalized advantage
+estimation Int. Conf. Learning Representations
+[37] Kingma D P and Jimmy B 2014 Adam: a method for stochastic optimization (arXiv: 1412.6980)
+[38] Paszke A et al 2019 Pytorch: an imperative style, high-performance deep learning library Advances in Neural Information Processing
+Systems pp 8024–35
+[39] Achiam J 2018 Spinning Up in Deep Reinforcement Learning
+[40] Zhou J, Chen Xi and Guo L J 2016 Efficient thermal–light interconversions based on optical topological transition in the
+metal-dielectric multilayered metamaterials Adv. Mater. 28 3017–23
+[41] Ilic O, Bermel P , Chen G, Joannopoulos J D, Celanovic I and Soljaˇci´c M 2016 T ailoring high-temperature radiation and the
+resurrection of the incandescent source Nat. Nanotechnol. 11 320
+[42] W ei Li, Shi Y , Chen K, Zhu L and Fan S 2017 A comprehensive photonic approach for solar cell coolingACS Photonics 4 774–82
+[43] W ei Li and Fan S 2018 Nanophotonic control of thermal radiation for energy applications Opt. Express 26 15995–6021
+11

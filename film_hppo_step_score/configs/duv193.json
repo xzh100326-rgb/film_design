@@ -1,0 +1,42 @@
+{
+  "material_dir": "E:/AI+film design/material_example",
+  "material_files": [
+    "Al2O3 (190-800nm, RIT).lm",
+    "GdF (140-500nm, RIT).lm",
+    "HfO2 (190-800nm, RIT).lm",
+    "MgF2 (140-500nm, RIT).lm",
+    "SiO2 (110-800nm, RIT).lm"
+  ],
+  "substrate_file": "CaF2 (110-800nm, RIT).sub",
+  "incident_n": 1.0,
+  "wavelengths_nm": [193.0],
+  "angles_deg": {"start": 0.0, "stop": 45.0, "num": 10},
+  "polarization": "unpolarized",
+  "target_transmission": 1.0,
+  "min_layers": 1,
+  "max_layers": 20,
+  "thickness_min_nm": 10.0,
+  "thickness_max_nm": 140.0,
+  "max_total_thickness_nm": 400.0,
+  "forbid_adjacent_same_material": true,
+  "tmm_device": "cpu",
+  "training": {
+    "seed": 1,
+    "cuda": false,
+    "collector_env_num": 4,
+    "evaluator_env_num": 1,
+    "n_evaluator_episode": 8,
+    "n_sample": 1024,
+    "batch_size": 128,
+    "epoch_per_collect": 10,
+    "learning_rate": 0.0003,
+    "entropy_weight": 0.001,
+    "target_kl": 0.02,
+    "max_abs_log_ratio": 10.0,
+    "eval_freq": 100,
+    "stop_value": 0.9999,
+    "max_env_step": 1000000,
+    "max_train_iter": 10000,
+    "exp_name": "runs/seed1_test1_0_45angle"
+  }
+}

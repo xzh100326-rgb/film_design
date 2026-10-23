@@ -1,0 +1,17 @@
+{
+  "nType": 0,
+  "kType": 0,
+  "wavelength": [
+    400.0,
+    2000.0
+  ],
+  "n": [
+    1.5,
+    1.5
+  ],
+  "k": [
+    0.0,
+    0.0
+  ],
+  "description": "IDEALIZED EXAMPLE ONLY: constant-index lossless substrate, not measured material data."
+}

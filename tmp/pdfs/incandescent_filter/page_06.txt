@@ -1,0 +1,15 @@
+S6 
+ 
+ 
+In summary, from the examples above, we see that while a high 𝑟 value in general 
+accelerates the decrease in merit function in the initial generations, the optimum choice of 𝜇 and 
+𝑟 are problem specific depending on the search landscape of the merit function. Search landscapes 
+with a few prominent local optima favor the use of moderate reselection and mutation rates, 
+whereas rugate search landscapes with many local optima favors the use of low reselection and 
+high mutation rates in order to explore more regions with local optima. In such evolutionary 
+algorithm, it is generally important to diversify the population in order to explore more local 
+minimum regions.  
+ 
+ 
+  
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

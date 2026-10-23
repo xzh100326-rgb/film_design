@@ -1,0 +1,14 @@
+{
+  "reference": "Sharpe et al. 2005, doi:10.1167/5.11.3, Eq.5",
+  "formula": "V_e(lambda)=(1.624340*l_e(lambda)+m_e(lambda))/2.525598",
+  "source_cone_data": "https://raw.githubusercontent.com/colour-science/colour/v0.4.6/colour/colorimetry/datasets/cmfs.py",
+  "source_sha256": "a53076b9e6be4843443067986c925898d40a3c32c4eef9cb32ff08ca42e6493d",
+  "derivation": "Stockman & Sharpe 2000 2-degree energy cone fundamentals; equation reconstructed, not the unavailable original CVRL V table",
+  "data_sha256": "49966627fcbc3eac3b921b8b3723a6e6c9311bef290bbccc52df3a15fc14b5a3",
+  "license": "Cone data extracted from Colour v0.4.6 BSD-3-Clause; see COLOUR_LICENSE.txt",
+  "range_nm": [
+    390,
+    830
+  ],
+  "step_nm": 1
+}

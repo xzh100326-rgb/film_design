@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "duv-film-hppo"
+version = "0.1.0"
+description = "193 nm thin-film design using DI-engine hybrid PPO and TMM-fast"
+requires-python = ">=3.9"
+dependencies = ["DI-engine==0.5.3", "tmm-fast==0.3.0", "gym==0.25.1", "numpy<2", "torch>=2", "easydict", "PyYAML>=6.0", "matplotlib", "tensorboard", "scipy>=1.10"]
+
+[tool.setuptools.packages.find]
+include = ["film_rl*"]
+
+[tool.setuptools.package-data]
+film_rl = ["data/*.csv", "data/*.json", "data/*.txt"]

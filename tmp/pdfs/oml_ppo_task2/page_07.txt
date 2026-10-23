@@ -1,0 +1,44 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+Sequence 
+Generator PPOTMM
+repeat until convergence
+Finetune
+Figure 4. Pipeline of the sequence generator training process. W e first generate multi-layer structures using the sequence
+generator πθ. The spectrum of the generated structures are simulated by the TMM module. Next, PPO algorithm is applied to
+compute the policy gradient g for updating the sequence generator model. W e keep pushing the best discovered structure into a
+buffer with size 1. This process is repeated until convergence. Finally, we finetune the layer thicknesses to obtain the design.
+generator model parameters are updated using the Adam optimizer [ 37]. The model training process is
+summarized in figure 4. Similar to the active search approach in Bello et al [12], we output the best structure
+discovered throughout the entire training process as the final design. The pseudocode that summarizes our
+design generation process is given in algorithm 1.
+Our model is implemented using PyT orch [38] and Spinning Up [39]. The data used in this study and
+our code are publicly available3.
+Algorithm 1: OML-PPO.
+Input: target ˜T, number of epochs K, batch size B, maximum length L
+Output: Optical multi-layer sequence S ∗
+1 Initialize sequence generator parameters θ
+2 Initialize critic network parameters θv
+3 Initialize best design S ∗
+4 for k = 1, …, K do
+5 Si ∼ SampleDesign(L, B, θ)
+6 S ∗ ← SelectBest({Si}, S ∗, ˜T)
+7 θ, θv ← PPOUpdate({Si}, θ, θv)
+8 end
+9 S ∗ ← QuasiNewton(S ∗, ˜T)
+4. Experiment
+W e applied the proposed method to two optical design tasks that are relevant to energy applications, i.e. (1)
+designing ultra-wideband absorbers and (2) designing incandescent light bulb filters. The designed
+ultra-wideband absorbers can help solar thermal panels to absorb the sunlight more efficiently and the light
+bulb filter can enhance incandescent light bulb efficiency in emitting visible light while suppressing the
+radiation in the infrared range that represents energy loss. W e also did an ablation study to understand the
+effect of non-repetitive gating and auto-regressive materials/thickness sampling.
+Performance evaluation: In task 1 ultra-wideband absorber design, we measure the quality of the
+designed structure by average absorption. In task 2 incandescent light bulb filter, we calculate the visible light
+enhancement factor to measure the performance of designed structures.
+4.1. T ask 1: ultra-wideband absorber
+Firstly, we apply our algorithm to the task of designing an ultra-wideband absorber for the wavelength range
+(400, 2000) nm. W e choose the target spectrum as a constant 100% absorption under normal light incidence
+angle (i.e. the light is shining at the absorber at a right angle) to represent an ideal broadband absorber. This
+task has been previously studied by Y anget al [1] based on physical models, where the broadband absorption
+3 https://github.com/hammer-wang/oml-ppo.
+6

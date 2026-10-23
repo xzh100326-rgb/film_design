@@ -1,0 +1,25 @@
+             
+PAPER • OPEN ACCESS
+Automated multi-layer optical design via deep
+reinforcement learning
+To cite this article: Haozhu Wang et al 2021 Mach. Learn.: Sci. Technol. 2 025013
+ 
+View the article online for updates and enhancements.
+You may also like
+Investigation of inverse design of
+multilayer thin-films with conditional
+invertible neural networks
+Alexander Luce, Ali Mahdavi, Heribert
+Wankerl et al.
+-
+Parameterized reinforcement learning for
+optical system optimization
+Heribert Wankerl, Maike L Stern, Ali
+Mahdavi et al.
+-
+Efficient optical coating design using an
+autoencoder-based neural network model
+Utsa Chattopadhyay, Florian Carstens,
+Morten Steinecke et al.
+-
+This content was downloaded from IP address 44.220.252.180 on 20/06/2026 at 16:53

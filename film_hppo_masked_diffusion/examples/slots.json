@@ -1,0 +1,9 @@
+{
+  "slots": [
+    {"material_id": 3, "thickness_nm": 35.0},
+    null,
+    {"material_id": 4, "thickness_nm": 55.0},
+    {"token": "EOS"},
+    {"material_id": 2, "thickness_nm": 70.0}
+  ]
+}

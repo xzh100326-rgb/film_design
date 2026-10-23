@@ -1,0 +1,22 @@
+S9 
+ 
+optimization is shown in Fig. S5(a), and we perform the memetic algorithm to optimize on the 
+layers’ thicknesses. The algorithm removed 10 total layers to produce an 80-layer structure that is 
+shown in Table S2. We compute and plot this structure’s angle-dependent reflectivity in Fig. S5(b), 
+and we show the normal-direction and angle-averaged reflectivity of this structure in Fig. S5(a). 
+As anticipated, this filter exhibits high transmission in the visible range, but high reflection in 
+ultraviolet and infrared such that it could help recycle non-visible incandescent light bulb radiation 
+as to further heat up the light bulb emitter. As was done in the manuscript, we compute that the 
+temperature this emitter can reach with 100 W of input power is 3677 K, and we plot its spectral 
+emissive power at that temperature is shown in Fig. S5(c). From Fig. S5(c), we compute using 
+Eqn. (7) that this optimized 80-layer structure can attain a spectral enhancement factor of 𝜒= 14.1. 
+This is higher than the emissivity enhancement factor calculated with the 90-layer structure in Ref. 
+2 of 𝜒= 12.8, and it is slightly less than the optimized 41-layer structure using 7 materials that 
+has 𝜒= 14.8 shown in the manuscript.  
+With the two optimization examples shown above, we have demonstrated that the memetic 
+algorithm can effectively produce structures with the same material composition as those used in 
+the literature but with superior performance. Compared to the optimization examples in the 
+manuscript that have fewer material layers but better performance, it is evident that in terms of 
+reducing the layers of materials, it is beneficial to design the multi-layer structure from a diverse 
+set of materials.  
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

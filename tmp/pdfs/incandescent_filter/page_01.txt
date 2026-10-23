@@ -1,0 +1,19 @@
+S1 
+ 
+ 
+ 
+Optimization of multi-layer optical films with a memetic algorithm and mixed integer 
+programming 
+ 
+Supporting Information 
+ 
+Yu Shi1, Wei Li1, Aaswath Raman1, and Shanhui Fan1, a) 
+1Department of Electrical Engineering, Ginzton Laboratory, Stanford University, Stanford, 
+California 94305, USA 
+a) Author to whom correspondence should be addressed. Email: shanhui@stanford.edu. 
+ 
+Number of pages: 11 
+Number of figures: 5 
+ 
+  
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

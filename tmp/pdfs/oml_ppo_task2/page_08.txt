@@ -1,0 +1,43 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+T able 1.Available materials for constructing the ultra-wideband absorber.
+Ag Al Al2O3 Cr Fe2O3 Ge HfO2 MgF2
+Ni Si SiO2 Ti TiO2 ZnO ZnS ZnSe
+(a) (b)
+Figure 5. Normal incidence spectrum for the best discovered absorber structures with 5 and 14 layers. R: reflection, T:
+transmission, A: absorption. W e design the multi-layer thin film to have high absorption over the entire wavelength range. (a)
+Normal incidence spectrum for the 5-layer structure. (b) Normal incidence spectrum for the 14-layer structure.
+is achieved by overlapping multiple absorption resonances and with an overall graded-index structure to
+minimize reflection. The authors designed a 5-layer structure using MgF 2, TiO2, Si, Ge, and Cr. The
+simulated average absorption of their structure over the wavelength range is 95.37% under normal incidence.
+If not specified otherwise, we assume normal incidence when reporting average absorption.
+W e hypothesize that, when choosing from a larger set of materials than used in the previous work [ 1], it
+is possible to design a structure with higher average absorption than the human-designed structure. Thus, we
+expanded the original material set [ 1] to include 11 more materials (16 total). The set of materials is listed in
+table 1. W e set the available discrete thicknessesD to be {15, 20, 25, …, 200} nm with a total of 38 different
+values. When training the sequence generator, we set the learning rate to 5 × 10−5 and the maximum length
+to L = 6. The material embedding size d is set to 5, i.e. embm ∈ R5. The generator is trained for a total of 3000
+epochs with the batch size set to be 1000 generation steps. W e repeat the training for 10 runs with different
+random seeds. The best structure discovered in each run was recorded and finetuned using the quasi-Newton
+method.
+It is worth noting that our algorithm can yield very similar structures as that reported in [ 1], i.e. it can
+search for and find the structure designed based by human experts. One of such structures is {(MgF 2,
+112 nm), (TiO2, 55 nm), (Ti, 30 nm), (Ge, 30 nm), (Cr, 200 nm)} with an average absorption of 96.12%,
+which has exactly the same material composition as the one reported previously [ 1]. However, the best
+structure discovered by the algorithm, exhibiting a higher average absorption of 97.64%, is {(SiO 2, 115 nm),
+(Fe2O3, 70 nm), (Ti, 15 nm), (MgF2, 124 nm), (Ti, 148 nm)}. The spectrum under normal incidence are
+plotted in figure 5(a).
+W e plot the best absorption values before and after finetuning of all ten runs in figure 6. After finetuning,
+the average absorptions for the discovered structures across all runs were improved. W e found that the
+algorithm is robust to the randomness during training as 8 out of the 10 runs achieved an absorption that is
+higher than 95% after finetuning.
+In an additional experiment, we explore whether the algorithm can design a structure with more layers to
+achieve even higher absorptions. W e set the maximum length L = 15 and sample layer materials from MgF 2,
+TiO2, Si, Ge, and Cr. The best discovered structure has 14 layers with an average absorption of 99.24%. The
+structure configuration is summarized in table 2. W e plot the normal incidence spectrum structure in
+figure 5(b). The structure discovered by OML-PPO reaches close-to-perfect performance under normal
+incidence and has high absorption over a wide range of angles.
+4.2. T ask 2: incandescent light bulb filter
+T o further test whether our method is scalable to more complicated tasks, we apply the proposed method for
+designing a filter that can enhance the luminous efficiency of incandescent light bulbs [ 40, 41]. The idea is to
+reflect the infrared light emitted by the light bulb filament so that its energy can be recycled. T o this end, we
+7

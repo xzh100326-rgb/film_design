@@ -1,0 +1,23 @@
+S2 
+ 
+Part 1. Reselection and mutation rate analysis 
+In this section, we examine the effects of the reselection rate, 𝑟, and mutation rate,  𝜇, in 
+the memetic algorithm optimization for both the radiative cooling device and the incandescent 
+light bulb filter. In both cases, we study the performance of the memetic algorithm with 𝑟 =
+[0.80, 0.90, 0.99] and 𝜇=[0.01, 0.05, 0.10].  
+First, we perform the memetic algorithm optimization for the radiative cooling device. 
+Aside from 𝑟 and 𝜇, all other optimization parameters are kept the same as those of the manuscript. 
+For each combination of 𝑟 and 𝜇 listed above, we apply the memetic algorithm for 30 trials over 
+105 generations. In each generation, for statistical robustness, we plot the median and inter-quartile 
+range of these trials’ minimum merit functions (M.F.) in Fig. S1. As we can see, at a given 𝜇, a 
+higher 𝑟 value generally speeds up the decrease in the merit function. For a small 𝜇= 0.01, a large 
+𝑟 = 0.99 in general helps the algorithm to converge to a slightly more optimum structure. For a 
+larger 𝜇= 0.10, a moderate 𝑟 = 0.90 helps the algorithm to converge towards a slightly more 
+optimum structure. Furthermore, a low 𝑟 = 0.80 value produced relatively sub-optimal results but 
+was more consistent, whereas a moderate 𝑟 = 0.90 value and a high 𝑟 = 0.99 value exhibit more 
+spread in their resulting structures’ merit functions. These observations could indicate that the 
+search landscape of the radiative cooling merit function could have a few prominent local minima 
+that are high-performing. A high reselection rate helps the population to retain individuals at these 
+prominent local optima, whereas a low reselection rate can more likely lose individuals at the 
+prominent local minima and steer the population into search regions with less optimal local minima.  
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

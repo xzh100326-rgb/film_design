@@ -1,0 +1,26 @@
+S7 
+ 
+Part 1. Radiative cooling device and light bulb filter optimization with two materials 
+ In this section, we present the memetic optimization results for the spectra of both the 
+radiative cooling device1 and incandescent light bulb filter2 with the same material composition as 
+those reported in Refs. 1 and 2, respectively. In applying the memetic algorithm with such fixed 
+material arrangements, we modify the “generating the population” step such that all starting 
+individuals have the same material composition as Refs. 1 and 2, but with random thicknesses. We 
+then proceed with the “crossover”, “mutation”, “reselection of population”, and “refinement of 
+elite individuals” steps identical to the descriptions in the manuscript. The results below 
+demonstrate that while fixing the material’s arrangements, our memetic algorithm can effectively 
+identify better performing structures than those reported in Refs. 1 and 2. Compared to the 
+optimized spectra in the manuscript, however, since the structures below are inferior to those 
+described in the manuscript, these optimizations also show that it is advantageous to use a 
+combination of many materials to reduce the number of material layers.  
+ In the optimization of the radiative cooling device, we arrange seven layers of SiO2 and 
+HfO2 placed on top of a silver substrate as was done in Ref. 1. We then apply the memetic 
+algorithm to optimize the thicknesses of each layer according to the target spectrum for the 
+optimization is shown in Fig. S4(a). The resulting structure’s layer thicknesses are shown in Table 
+S1, and the structure’s angular dependent emissivity is plotted in Fig. S4(b). In addition, the 
+structure’s normal and angle-averaged emissivity/absorptivity are plotted in Fig. S4(a), which 
+show low solar absorptivity and high emissivity in atmospheric transparency window as expected. 
+Using the same solar and atmospheric conditions as Ref. 1, we compute that the optimized 
+structure in Table S1 could reach an equilibrium temperature of 20.8 K below ambient in the 
+presence of direct sunlight. This value exceeds the theoretical predictions in Ref. 1 of 19.5 K below 
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

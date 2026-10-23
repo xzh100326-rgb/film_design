@@ -1,0 +1,43 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+T able 3.RL designed incandescent light bulb filter with 42 layers. The total thickness is 8.54 µm.
+ID Material Thickness ID Material Thickness ID Material Thickness
+1 SiO2 289 nm 15 SiC 210 nm 29 SiC 117 nm
+2 SiN 268 nm 16 SiN 168 nm 30 MgF2 224 nm
+3 MgF2 185 nm 17 MgF2 200 nm 31 SiC 122 nm
+4 SiN 189 nm 18 SiC 227 nm 32 MgF2 235 nm
+5 SiC 214 nm 19 SiN 242 nm 33 SiC 127 nm
+6 SiN 214 nm 20 MgF2 222 nm 34 MgF2 230 nm
+7 MgF2 210 nm 21 SiC 228 nm 35 SiC 234 nm
+8 SiN 206 nm 22 MgF2 216 nm 36 MgF2 218 nm
+9 SiC 205 nm 23 SiC 229 nm 37 SiC 235 nm
+10 SiN 183 nm 24 MgF2 203 nm 38 MgF2 220 nm
+11 MgF2 184 nm 25 SiC 101 nm 39 SiC 231 nm
+12 SiN 179 nm 26 MgF2 209 nm 40 MgF2 216 nm
+13 SiC 203 nm 27 SiC 121 nm 41 SiC 233 nm
+14 SiN 273 nm 28 MgF2 225 nm 42 Al2O3 95 nm
+T able 4.Visible light enhancement. Our RL-designed structure achieved 8.5% higher visible light enhancement than the structure
+designed by a memetic algorithm.
+Model Enhancement factor
+OML-PPO 16.60
+Memetic [6] 15.30
+T able 5.Highest absorption values discovered by each algorithm across 10 runs. The mean average absorption values and standard
+deviations of the 10 runs are reported.
+Model Average absorption
+OML-PPO 94.98% ± 0.99%
+Only gating 94.05%±1.39%
+Only auto-regressive 91.55%±1.14%
+None (baseline) 91.03%±0.87%
+(a) (b)
+Figure 8. T raining trajectory of OML-PPO and other baseline algorithms. (a) Average absorption trajectory. (b) Maximum
+absorption trajectory. The non-repetitive gating enables the model to converge to better solutions than models without the gating.
+The shaded area corresponds to one standard deviation.
+W e quantitatively evaluated the performance of the designed filter by calculating the enhancement factor
+for visible light (400–780 nm) under a fixed operating power. The results are reported in table 4. Details
+about the calculation of enhanced factor is included in supplementary materials.
+4.3. Ablation study
+On the ultra-wideband absorber design task, we conducted an ablation study to understand the effect of
+non-repetitive gating and auto-regressive generation of materials and thicknesses. W e trained four different
+models: (1) OML-PPO with both non-repetitive gating and auto-regressive generation, (2) non-repetitive
+gating only, (3) auto-regressive generation only, and (4) neither non-repetitive gating nor the auto-regressive
+generation. For each model, we repeated the training for ten times. The maximum absorption values
+9

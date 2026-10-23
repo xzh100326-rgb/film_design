@@ -1,0 +1,57 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+two agents. In [27], the authors proposed a model-based variant of PPO to deal with the large-batch, low
+round setting for biological sequence design [ 27]. Mirhoseini et al [15] combined graph neural networks
+with RL for sequentially placing devices on a chip. These previous works all trained sequence generation
+models using policy gradient algorithms. In this work, we introduced a sequence generation network
+architecture tailored to the optical design task. Additionally, we combined local search with DRL for
+finetuning the thicknesses of the generated layers.
+Deep-learning-based inverse design [20–22] has been gaining popularity in recent years. In [ 20], the
+authors trained convolutional neural networks to directly predict design parameters using the design target
+as the input to the network. Liu et al [22] trained a generative adversarial network (GAN) to inversely design
+optical devices by generating 2D shapes of the optical structure. However, these approaches all rely on a
+curated training set that contains diverse examples. When our goal is to push the performance limit of certain
+devices, the near-optimal structures is unlikely to be within the training data distribution. Thus, these static
+methods are not appropriate for optimizing design performances. Our proposed method tackles this problem
+by actively searching the design space to generate high-performance designs via reinforcement learning. In
+[28], the authors also developed an active search process by adding additional high-quality data to augment
+the initial training set. However, their approach requires the users to retrain the neural network with the
+augmented dataset while our RL-based method accomplishes the design task within one training process.
+3. Methods
+Multi-layer films can be treated as sequences. Each layer is represented as sl = (ml, dl). W e can represent such
+a structure with N layers as S = {(m0, d0), (m1, d1), (m2, d2), . . . ,(mN−1, dN−1)}, where ml and dl denote the
+material and the thickness of the lth layer (counting from the top), respectively. When designing optical
+multi-layer films, we hope to synthesize a sequence that has the desired target spectral response ˜T . Thus, the
+design task is equivalent to a sequence generation problem, where we generate m and d in each step.
+Generation tasks such as dialogue generation [ 25], molecule generation [26], and biological sequence
+generation [27] have been widely studied by machine learning researchers. In these works, researchers train a
+neural network as a generator for synthesizing sequences. Because we do not have ground-truth data for
+optimal design tasks, we apply reinforcement learning [ 16] to train the sequence generator.
+3.1. Sequence generation network
+T o generate the optical layer sequences, we use a recurrent neural network (RNN) [29]. Unlike simple
+feed-forward neural networks, RNNs maintain a hidden state h that contains useful information from the
+history of the sequence. Thus, RNNs are suitable for tasks that require memorizing history and have been
+widely used in sequence generation tasks [ 30]. Gated recurrent units (GRUs) [31] and long short-term
+memory networks (LSTMs) [ 29] are two popular variants of RNNs. Researchers have previously found that
+the empirical performance of GRUs and LSTMs is similar. Because GRUs have a simpler structure than
+LSTMs and require fewer parameters to train, we choose to use a GRU for generating the optical multi-layer
+structures. Similar to sampling words from a dictionary when generating a sentence, we sample the material
+ml from a fixed set of materials M for each layer. Though the thickness dl is intrinsically a continuous
+variable, we choose to sample the thickness from a set of discrete values D to reduce the size of the
+exploration space. Later, we apply quasi-Newton methods [ 32] to finetune the layer thicknesses of the
+generated structure for further performance improvement.
+Our optical multi-layer sequence generation network consists of a GRU and two multi-layer perceptrons
+(MLPs) [33]. At generation step l, the GRU takes its own output from the previous step sl−1 = (ml−1, dl−1)
+and the previous hidden state hl as the inputs to compute the hidden state hl. This auto-regressive generation
+process allows the GRU to remember what has been generated so far. T o generate the material and thickness
+for layer l, the hidden state hl of the GRU is inputted to two MLPs. One of the MLPs outputs logits vector
+σml ∈ R|M|+1 corresponding to all possible materials and an end-of-sequence token (EOS). The other MLP
+outputs a thickness logits vector σdl ∈ R|D| corresponding to all allowable thicknesses in the set D. Then, we
+transform these logits vectors with the softmax function to obtain proper probability distributions. Finally,
+the material and thickness are sampled from their corresponding distributions. The generation process will
+stop either when the length reaches the maximum length L set by the user or when the EOS token is sampled.
+Thus, the number of layers N of a generated structure is always lower than or equal to the maximum
+sequence length L. The process for generating a sequence is illustrated in figure 2.
+3.1.1. Non-repetitive gating
+The aforementioned material sampling procedure does not prevent the situation where the same material is
+sampled for adjacent layers. However, such consecutive layers of the same material are equivalent to a single
+3

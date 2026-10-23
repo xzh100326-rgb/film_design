@@ -1,0 +1,209 @@
+{
+  "snapshot_at": "2026-10-21T17:44:59+08:00",
+  "scope": "2026-10-16 evening through 2026-10-21",
+  "files": [
+    {
+      "kind": "figure",
+      "id": "duv",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\week_20261014_20261020\\figures\\duv_multiseed.png",
+      "sha256": "4f3fe24e294a11e466808aa39fd6993af4976998f69e7c50fddc5ea6fed1ae46"
+    },
+    {
+      "kind": "figure",
+      "id": "masked",
+      "source": "E:\\lithography_machine_lens\\film_hppo_masked_diffusion\\outputs\\duv193_masked_hppo_seed1.png",
+      "sha256": "45b3c79caead2b8e3b7010e5787c1e27d71de095a9088d195299c9e6bc9e3524"
+    },
+    {
+      "kind": "figure",
+      "id": "abs_search",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\week_20261014_20261020\\figures\\absorption_search_progress.png",
+      "sha256": "0ed04f7035275b7b6c73f84b65c2d76ea759ee204c0170ac8e0d8da32207ae22"
+    },
+    {
+      "kind": "figure",
+      "id": "abs_spectra",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\week_20261014_20261020\\figures\\spectra_comparison.png",
+      "sha256": "a07f37cd5ff7219e7dc71cb8a0c8211e0c02ba3ba75f3a1a4c7018ebf6958f9b"
+    },
+    {
+      "kind": "figure",
+      "id": "paper",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\references\\oml_ppo_task2\\table3_current_materials\\comparison.png",
+      "sha256": "64fef9114c61e816cb453ff184848765c33e927283206c25e356bf02b2c2c668"
+    },
+    {
+      "kind": "figure",
+      "id": "lamp_T",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_improve\\20261021_094617\\spectra.png",
+      "sha256": "2363e6042a9ade444784000bd97c07da6a357fc2ed050ea20f90a8e4b533f173"
+    },
+    {
+      "kind": "figure",
+      "id": "hppo_training",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\hppo_spectral_search\\20261021_145752\\training_comparison.png",
+      "sha256": "318ac9b43f0e6e8a98ace65a62bd5603e49c37dfc20812f6eda17dac5748c404"
+    },
+    {
+      "kind": "figure",
+      "id": "hppo_R",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\hppo_spectral_search\\20261021_145752\\reflection_comparison_dense.png",
+      "sha256": "c876ef1f25fb7df2be00b20fee5f9b11d2ccd5c2db7f210d9052fba183cff401"
+    },
+    {
+      "kind": "figure",
+      "id": "enhancement",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\hppo_spectral_search\\20261021_145752\\baseline_stage2\\reflection.png",
+      "sha256": "a4e3b1ef3e217f5bc328a7cdb11bf074bfd2d1746b5113d25e2a01d53ac48bbc"
+    },
+    {
+      "kind": "report",
+      "id": "R1",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\week_20261014_20261020\\README.md",
+      "sha256": "c706d6d97c811352a2112c11c14d197b54f347c96d66689ec977e8517ec78ad8"
+    },
+    {
+      "kind": "report",
+      "id": "R2",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\CHANGELOG.md",
+      "sha256": "8af768ce25b2271a21aa4e2951ed2f6e68ae2c1fd55d9f92ddda7298cdb01b82"
+    },
+    {
+      "kind": "report",
+      "id": "R3",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_hppo_experiments\\20261021_004517\\RESULTS.md",
+      "sha256": "197758bf31eb27240d56be62d904a58c0259a94f0b1cf376eb2809aaa317a439"
+    },
+    {
+      "kind": "report",
+      "id": "R4",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_improve\\20261021_094617\\RESULTS.md",
+      "sha256": "75f6b33f17699f5e5d3ca38cc6780f6e4ed0bbb3cd378b51332224469e6326f1"
+    },
+    {
+      "kind": "report",
+      "id": "R5",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\hppo_spectral_search\\20261021_145752\\RESULTS.md",
+      "sha256": "af4756b78dee9479e78476fb12a7051bc4b55b38647903b30063b6ce530477a2"
+    },
+    {
+      "kind": "report",
+      "id": "R6",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\hppo_spectral_search\\20261021_145752\\ENHANCEMENT_GAP.md",
+      "sha256": "2d892c276d842964336333a267f0e4aa858631e3704d3eae5cabed499529313f"
+    },
+    {
+      "kind": "report",
+      "id": "R7",
+      "source": "E:\\lithography_machine_lens\\film_hppo\\outputs\\references\\oml_ppo\\README.md",
+      "sha256": "a2dcb6fd6a962a6af2eb44ab8e91728bf07111cd403f3cfc677f0b2025bf52b1"
+    },
+    {
+      "kind": "report",
+      "id": "R8",
+      "source": "E:\\lithography_machine_lens\\film_hppo_masked_diffusion\\README.md",
+      "sha256": "ed19a91eaeeef5d59df48d25ba3ec63d199c98bdcba42af065bf1961bc1f9777"
+    }
+  ],
+  "designs": [
+    {
+      "id": "D1",
+      "title": "DUV 固定常数 v1 的最好设计",
+      "path": "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v1__a00-45\\20261018_160311\\best_design.json",
+      "note": "193 nm；0–45°共10角度；2层；平均T=99.8246%；固定n且k=0。",
+      "sha256": "ee6fc53754be76d82677b3d7ab3510ee95103154f2e9f91ee34c0ab05abb0742",
+      "layer_count": 2,
+      "score": 0.9982461941216154,
+      "mean_transmission": 0.9982461941216154,
+      "mean_absorption": null
+    },
+    {
+      "id": "D2",
+      "title": "DUV 固定常数 v2 的最好设计",
+      "path": "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\best_design.json",
+      "note": "193 nm；0–45°共10角度；5层；平均T=99.8231%；不同于D1的光学常数。",
+      "sha256": "48e73d1940f431233893ef11c99f6f22c0757e88aa57709d63add7bda6f3e216",
+      "layer_count": 5,
+      "score": 0.9982312134726695,
+      "mean_transmission": 0.9982312134726694,
+      "mean_absorption": null
+    },
+    {
+      "id": "D3",
+      "title": "随机掩码填充试验的最好已遇设计",
+      "path": "E:\\lithography_machine_lens\\film_hppo_masked_diffusion\\runs\\duv193_masked_hppo_seed1\\designs\\best_design.json",
+      "note": "6层；文件记录平均T=99.2787%；沿用该分支原五材料和原配置，不能与D1/D2直接比较算法优劣。",
+      "sha256": "3a73b527202df6d7502352de1840e0168b2984f7b495308c2c7b282db8ff1469",
+      "layer_count": 6,
+      "score": null,
+      "mean_transmission": 0.9927867187112381,
+      "mean_absorption": null
+    },
+    {
+      "id": "D4",
+      "title": "宽带吸收 HPPO 基线的当前物理条件重算",
+      "path": "E:\\lithography_machine_lens\\film_hppo\\outputs\\abs400-2000__hppo__baseline\\20261020_004725\\best_design_current_physics.json",
+      "note": "400–2000 nm；14层；平均A=93.1043%；用于和D5统一基底比较。",
+      "sha256": "068f74d5a66bb3f699131a2bb7616c2c15dde3bcbb5f9f52ff015b43890ef82d",
+      "layer_count": 14,
+      "score": 0.9310433657908007,
+      "mean_transmission": 5.6956594182657424e-05,
+      "mean_absorption": 0.9310433657908007
+    },
+    {
+      "id": "D5",
+      "title": "宽带吸收联合搜索的最好设计",
+      "path": "E:\\lithography_machine_lens\\film_hppo\\outputs\\abs400-2000__hybrid__search\\20261020_155601\\best_design.json",
+      "note": "400–2000 nm；14层；总厚度600 nm；平均A=98.9035%；结构搜索与厚度优化结果。",
+      "sha256": "6063cb7fa995ffc9072ac656fb2daf375913c3e8736b279d3dd5434b5ed8792c",
+      "layer_count": 14,
+      "score": 0.9890352910870893,
+      "mean_transmission": 5.19982940254171e-06,
+      "mean_absorption": 0.9890352910870893
+    },
+    {
+      "id": "D6",
+      "title": "灯泡滤光片 T目标参数试验最好设计",
+      "path": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_hppo_experiments\\20261021_004517\\best_training_design.json",
+      "note": "可见T=1；1层；score=0.62676255；可见T=77.98%，IR R=47.17%。",
+      "sha256": "271ba08d59fdc2e151688c90b1b9f10a7312a1961696a2d2b2c90746aa1bdc90",
+      "layer_count": 1,
+      "score": 0.6267625481528146,
+      "mean_transmission": 0.5490859275899641,
+      "mean_absorption": 1.0497427690212411e-16
+    },
+    {
+      "id": "D7",
+      "title": "灯泡滤光片 T目标联合搜索最好设计",
+      "path": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_improve\\20261021_094617\\best_design.json",
+      "note": "可见T=1；16层；score=0.72059530；可见T=74.06%，IR R=72.47%。",
+      "sha256": "ce256e77c0601861bf86a97bcfdb2b343b2cb6ffea7d58b1cd2ea05238bb6d5b",
+      "layer_count": 16,
+      "score": 0.720595296572531,
+      "mean_transmission": 0.3205284765808903,
+      "mean_absorption": 0.00069362066439051
+    },
+    {
+      "id": "D8",
+      "title": "灯泡滤光片 R目标纯 HPPO 最好设计",
+      "path": "E:\\lithography_machine_lens\\film_hppo\\outputs\\hppo_spectral_search\\20261021_145752\\best_design.json",
+      "note": "可见R=0；80层；score=0.73244667；原网格MAE=0.26755333；总厚度24.9969 μm。",
+      "sha256": "41492b3f04bd3ff97a4f8b41fa75df4afa6548974a1ce3389a5c230d8a459b08",
+      "layer_count": 80,
+      "score": 0.7324466699642245,
+      "mean_transmission": 0.08256397774222618,
+      "mean_absorption": 0.06012642173306233
+    },
+    {
+      "id": "D9",
+      "title": "OML PPO 论文表3的42层参考结构",
+      "path": "E:\\lithography_machine_lens\\film_hppo\\outputs\\references\\oml_ppo_task2\\table3_current_materials\\input_design.json",
+      "note": "论文结构；42层；总厚度8.54 μm；只作当前光学常数下的参考重算。",
+      "sha256": "ff6d170fd4db2ee69f92fa90358b5c8a99571be8feac77a08d5e16a50bad6dc0",
+      "layer_count": 42,
+      "score": null,
+      "mean_transmission": null,
+      "mean_absorption": null
+    }
+  ]
+}

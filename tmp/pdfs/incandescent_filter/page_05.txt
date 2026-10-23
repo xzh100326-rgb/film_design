@@ -1,0 +1,18 @@
+S5 
+ 
+Finally, we investigate the effect of having a highly mutating population. We fix 𝑟 = 0.90, 
+and we apply the memetic algorithm to both the radiative cooler and light bulb filter for 30 and 15 
+trials, respectively, with 𝜇= [0.50, 0.80]. In Fig. S3, we plot the median and inter-quartile range 
+of these trials’ minimum merit functions, along with the results from previous trials with 𝜇= 0.10 
+for comparison. For the radiative cooling device plots in Fig. S3(a), we notice that while all three 
+mutation rates show similar consistency, a mutation rate of 𝜇= 0.50 on average out-performed 
+mutation rates of 𝜇= 0.10 and 𝜇= 0.80. On the other hand, for the light bulb filter plots in Fig. 
+S3(b), we observe that having a very high mutation rate of 𝜇= 0.80 on average helps with the 
+convergence to more optimal structures, which is consistent with the speculation that the search 
+landscape for the light bulb filter is rugate and could benefit from high mutation that diversifies 
+the search regions.  
+ 
+Figure S3. Statistics of the merit function for (a) the radiative cooling device optimization and 
+(b) the light bulb filter optimization with high mutation rates. The reselection rate is fixed at 𝑟 =
+0.90, and the mutation rates are 𝜇= [0.10, 0.50, 0.80].   
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

@@ -1,0 +1,222 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "characters": 747,
+      "start": "第 1 页\n薄膜强化学习研究思考与实验记录\n2026 年 10 月 16 日晚至 10 月 21 日\n这份记录围绕上次组会留下的五个问题，回顾我如何提出猜想、开展实验，再根据结果修改判断。现",
+      "end": "试验及诊断；18 日至 19 日开展两套 DUV 光学常数的多 seed 实验；\n20 日推进宽带吸收联合优化和论文数据接入；21 日开展灯泡滤光片 baseline 与纯 HPPO 对照。"
+    },
+    {
+      "page": 2,
+      "characters": 679,
+      "start": "第 2 页\n2 从扩大材料空间追问到材料数据可靠性\n2 1 材料空间首先是光学常数与加工条件的选择\n我起初问的是，能否把所有适合薄膜设计的材料都放进动作空间，以及材料数据库中是否缺少 LaF",
+      "end": "计\n为 D1、D2。不能把两个版本的差异直接归因于随机种子或算法。\n图 1 两套固定光学常数的多 seed 结果。蓝线是最好已遇设计，橙线是最终评估均值，两者不能混用。 原图地址见附录\nB。"
+    },
+    {
+      "page": 3,
+      "characters": 1048,
+      "start": "第 3 页\n2 3 把材料读取方式改成可追溯的数据选择\n固定常数只适合 193 nm 单点，无法支持宽波段设计。因此我进一步提出，材料名称写进 JSON 后，让程\n序在 refractive",
+      "end": "最终膜系的评分\n每步绝对评分 rₜ=F(Dₜ) 累计回报包含各中间膜系评分，可能偏好较长轨迹\n增量奖励 rₜ=g(Dₜ)−g(Dₜ₋₁) γ=1 且处理一致时可望远镜求和为最终与初始评分之差"
+    },
+    {
+      "page": 4,
+      "characters": 890,
+      "start": "第 4 页\n3 2 组会中的指数奖励落地为对数混合评分\n我希望放大 0.998 与 0.999 这类高性能结果的差别，实际实现采用归一化对数误差项，再和线性评分混\n合，而不是直接使用指数函数",
+      "end": "版本只填尚未填的位置，没有重新掩码或修改已填好的层。因此组会最关心的“允许修\n改已有膜层是否有效”仍未被直接验证。当前成果应称为随机掩码填充 HPPO 试验，不能称为已经实现完\n整扩散模型。"
+    },
+    {
+      "page": 5,
+      "characters": 575,
+      "start": "第 5 页\n图 2 随机掩码填充版本的原始训练曲线。横轴为优化器更新次数；平均 episode 步数不等于最终物理膜层数。 原图地址见\n附录 B。\n该分支最好已遇设计 D3 的平均透射率约 ",
+      "end": " 92%至 93%。我依次怀疑厚度限制、总厚度预算、基底、材料 nk 以及模型初\n始策略。连续厚度分支虽可输出很多小数位，但这只表示参数分辨率高，不能说明联合搜索已经找到了\n更好的厚度组合。"
+    },
+    {
+      "page": 6,
+      "characters": 667,
+      "start": "第 6 页\n5 2 先核对物理条件再检查策略更新\n这一阶段复查了材料来源和波长覆盖、论文近似 nk、基底和背面边界，并比较了论文膜系与当前程序的\nTMM 结果。基底后来按对应实验设置为 n=",
+      "end": "率为 93.1043%；联合搜索 D5 达到 98.9035%，14 层，\n总厚度 600 nm。它说明当前材料和约束下存在更好的解，但没有单独证明 HPPO 的初始材料顺序优于随\n机顺序。"
+    },
+    {
+      "page": 7,
+      "characters": 545,
+      "start": "第 7 页\n图 4 左图区分 DUV 的不同 nk 版本；右图在当前相同玻璃基底下比较 HPPO 与联合搜索吸收光谱。 原图地址见附录 B。\n5 4 结果提升之后我开始追问方法归因\n我进一步",
+      "end": "\n各自的配置与结果来源。\n我由此明确了自己想要的通用性：每个新任务可以重新训练，但希望主体框架能够沿用；任务变化主要\n通过材料、边界和目标光谱配置表达，而不是每来一个任务就增加新的优化模块。"
+    },
+    {
+      "page": 8,
+      "characters": 427,
+      "start": "第 8 页\n6 用灯泡滤光片建立更有辨别力的 baseline\n6 1 从单一平均指标转向完整目标光谱\n为了检查框架在更复杂目标上的表现，我选择 OML-PPO 中的 incandescen",
+      "end": "当作本程序的 baseline。\n图 5 论文 42 层参考结构的当前数据重算。包含 R/T/A、角度依赖及诊断对照；改变 k 或偏振的曲线仅用于分析，不是最终\n配置。 原图地址见附录 B。"
+    },
+    {
+      "page": 9,
+      "characters": 492,
+      "start": "第 9 页\n6 2 低反射与高透射的区别改变了实验问题\n观察初始设计后，我发现红外反射较高时，可见光也可能被大量反射。进一步追问得到更重要的区别：\n若材料吸收不可忽略，可见 R=0 并不等于",
+      "end": "这种取舍。\n图 6 可见 T=1 目标下的纯 HPPO 与 16 层联合搜索 R/T/A 对照。它与后续可见 R=0 的 80 层实验采用不同目标，分数不能直\n接排名。 原图地址见附录 B。"
+    },
+    {
+      "page": 10,
+      "characters": 750,
+      "start": "第 10 页\n6 3 把增强因子加入评价并检查它的适用范围\n我不再只问某个 score 是否“足够好”，而是要求用反射率曲线和论文中的增强因子χ共同评价。项目实现\n了固定输入功率下的反射率热",
+      "end": "及实际透射应用，它们的权重和假设不同。\n因此建立 baseline 已经从“找一条论文曲线”深入为“固定材料和物理条件，保留论文结构重算，说明积分\n权重与假设，并同时查看可见 T 和 A”。"
+    },
+    {
+      "page": 11,
+      "characters": 575,
+      "start": "第 11 页\n7 回到纯 HPPO 检验长序列奖励如何影响早期动作\n7 1 保持框架调整 GAE 和训练节奏\n在经历联合优化后，我再次要求尽量保持 HPPO 框架，通过训练本身减小光谱误差。",
+      "end": "度复核，并另做 2 nm 波长网格检查。\n图 7 原生 HPPO 的评估均值与 episode 步数。继续训练横轴累计父阶段环境步；曲线均值和最好设计分数是不同统计量。\n原图地址见附录 B。"
+    },
+    {
+      "page": 12,
+      "characters": 765,
+      "start": "第 12 页\n7 2 光谱误差下降但应用问题仍未解决\n指标 原纯 HPPO 最好 本次纯 HPPO 最好\n90 角度 10 nm 网格 加权 MAE 0.31365958 0.2675533",
+      "end": "含λ、训练节奏和训练预算变化，不能全部归\n因于单一参数。\n本次结构为 80 层、约 25 μm，论文参考为 42 层、8.54 μm，计算与制造成本并不相同，不能据此宣称算\n法公平超越原文。"
+    },
+    {
+      "page": 13,
+      "characters": 867,
+      "start": "第 13 页\n8 五个组会问题现在推进到了哪里\n最初问题 已经完成或形成的认识 尚未完成的验证\n建立 baseline\n论文结构重算 光谱曲线 多 seed 误差与χ的口\n径检查\n相同预算的",
+      "end": "时 08 分的正式汇总为准。17 时后\n另启动的 R 目标 improve 对照单独管理，其候选不纳入这里的纯 HPPO 成果；最新状态以原实验目录记录\n为准。本文不覆盖原始训练和配置文件。"
+    },
+    {
+      "page": 14,
+      "characters": 1043,
+      "start": "第 14 页\n附录 A 最好设计与参考结构的完整地址\n以下路径均已逐项检查存在，并设置了本地文件链接；在本机支持本地链接的 Word 阅读器中可以打开。\nD6 与 D7 采用可见 T 目标，",
+      "end": "phy_machine_lens\\film_hppo\\outputs\\abs400-2000__hybrid__search\\20261020_155601\\best_design.json"
+    },
+    {
+      "page": 15,
+      "characters": 764,
+      "start": "第 15 页\n附录 A 最好设计与参考结构的完整地址\nD6 灯泡滤光片 T 目标参数试验最好设计\n可见 T=1；1 层；score=0.62676255；可见 T=77.98%，IR R=4",
+      "end": "hine_lens\\film_hppo\\outputs\\references\\oml_ppo_task2\\table3_current_materials\\input_design.json"
+    },
+    {
+      "page": 16,
+      "characters": 1151,
+      "start": "第 16 页\n附录 B 效果图与实验报告地址\n效果图已经嵌入正文；下列地址便于打开原分辨率图像。本文编号顺序与正文图序一致。原图副本及本\n次核对的文件哈希保存在报告目录 assets 和 e",
+      "end": "hine_lens\\film_hppo\\outputs\\hppo_spectral_search\\20261021_145752\\baseline_stage2\\reflection.png"
+    },
+    {
+      "page": 17,
+      "characters": 1143,
+      "start": "第 17 页\n附录 B 主要实验报告与运行入口\nR1 DUV 与宽带吸收阶段汇总\nE:\\lithography_machine_lens\\film_hppo\\outputs\\week_202",
+      "end": "此命令会重新训练，不是只查看现有最好设计，也不自动执行第二阶段。已完成实验的全部参数、父检\n查点和预算请查看 R5 对应目录下的 plan.json 与 EXPERIMENT_LOG.md。"
+    }
+  ],
+  "embedded_image_count": 8,
+  "hyperlinks": [
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/duv193__hppo__nk_v1__a00-45/20261018_160311/best_design.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/duv193__hppo__nk_v2__a00-45/20261019_143507/best_design.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo_masked_diffusion/runs/duv193_masked_hppo_seed1/designs/best_design.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/abs400-2000__hppo__baseline/20261020_004725/best_design_current_physics.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/abs400-2000__hybrid__search/20261020_155601/best_design.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/incandescent_hppo_experiments/20261021_004517/best_training_design.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/incandescent_improve/20261021_094617/best_design.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/hppo_spectral_search/20261021_145752/best_design.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/references/oml_ppo_task2/table3_current_materials/input_design.json",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/week_20261014_20261020/figures/duv_multiseed.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo_masked_diffusion/outputs/duv193_masked_hppo_seed1.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/week_20261014_20261020/figures/absorption_search_progress.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/week_20261014_20261020/figures/spectra_comparison.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/references/oml_ppo_task2/table3_current_materials/comparison.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/incandescent_improve/20261021_094617/spectra.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/hppo_spectral_search/20261021_145752/training_comparison.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/hppo_spectral_search/20261021_145752/reflection_comparison_dense.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/hppo_spectral_search/20261021_145752/baseline_stage2/reflection.png",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/week_20261014_20261020/README.md",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/CHANGELOG.md",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/incandescent_hppo_experiments/20261021_004517/RESULTS.md",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/incandescent_improve/20261021_094617/RESULTS.md",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/hppo_spectral_search/20261021_145752/RESULTS.md",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/hppo_spectral_search/20261021_145752/ENHANCEMENT_GAP.md",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/outputs/references/oml_ppo/README.md",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo_masked_diffusion/README.md",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo",
+      "exists": true
+    },
+    {
+      "target": "file:///E:/lithography_machine_lens/film_hppo/configs/incandescent_hppo_gae1.json",
+      "exists": true
+    }
+  ],
+  "all_local_hyperlinks_exist": true
+}

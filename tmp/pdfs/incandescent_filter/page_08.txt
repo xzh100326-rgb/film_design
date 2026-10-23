@@ -1,0 +1,26 @@
+S8 
+ 
+ambient, but it is not as low as the six-layer structure with 3 materials discussed in the manuscript, 
+which could reach 23.4 K below ambient temperature.  
+ 
+Table S1. Material composition and thicknesses for the optimized radiative cooler using 2 
+materials 
+Layer # Material Thickness (μm) 
+ Air Superstrate 
+1 SiO 2 214 
+2 HfO 2 681 
+3 SiO 2 779 
+4 HfO 2 127 
+5 SiO 2 61 
+6 HfO 2 47 
+7 SiO 2 50 
+ Ag Substrate 
+ 
+ 
+Figure S4. Emissivity/absorptivity spectrum of the seven-layer structure using SiO2 and HfO2 
+shown in Table S1. (a) Plot of the target, normally-incident, and angle-averaged 
+emissivity/absorptivity spectrum. (b) Plot of the emissivity/absorptivity’s angle dependence.  
+  
+In the optimization of the incandescent light bulb filter, we arrange 90 layers of Ta2O5 and 
+SiO2 surrounded by air, as was the case in Ref. 2. The target reflection spectrum for this 
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

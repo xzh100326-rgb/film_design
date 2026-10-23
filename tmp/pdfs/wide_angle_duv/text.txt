@@ -1,0 +1,678 @@
+PAGE 1
+Nanophotonics2023;12(10):1913–1921
+ResearchArticle
+Jae-HyunKim,DongInKim,SunSookLee,Ki-SeokAn,SoonminYim*,EungkyuLee*and
+Sun-KyungKim*
+Wide-angle deep ultraviolet antireflective
+multilayers via discrete-to-continuous
+optimization
+https://doi.org/10.1515/nanoph-2023-0102 approximately 100nm) yielded an average reflectance of
+ReceivedFebruary14,2023;acceptedMarch14,2023; 0.2%, which agreed well with the experimental results.
+publishedonlineMarch27,2023 Moreover, an integrated ray-wave optics simulation pre-
+dictedthatasingleCaF plano-convexlenscoatedwiththe
+Abstract:To date, various optimization algorithms have 2
+optimizedmultilayercouldexhibitatransmittanceof99.7%.
+been used to design non-intuitive photonic structures
+Thedevelopedoptimizationapproachwillbewidelyappli-
+with unconventional optical performance. Good training
+cabletoanyphotonicstructuresthatcanrepresentabinary
+datasets facilitate the optimization process, particularly
+vectorwithmultiplebits,suchasmicrowavemetasurfaces,
+whenanobjectivefunctionhasanon-convexshapecontain-
+inadditiontobeingusefulforproducingidealopticalmul-
+ingmultiplelocaloptimainacontinuousparametricspace.
+tilayers.
+Herein,wedevelopedadiscrete-to-continuousoptimization
+algorithmandconfirmeditsvaliditybydesigningandfab-
+Keywords:antireflectivemultilayer;calciumfluoridelens;
+ricatingdeep-ultravioletantireflectiveMgF /LaF multilay-
+2 3 deepultravioletspectrum;discretebinaryoptimization;fac-
+ers.Fordiscreteoptimization,amultilayerwasencodedinto
+torizationmachine.
+a binary vector with multiple bits; a 10nm thick MgF or
+2
+LaF layerwasassignedabinarydigitof0or1,respectively.
+3
+Using the binary-based training datasets, a factorization
+1 Introduction
+machineformulatedasurrogatefunction,whichdiscovered
+thegroundbinaryvectorrepresentinganear-optimalfigure
+ofmerit.Then,thefigureofmeritwasrefinedthroughcon- Determiningtheidealconfigurationofanopticalmultilayer
+tinuousoptimization(e.g.,usinganinterior-pointmethod) that realizes a structured spectrum in specific ranges of
+of the ground binary vector. MgF /LaF multilayers with wavelengths and angles is crucial yet challenging, as its
+2 3
+a variety of bit levels were created to attain a minimum structural parameters (e.g., number of materials, number
+averageangular(0◦–45◦)reflectanceat193nm.AMgF /LaF of layers, and thickness of each layer) are unconstrained,
+2 3
+multilayer optimized at ten bits (i.e., a total thickness of allowing for the exploration of a vast parametric space
+[1–26]. The classical approach, which leverages construc-
+tive and destructive interference effects (e.g., multilayer
+Braggmirrorsandquarter-wavelengthantireflectioncoat-
+ings[27]),canprovidetheoptimalthicknessofeachlayer
+Jae-HyunKimandDongInKimcontributedequallytothiswork.
+when appropriate optical materials are accessible. How-
+*Corresponding authors: Soonmin Yim, Korea Research Institute of ever, more complex design strategies are required when
+ChemicalTechnology(KRICT),Daejeon34114,RepublicofKorea,
+theopticalmaterialsaresubstantiallyrarewithinadesired
+E-mail:s.yim@krict.re.kr;EungkyuLee,DepartmentofElectronicEngi-
+spectralrange,suchasinthedeepultraviolet(DUV)region
+neering,KyungHeeUniversity,Gyeonggi-do17104,Yongin,Republicof
+(190–250nm).Fluorides(e.g.,CaF ,LaF ,AlF ,MgF )arewell
+Korea,E-mail:eleest@khu.ac.kr.https://orcid.org/0000-0002-0211-0727; 2 3 3 2
+andSun-KyungKim,DepartmentofAppliedPhysics,KyungHeeUniver- knowntobetransparentintheDUVregion[28–31].
+sity,Gyeonggi-do17104,Yongin,RepublicofKorea,E-mail:sunkim@khu Inpractice,anArFexcimerlaserwithawavelengthof
+.ac.kr.https://orcid.org/0000-0002-0715-0066 193nmisusedtophotolithographicallyfabricatenanoscale
+Jae-HyunKim, DepartmentofAppliedPhysics,KyungHeeUniversity,
+semiconductor chips. Likewise, camera-based inspection
+Gyeonggi-do17104,Yongin,RepublicofKorea
+equipment equipped with the same ArF excimer laser
+DongInKim, SunSookLee and Ki-SeokAn, KoreaResearchInstitute
+ofChemicalTechnology(KRICT),Daejeon34114,RepublicofKorea checks for compliance or non-compliance according to
+OpenAccess.©2023theauthor(s),publishedbyDeGruyter. ThisworkislicensedundertheCreativeCommonsAttribution4.0InternationalLicense.
+
+PAGE 2
+—
+1914 J.-H.Kimetal.:Antireflectivemultilayersviadiscrete-to-continuousoptimization
+specific criteria during semiconductor processes [32]. For trainingdataisnecessaryforexploitingthecapabilitiesof
+example, it detects any unintended defects in a wafer existingoptimizationmethods.
+andcoordinatestheirposition.Multiplearraysofimaging Herein,wedevelopedatwo-stepdiscrete-to-continuous
+systems with DUV-transparent CaF lenses are necessary optimization algorithm and applied it to the design of
+2
+for image-processing tasks in automated optical inspec- antireflectivemultilayersforDUVlenses.Discreteoptimiza-
+tion.Therefore,incorporatinganidealantireflectioncoat- tion (DO) employing a factorization machine (FM), which
+ingintoCaF lensesiscriticalforenhancingimagequality. encodes a multilayer into a binary vector, can discover
+2
+an initial state in the vicinity of a global minimum. Then,
+Particularlyforhigh-numerical-aperturelenses,antireflec-
+the predefined initial state is subjected to a continuous
+tion must be effective across a wide range of incident
+optimization(CO)processtominutelyadjustthethickness
+angles. In addition, the number of optical materials and
+of each layer and thus refine the FoM. When the DO-
+total thickness should be minimized from an economic
+discovered structure is situated around an optimal state,
+viability standpoint. In previous studies, Liu etal. fabri-
+the post-hoc convex optimization successfully identifies
+cated a seven-layer MgF /LaF antireflective coating (with
+2 3 the best FoM. The devised two-step optimization discov-
+atotalthicknessof181nm)thatexhibitedareflectanceof
+eredMgF /LaF multilayersthatassuredaminimalaverage
+∼ 0.5%atincidentanglesof0◦–45◦at193nm[28];Cangemi 2 3
+angularreflectance(0◦–45◦)at193nmwhilevaryingtheir
+<
+etal. achieved a reflectance of 0.2% at 193nm for nor-
+total thicknesses in the range of 30–210nm. The designer
+mal incidence by exploiting four distinct fluoride mate-
+multilayerwithatotalthicknessof100nmyieldedanaver-
+rials (GdF 3 /LaF 3 /AlF 3 /MgF 2 ) in multilayers [33]; and using age reflectance of ∼ 0.2%, which was in good agreement
+a HfO /Al O /MgF trilayer, Kuschnereit etal. attained a
+2 2 3 2 withtheexperimentalresults.Moreover,anintegratedray-
+<
+reflectanceof 0.5%at193nm,particularlyforlargeinci-
+wave optics simulation predicted that a single CaF lens
+dentanglesof72◦–76◦[34]. 2
+coatedwiththeDUVantireflectivemultilayercouldprovide
+Various optimization strategies, such as needle opti- a transmittance of 99.7% at 193nm without distorting the
+mization [13–16], memetic optimization [17–19], proximal beampathorfocallength.
+policy optimization [20], and genetic algorithms [21–25],
+havebeenattemptedinthesearchformultilayersthatfunc-
+2 Results and discussion
+tionintheultraviolet,visible,andinfraredspectralranges.
+These inverse design methods have led to the creation
+of non-intuitive photonic structures, thus facilitating the
+developmentofspectrum-engineeredapplicationssuchas 2.1 Discrete-to-continuousoptimization
+radiativecoolers[16,18,24,25,35],thermophotovoltaics[26],
+Inourdesign,theDUVantireflectivemultilayersconsistof
+high-efficiency incandescent lighting [36], ultra-wideband
+MgF /LaF binaryfluoridesonaCaF substrate(Figure1(a)).
+2 3 2
+absorbers[20],infrared-selectivesensors[37],andinfrared
+Thematerialandthicknessofeachphysicallayershouldbe
+antireflectivecoatings[21].Akeyprocessforoptimization
+optimizedinamultilayerwiththetotalthicknessconstraint.
+is to precisely track the gradient of an objective function,
+We tackled this problem using a combined approach of
+namely a figure-of-merit (FoM) or merit function. A FoM
+DO and CO (Methods in the SupplementaryInformation).
+typicallyincludesthequantitativedifferenceinopticalper-
+For the DO process, a given multilayer was defined as a
+formance (e.g., average reflectance in this study) between binaryvectorwithmultiplebits(N )byassigninga10nm
+B
+thetargetedandunder-evaluatedstructures.Therefore,the thick MgF (or LaF ) layer a binary digit of 0 (or 1). For
+2 3
+minimumofaFoMrevealstheidealopticalstructure,which example,abinaryvectorof{01100011}witheightbits
+is achieved by tracking its gradient. However, if the para- (N = 8) corresponds to a multilayer composed of 10nm
+B
+metricspaceofaFoMhasanon-convexshapewithmultiple MgF /20nmLaF /30nmMgF /20nmLaF (seethelowpart
+2 3 2 3
+dispersedlocalminima(ormaxima),theiterativeoptimiza- ofFigure1(a)).Itshouldbenotedthatthenumberofphys-
+tion process becomes stalled close to one of the minima. icallayers(N )candifferfromN ;forthemultilayerwith
+L B
+Thus,thesuccessofgradient-descent-basedoptimizationis N = 8,N = 4.Abinaryvector(x)representingamultilayer
+B L
+directly linked to the quality of the initial training data. hasaFoMdefinedasfollows:
+[ ]
+Optimizationusingmultiplestartingpointscanresolvethe 𝜃=𝜃 𝜃=𝜃
+issue,butdetermininghowtoidentifygoodcombinatorial FoM = 1 × ∫ 𝜃=0 fR p ( 𝜽 )d 𝜽 + ∫ 𝜃=0 fR s ( 𝜽 )d 𝜽 (1)
+𝜃=𝜃 𝜃=𝜃
+2 ∫ fd 𝜽 ∫ fd 𝜽
+datasetshasyettobeclarified.Asaresult,establishinggood 𝜃=0 𝜃=0
+
+PAGE 3
+—
+J.-H.Kimetal.:Antireflectivemultilayersviadiscrete-to-continuousoptimization 1915
+1.75
+CaF
+2
+1.70 MgF
+2
+LaF 1.65 3
+1.60
+1.55
+1.50
+1.45
+1.40
+1.35
+200 400 600 800 1000
+Wavelength (nm)
+n
+,xedni
+evitcarfeR
+Binary vector (x) TMM
+i
+0 1 1 0 0 0 1 1
+10 nm
+MgF = 0
+2 Mapping
+10 nm
+LaF 3 = 1 Preparing <x i , FoM i >
+CO with IP
+ytivitcelfeR
+(a) (b)
+Wavelength = 193 nm
+θ= 0 –45
+R
+p
+k
+θ R s
+CaF
+2
+MgF
+2
+LaF
+3
+N=4
+L
+N=8
+B
+e.g.,
+Binary vector: 01100011
+0: MgF,1: LaF
+2 3
+1 bi(cid:425)hickness = 10 nm
+(c) (d)
+Parametric space of FoM
+E
+s
+Layer
+E
+p Op(cid:415)mal <x, FoM> t
+θ i i 1
+t
+2
+DO with FM Itera(cid:415)ve t 3
+Op(cid:415)mal
+x i ,FoM i Predic(cid:415)ng cycle x 1 FoM 1 x 2 FoM 2 t 4
+0.1 0.1 CO with IP
+x FoM 3 3
+0.1
+0.1 x 4 FoM 4 x 5 FoM 5
+Training
+0.1 0.1
+0.1 0.1
+FM Dataset <x i ,FoM i >
+Figure1: Principleofthedevelopedtwo-stepdiscrete-to-continuousoptimizationprocess.(a)DescriptionofaFoMasanaveragereflectanceacross
+0◦–45◦inthep-ands-polarizations,obtainedatasingleDUVwavelength(193nm).AMgF /LaF multilayeriscomposedofNbits(N ),wherea1bit
+2 3 B
+thicknessis10nm,representedbyabinaryvectorof0(MgF )and1(LaF ).NotethatN denotesthenumberofphysicallayersinamultilayer.
+2 3 L
+(b)Measuredrefractiveindices(n)ofaCaF substrate,60nmthickMgF film,and65nmthickLaF film.(c)Schematicsillustratingtheiterative
+2 2 3
+processesofaFMthatdiscoversaDO-discoveredgroundbinaryvectorforaDUV-antireflectiveMgF /LaF multilayer:(i)encodingabinaryvectorinto
+2 3
+amultilayer(mapping),(ii)calculatingtheFoMofagivenmultilayer,(iii)updatingtheexistingdatasets<x,FoM>withanewdataset,and(iv)
+i i
+learningtheoptimumlinearandquadraticcoefficientsofthesurrogatemodel(training).(d)SchematicsdescribinghowtodiscoveranoptimizedFoM
+viathedevelopedtwo-step(DOwithFM+COwithIP)optimizationprocess.
+whereR ( 𝜃 )orR ( 𝜃 )isareflectanceat193nmaveragedover antireflectivemultilayerhasR =R = 0,thusyieldingaFoM
+s p s p
+a specific range of incident angles (0◦–45◦ for this study) of0.Therefore,theDOprocessaimstodiscovertheground
+inthes-orp-polarizationdirection.ToevaluateR s ( 𝜃 )and binaryvectorx∗ thathasthelowestFoMatagivenN B ,as
+R ( 𝜃 ),weperformedtransfermatrixmethod(TMM)simu- follows:
+p x∗ =
+argminFoM (2)
+lationsusingthemeasuredrefractiveindicesoftheMgF ,
+2 x∈[0,1]
+LaF ,andCaF materialsshowninFigure1(b)(Methodsin
+3 2
+theSupplementaryInformation).InEquation(1),thelower However,itiscomputationallyexpensivetoinvestigate
+theFoM,thebettertheantireflectionperformance;aperfect allpossiblestatesandtheirassociatedformsusingtheTMM
+
+PAGE 4
+—
+1916 J.-H.Kimetal.:Antireflectivemultilayersviadiscrete-to-continuousoptimization
+because the total number of states is proportional to 2 to vector (i.e., the ground binary vector of a FoM). The post-
+thepowerofN .Toavoidthistime-consumingprocess,we hocCOprocessledtoamodestrefinementofthethickness
+B
+constructedaquadraticunconstrainedbinaryoptimization of each layer to within a 1 bit thickness limit (i.e., 10nm)
+(QUBO)modelandusedittosearchforthegroundbinary (Figure1(d)). For example, for N = 14 (N = 6), the first
+B L
+vector [38] (Methods in the SupplementaryInformation). (MgF ) and fifth (MgF ) layers from the bottom had thick-
+2 2
+For the QUBO model, a set of {X, f}, referred to as the nesses of 10 and 40nm, respectively, after the first-round
+trainingdataset,wasprepared,whereX = {x ,x ,...,x } DOprocesswascomplete.Subsequently,afterthepost-hoc
+1 2 m
+andf = {FoM ,FoM ,...,FoM }.Then,themodelwasformu- COprocess,theirthicknesseschangedto19.9and32.4nmin
+1 2 m
+latedwiththetrainingdatasetusingafactorizationmachine sequentialorder.
+(FM),asfollows:
+2.2 DesignofDUVantireflectivemultilayers
+f′ =𝒘 +𝒘TX + 1T[(VX)⚬(VX) − (V⚬V)(X⚬X)]
+0
+WedesignedDUVantireflectivemultilayersviaatwo-step
+𝒘 ∗,𝒘∗,
+V
+∗ = argminL(f,f′
+) (3)
+optimization(DOwithFM + COwithIP)atvariousbitsof
+0
+binaryvectors.Figure2(a)showstheoptimizedFoMvalues
+where 𝑤 0 ∈ℝ1, 𝒘∈ℝN bit, V ∈ℝm×N bit, 1 ∈ [1]m, L(f,f′ ) (top panel) and their corresponding multilayer configura-
+is the loss function with L2 regularization, and m is a tions(i.e.,thematerialandthicknessesofeachlayer)(bot-
+positive integer. A stochastic gradient method was used tompanel)asafunctionofN ,obtainedafterone-(DOwith
+B
+to fit the hyperparameters (i.e., 𝑤 0 , 𝒘 , V) of the model. FM)andtwo-step(DOwithFM + COwithIP)optimization
+Then, a surrogate function (s(X)) was formulated as processes.Forbothcases,theFoMsteadilydecreasedwith
+follows: increasingN ;forexample,theone-step(ortwo-step)opti-
+B
+[ mizationdiscoveredFoMsof0.025(or0.024)and0.003(or
+s(X) =𝒘 0 ∗+𝒘∗TX + 1T (V ∗ X)⚬(V ∗ X) 0.002)atN = 3and10,respectively.TheFoMwasalmost
+] B
+− (V ∗⚬V ∗ )(X⚬X) (4) clamped at 10 ≤ N B ≤ 19, slightly reduced to 0.0009 at
+N = 20,andfinallyreachedthelowestvalueof0.0008at
+B
+Since the surrogate function mimicked a FoM, the N = 21 (corresponding to N = 8). The post-hoc process
+B L
+problem of searching for the ground binary vector
+(x∗
+) (i.e.,COwithIP)slightlyimprovedtheantireflectionperfor-
+yielding the lowest (i.e., optimal) FoM in Equation(2) mance. Between one-step (DO with FM) and two-step (DO
+was solved by searching for x∗ , yielding the lowest s withFM + COwithIP)optimizations,thedifferenceinFoM
+value: issmallerthan0.001at3≤N ≤21.AtcertainN values(e.g.,
+( ) B B
+x∗ = argmins x∗ (5) N = 10,11,and16),bothoptimizationsyieldedverysimilar
+B
+x∈[0,1]
+multilayer configurations and their resultant FoMs. These
+Thissurrogatefunctiondealswiththesetofx(i.e.,tensorX findings suggest thattheDOwithFMcan findtheground
+∈ [0 , 1]n×N B)percalculation,whichmakestheoptimization binaryvectoroftheFoMatagivenN
+B
+,whichisclosetothe
+algorithmfastandefficient. performanceofanidealmultilayer.
+After the surrogate function identified the ground We obtained the reflectance of multilayers optimized
+binaryvector, theTMM evaluatedthecorresponding mul- at N = 4, 7, 10, 15, and 19 as a function of the incident
+B
+tilayer to validate whether the binary vector yielded the angle (0–45◦) (Figure2(b)). Notably, the reflectance was
+lowestFoMinthetrainingdatasetsandwhetherswasiden- minimizednear25◦irrespectiveofN becausetheFoMrep-
+B
+tical to the actual FoM. The training dataset was updated resentedanaveragereflectanceacross0◦–45◦.AtN = 19
+B
+byaddingthebinaryvectoranditsassociatedFoM.Then, (correspondingtoN = 7),theoptimizedmultilayerexhib-
+L
+a more accurate surrogate function was formulated with ited a reflectance of < 0.13% for the considered incident
+the updated training dataset, and discovering the ground angles.Theseven-layerfilmofalternatingbinaryfluorides
+∼
+binaryvectoroftheFoMbecamemoreprobable.Thewhole had a thickness of 190nm. Nevertheless, its wide-angle
+cycleoftheiterativeoptimizationprocessisschematically antireflectionperformancesurpassedthosereportedinpre-
+depictedinFigure1(c).Theiterativecyclecontinueduntila viousstudies[28,33,34].Theoverallshapeandamplitudeof
+FoMconvergedtoasinglevalue.Inthisway,theDOprocess theangularreflectancespectrummarginallychangedwhen
+withaFMdiscoveredthegroundbinaryvectorofaFoMat N = 3,4,and7,exceptfortheextremedatapointsatthe
+L
+a given N . Sequentially, the CO process with an interior- incident angles near 0◦and 45◦. Also, the multilayers with
+B
+point(IP)method,whichisknownasanon-linearconvex N = 3, 4, and 7 retained their superior wide-angle
+L
+optimization,wasinitiatedusingtheDO-discoveredbinary antireflection performance in the wavelength range of
+
+PAGE 5
+—
+J.-H.Kimetal.:Antireflectivemultilayersviadiscrete-to-continuousoptimization 1917
+(a)
+-1.5 One-step optimization (DOwithFM)
+Two-step optimization (DOwithFM + COwithIP)
+-2
+-2.5
+-3
+240
+MgF One-step optimization (DOwithFM)
+210 2
+LaF Two-step optimization (DOwithFM + COwithIP)
+3
+180
+150
+120
+90
+60
+30
+0
+N(N)
+B L
+)MoF(
+gol
+)mn(ssenkcihT
+01
+(b)
+45
+30
+15
+0
+30
+15
+0
+30
+15
+0
+30
+15
+0
+30
+15
+0
+180193 220 240 260 280 300
+)°(elgnatnedicnI
+0.8
+0.6
+0.4
+0.2
+0.0
+Wavelength(nm)
+Reflectance
+0.03
+0.02
+0.01
+0.00
+0.03
+0.02
+0.01
+0.00
+0.03
+0.02
+0.01
+0.00
+0.03
+0.02
+0.01
+0.00
+0.03
+0.02
+0.01
+0.00
+0 15 30 45
+ecnatcelfeR
+3(1) 4(1) 5(2) 6(2) 7(2) 8(3) 9(3) 10(3) 11(4) 12(4) 13(6) 14(6) 15(4) 16(6) 17(7) 18(7) 19(7) 20(8) 21(8)
+(c)
+N =4(N =1)
+B L
+N =4(N =1)
+B L
+N B =7(N L =2) N B =7(N L =2)
+N =10(N =3)
+B L N =10(N =3) B L
+N B =15(N L =4) N B =15(N L =4)
+N B =19(N L =7) N B =19(N L =7)
+Incidentangle(°)
+Figure2: SimulatedresultsofDUVantireflectivemultilayersoptimizedatvariousbitlevels.(a)SimulatedFoMvalues(top)andstructuralinformation
+(i.e.,thematerialandthicknessofeachlayer)(bottom)ofDUVantireflectivemultilayersasafunctionofN (N),obtainedthroughone-(DOwithFM)
+B L
+andtwo-step(DOwithFM+COwithIP)optimizations.(b)Simulatedangular(0◦–45◦)reflectancespectraofDUVantireflectivemultilayersoptimized
+atvariousN (N)values.Theincidentwavelengthis193nm.(c)Simulatedangle-resolvedreflectancespectraofDUVantireflectivemultilayers
+B L
+optimizedatvariousN (N)values.
+B L
+180–200nm(Figure2(c)),whichisindicativeofbroadband process with 1 bit thicknesses of 10 or 20nm (Support-
+antireflectionandfabricationtolerance. ingInformationFigureS1).ForMgF /LaF multilayersofthe
+2 3
+Aphaseshiftoccursnegligiblyaslightpropagatesover equal total thickness, the 10nm condition resulted in sig-
+a distance of less than one-tenth of the effective wave- nificantlylowerFoMvalues,indicatingitssuitabilityasan
+length. Therefore, a 1 bit thickness was chosen as 10nm. initialstateforthepost-hocCOprocess.Wenotethatadopt-
+To support this, we obtained FoM values through the DO ing a 1 bit thickness of less than 10nm does not lead to a
+
+PAGE 6
+—
+1918 J.-H.Kimetal.:Antireflectivemultilayersviadiscrete-to-continuousoptimization
+superiorinitialstateandincurssubstantialcomputational was sharply discernible (Figure3(a)). Optical simulations
+costs. Nonetheless, CO successfully hones the thickness of showed that the thickness of the topmost layer was the
+eachlayerwithin10nm. most critical to the antireflection performance (Support-
+Fluorides, such as CaF , LaF , AlF , and MgF , exhibit ingInformationFigureS3).
+2 3 3 2
+transparencyintheDUVregion.Eveniftheyexhibitsome We obtained the reflectance values of the fabricated
+degreeofabsorption,thereflectanceofmultilayersisonly samples at two incident angles of 7◦ and 45◦ using a
+marginally affected due to the weak optical resonance of UV–visiblespectrophotometer(MethodsintheSupplemen-
+antireflection. To verify this, we acquired angular trans- taryInformation).Forbothincidentangles,thereflectance
+mittance spectra of MgF /LaF multilayers optimized at rapidly dropped with increasing N , which is consistent
+2 3 L
+N = 10 with extinction coefficients (k) of both fluorides withthesimulateddata(Figure3(b)and(c)).Forthenear-
+B
+setto0(i.e.,transparent)or0.001(i.e.,weaklyabsorptive). normalincidence,thesamplewithN = 3displayedthebest
+L
+∼
+Thetwospectradisplayedgoodagreement,withtheaverage antireflection performance, with a reflectance of 0.35%.
+angular (0◦–45◦) transmittance values being 99.75% and Itsmeasuredreflectancespectrum(190–300nm)isingood
+99.05% for k values of 0 and 0.001, respectively (Support- agreement with the simulated data (inset, Figure3(b)). To
+ingInformationFigureS2). verifytheimpactoftopmostMgF layerdiscussedinSup-
+2
+portingInformationFigureS3, we fabricated three DUV-
+antireflective multilayers with N = 3, in which only the
+2.3 Experimentalverificationofdesigner L
+thickness of topmost layer was detuned from an opti-
+multilayers
+mumvalue(SupportingInformationFigureS4).Ataninci-
+WechosethreeDUVantireflectivemultilayersoptimizedat dent angle of 45◦, the measured reflectance values were
+N = 4, 7, and 10 (corresponding to N = 1, 2, and 3) to even lower than the simulated data at N = 2 and 3, but
+B L L
+experimentallyvalidatetheresultsderivedfromthesimu- their qualitative behavior with increasing N was similar
+L
+lationdesign.Thedesignedmultilayerswerecoatedonthe (Figure3(c)).Wespeculatethatthediscrepancyinabsolute
+frontandbacksides ofa 2mmthickCaF substrateusing reflectance results from the dependence of the refractive
+2
+astandardthermalevaporator(MethodsintheSupplemen- indexonfilmthickness[39,40];inFigure1(b),therefractive
+taryInformation).Double-sidedantireflectioncoatingsare indicesoftheMgF andLaF materialswiththicknessesof
+2 3
+essentialtomaximizethetransmittanceoflenses.Thecross- 60nm and 65nm, respectively, were determined. Specifi-
+sectional transmission electron microscopy (TEM) images cally, at 45◦ incidence, the magnitude of the propagation
+withenergy-dispersiveX-ray(EDX)elementalmappingdata vectorbecomesrelativelysmall,therebycausinganypoten-
+revealed that each layer had a controlled thickness that tialmismatchesininterferenceconditionsandleadingtoa
+consistedofhomogenousatomicelements,anditsinterface morepronounceddiscrepancy.
+(a) (b) (c)
+Figure3: AnalysisofthefabricatedDUVantireflectivemultilayers.(a)Cross-sectionalTEMandEDXimagesoffabricatedDUV-antireflectivetri-layer
+films.Theblue,yellow,andgreen(false-colored)areasindicateCaF ,MgF ,andLaF ,respectively.(bandc)Calculatedandmeasuredreflectance
+2 2 3
+valuesofDUV-antireflectivemultilayerswhentheincidenceangleis0◦(b)and45◦(c).Ineachinset,thecalculatedandmeasuredreflectancespectra
+ofthesamestructuresareshown.
+
+PAGE 7
+—
+J.-H.Kimetal.:Antireflectivemultilayersviadiscrete-to-continuousoptimization 1919
+(a) (b)
+100
+98
+96
+94
+92
+90
+0 4(1) 7(2) 10(3)
+N(N)
+B L
+)%(ecna(cid:425)imsnarT
+BareCaF plano-convexlens
+2
+CaF plano-convexlenswithanan(cid:415)reflec(cid:415)vemul(cid:415)layer
+2
+Figure4: SimulatedresultsofaCaF lenscoatedwithDUVantireflectivemultilayers.(a)Simulatedraytrajectorieswhenlightpassesthroughasingle
+2
+CaF plano-convexlens(radiusofcurvatureof0.024mm,diameterof50mm,andfocallengthof97.74mm)withorwithoutaDUVantireflective
+2
+multilayer(N =3)usingthedevelopedintegratedray-opticssimulation.(b)SimulatedtransmittanceofaCaF lenswhencoatedwithDUV
+L 2
+antireflectivemultilayersoptimizedatvariousN values.NotethatN =0indicatesabareCaF lens.
+L L 2
+2.4 Simulationofantireflective- multilayers.TheDOwithFMinthefirstoptimizationround
+multilayer-coatedCaF lenses discoveredanear-perfectstructure,whichwasagoodini-
+
+tial state for the CO with IP in the second optimization
+Theoptimizedantireflectioncoatingshavethepotentialto
+round. The sequential discrete-to-continuous (i.e., coarse-
+greatly improve the transmittance of DUV CaF lenses. To
+2 to-fine) design strategy quickly created an optimal antire-
+verify this, we conducted integrated ray-wave optics sim- flective multilayer at a given total thickness (i.e., N ). The
+B
+ulationsonaCaF 2 plano-convexlenswithandwithoutan designed MgF /LaF multilayer with N = 21 (or N = 8)
+2 3 B L
+optimizedMgF 2 /LaF 3 multilayercoating[41](Methodsinthe attainedanaverageangular(0◦–45◦)reflectanceof < 0.1%
+SupplementaryInformation).Toimplementtheintegrated
+at193nm.MeasurementsonthefabricatedMgF /LaF mul-
+2 3
+ray-wave optics simulation, the angular reflectance infor- tilayerswithvariousN levelsconfirmedthevalidityofthe
+B
+mation of an optimized multilayer was transferred to the
+two-stepoptimizationalgorithm.Theantireflectionperfor-
+surfaceofaCaF lenswithaspecificshape,curvature,and
+2 mance(e.g.,transmittanceandbandwidth)ofthemultilay-
+diameter.Then,aray-tracingmethodwasusedtosimulate
+erscouldbefurtherimprovediftheyweredesignedusing
+thetrajectoryandtransmittedintensityofincidentraysthat
+moreDUV-transparentmaterials.Forexample,amultilayer
+passedthroughthesurface-engineeredCaF lens.Theray-
+2 with four candidate materials would be encoded with the
+tracingsimulationsindicatedthattheoptimizedmultilayer
+combination of two binary vector labels: (00), (01), (10),
+coatingdidnotalterthebeamtrajectorythroughthelens;
+and(11)[12].Suchaschemereadilyconvertsquaternaryor
+the focal length remained unchanged (Figure4(a)). More
+even octal optimization problems into binary ones based
+importantly,themultilayercoatingsremarkablyenhanced
+on the QUBO model. Moreover, the devised optimization
+the transmittance (Figure4(b)). The transmittance of the
+algorithmisnotonlyeffectiveforprovidingoptimaloptical
+multilayer-coatedCaF lenssteadilyimprovedwithincreas-
+2
+ingN andreached99.7%atN = 3. multilayers but is also broadly applicable to any photonic
+L L
+structuresthatcanrepresentabinaryvectorwithmultiple
+bits(e.g.,microwavemetasurfaces[42,43]).However,forthe
+3 Conclusions
+optimizationoftwo-andthree-dimensionalsubwavelength
+structures, a larger number of bits is required. In such
+In conclusion, we developed a two-step optimization instances,quantumannealingmaybeausefulapproachfor
+algorithm and applied it to design DUV antireflective implementing the DOwith FM for the first-round discrete
+
+PAGE 8
+—
+1920 J.-H.Kimetal.:Antireflectivemultilayersviadiscrete-to-continuousoptimization
+optimization[12].Webelievethattheexistingconvexand [13] A.V.V.Tikhonravov,M.K.Trubetskov,andG.W.Debell,
+non-convexoptimizationmethodswillbenefitfromtheDO “Applicationoftheneedleoptimizationtechniquetothedesignof
+withFMmethodbyestablishinggoodstartingpoints.
+opticalcoatings,”Appl.Opt.,vol.35,no.28,pp.5493−5508,
+1996..
+Author contributions: All the authors have accepted [14] A.V.V.Tikhonravov,M.K.Trubetskov,andG.W.Debell,“Optical
+coatingdesignapproachesbasedontheneedleoptimization
+responsibility for the entire content of this submitted
+technique,”Appl.Opt.,vol.46,no.5,pp.704−710,2007..
+manuscriptandapprovedsubmission.
+[15] S.LaroucheandL.Martinu,“OpenFilters:open-sourcesoftware
+Research funding: This work was supported by the forthedesign,optimization,andsynthesisofopticalfilters,”Appl.
+National Research Foundation of Korea through the Opt.,vol.47,no.13,pp.C219−C230,2008..
+Basic Science Research Program (RS-2023-00207966 and [16] A.P.Raman,M.A.Anoma,L.Zhu,E.Rephaeli,andS.Fan,“Passive
+radiativecoolingbelowambientairtemperatureunderdirect
+2021R1C1C1006251) and the Nano Material Technology
+sunlight,”Nature,vol.515,pp.540−544,2014..
+DevelopmentProgram(2021M3H4A3A01055854).
+[17] Y.Shi,W.Li,A.Raman,andS.Fan,“Optimizationofmultilayer
+Conflictofintereststatement:Theauthorsdeclarenocon-
+opticalfilmswithamemeticalgorithmandmixedinteger
+flictsofinterestregardingthisarticle. programming,”ACSPhotonics,vol.5,no.3,pp.684−691,
+2018..
+[18] W.Li,Y.Shi,Z.Chen,andS.Fan,“Photonicthermalmanagement
+ofcolouredobjects,”Nat.Commun.,vol.9,pp.4240−4247,
+References
+2018..
+[19] F.NeriandC.Cotta,“Memeticalgorithmsandmemeticcomputing
+[1] A.Sakurai,K.Yada,T.Simomura,etal.,“Ultranarrow-band optimization:aliteraturereview,”SwarmEvol.Comput.,vol.2,
+wavelength-selectivethermalemissionwithaperiodic pp.1−14,2012..
+multilayeredmetamaterialsdesignedbybayesianoptimization,” [20] H.Wang,Z.Zheng,C.Ji,andL.JayGuo,“Automatedmulti-layer
+ACSCent.Sci.,vol.5,no.2,pp.319−326,2019.. opticaldesignviadeepreinforcementlearning,”Mach.Learn.:Sci.
+[2] J.A.Dobrowolski,“Versatilecomputerprogramforabsorbing Technol.,vol.2,pp.025013−025024,2021..
+opticalthinfilmsystems,”Appl.Opt.,vol.20,no.1,pp.74−81,1981.. [21] S.J.PatelandV.Kheraj,“Optimizationofthegeneticoperators
+[3] M.A.Kats,R.Blanchard,P.Genevet,andF.Capasso,“Nanometre andalgorithmparametersforthedesignofamultilayer
+opticalcoatingsbasedonstronginterferenceeffectsinhighly anti-reflectioncoatingusingthegeneticalgorithm,”Opt.Laser
+absorbingmedia,”Nat.Mater.,vol.12,pp.20−24,2013.. Technol.,vol.70,pp.94−99,2015..
+[4] K.Choi,Y.Yoon,J.Jung,etal.,“Super-antireflectivestructurefilms [22] J.Jiang,J.Cai,G.P.Nordin,andL.Li,“Parallelmicrogenetic
+withpreciselycontrolledrefractiveindexprofile,”Adv.Opt.Mater., algorithmdesignforphotoniccrystalandwaveguidestructures,”
+vol.5,no.3,pp.1600616−1611621,2017.. Opt.Lett.,vol.28,no.23,pp.2381−2383,2003..
+[5] Y.T.Lee,Y.M.Song,S.J.Jang,andJ.S.Yu,“Bioinspiredparabola [23] L.Sanchis,A.Håkansson,D.López-Zanón,J.Bravo-Abad,and
+subwavelengthstructuresforimprovedbroadband J.Sánchez-Dehesa,“Integratedopticaldevicesdesignbygenetic
+antireflection,”Small,vol.6,no.9,pp.984−987,2010.. algorithm,”Appl.Phys.Lett.,vol.84,pp.4460−4462,2004..
+[6] S.J.Jang,Y.M.Song,J.S.Yu,C.I.Yeo,andY.T.Lee,“Antireflective [24] S.So,Y.Yang,S.Son,etal.,“Highlysuppressedsolarabsorptionin
+propertiesofporousSinanocolumnarstructureswithgraded adaytimeradiativecoolerdesignedbygeneticalgorithm,”
+refractiveindexlayers,”Opt.Lett.,vol.36,no.2,pp.253−255,2011.. Nanophotonics,vol.11,pp.2107−2115,2022..
+[7] Y.Liu,J.Song,W.Zhao,etal.,“Dynamicthermalcamouflageviaa [25] K.Yao,H.Ma,M.Huang,etal.,“Near-perfectselectivephotonic
+liquid-crystal-basedradiativemetasurface,”Nanophotonics,vol.9, crystalemitterwithnanoscalelayersfordaytimeradiative
+no.4,pp.855−863,2020.. cooling,”ACSAppl.NanoMater.,vol.2,no.9,pp.5512−5519,
+[8] R.Hu,W.Xi,Y.Liu,etal.,“Thermalcamouflagingmetamaterials,” 2019..
+Mater.Today,vol.45,pp.120−141,2021.. [26] E.DeLeo,F.Prins,andD.J.Norris,“Inversedesignandrealization
+[9] Y.Liu,H.Zuo,W.Xi,R.Hu,andX.Luo,“Flexiblejanusfunctional ofanoptimizedphotonicmultilayerforthermophotovoltaics,”OSA
+filmforadaptivethermalcamouflage,”Adv.Mater.Technol.,vol.7, Continuum,vol.4,no.12,pp.3254−3261,2021..
+no.3,pp.2100821−2100828,2022.. [27] M.ElKabbash,T.Letsou,S.A.Jalil,etal.,“Fano-resonantultrathin
+[10] F.Yang,K.Chen,Y.Zhao,S.K.Kim,X.Luo,andR.Hu,“Near-field filmopticalcoatings,”Nat.Nanotechnol.,vol.16,pp.440−446,
+thermophotonicsystemforpowergenerationand 2021..
+electroluminescentrefrigeration,”Appl.Phys.Lett.,vol.120,no.5, [28] C.Liu,M.Kong,andB.Li,“Performanceoptimizationof193Nm
+pp.053902−053908,2022.. antireflectivecoatingswithwideincidentanglerangesonstrongly
+[11] J.Song,S.Huang,Y.Ma,Q.Cheng,R.Hu,andX.Luo,“Radiative curvedsphericalsubstrates,”Opt.Express,vol.26,no.15,
+metasurfaceforthermalcamouflage,illusionandmessaging,” pp.19524−19533,2018..
+Opt.Express,vol.28,no.2,pp.875−885,2020.. [29] R.D.Shannon,R.C.Shannon,O.Medenbach,andR.X.Fischer,
+[12] S.Kim,W.Shang,S.Moon,T.Pastega,E.Lee,andT.Luo, “Refractiveindexanddispersionoffluoridesandoxides,”J.Phys.
+“High-performancetransparentradiativecoolerdesignedby Chem.Ref.Data,vol.31,no.4,pp.931−970,2002..
+quantumcomputing,”ACSEnergyLett.,vol.7,no.12, [30] T.Yoshida,K.Nishimoto,K.Sekine,andK.Etoh,“Fluoride
+pp.4134−4141,2022.. antireflectioncoatingsfordeepultravioletopticsdepositedby
+
+PAGE 9
+—
+J.-H.Kimetal.:Antireflectivemultilayersviadiscrete-to-continuousoptimization 1921
+ion-beamsputtering,”Appl.Opt.,vol.45,no.7,pp.1375−1379, continuousoptimizationproblems,”Appl.Phys.Rev.,vol.8,no.4,
+2006.. pp.041418−041431,2021..
+[31] B.C.Li,D.W.Lin,Y.L.Han,C.Guo,Y.D.Zhang,andH.X.Liu, [39] Z.Y.Wang,R.J.Zhang,H.L.Lu,etal.,“Theimpactofthicknessand
+“Antireflectivefluoridecoatingsforwidelytunable thermalannealingonrefractiveindexforaluminumoxidethin
+deep-ultravioletdiode-pumpedsolid-statelaserapplications,” filmsdepositedbyatomiclayerdeposition,”NanoscaleRes.Lett.,
+Chin.Phys.Lett.,vol.27,no.4,pp.044201−044205,2010.. vol.10,pp.46−51,2015..
+[32] D.L.Goldfarb,W.Broadbent,M.Wylie,N.Felix,andD.Corliss, [40] J.Kim,H.Oh,M.Seo,andM.Lee,“Generationofreflectioncolors
+“Through-pellicledefectinspectionofEUVmasksusingan frommetal-insulator-metalcavitystructureenabledby
+ArF-basedinspectiontool,”Proc.ofSPIE,vol.9776,pp.418−424, thickness-dependentrefractiveindicesofmetalthinfilm,”ACS
+2016.. Photonics,vol.6,no.9,pp.2342−2349,2019..
+[33] M.J.Cangemi,P.J.Dewa,J.D.Malach,P.F.Michaloski, [41] J.H.Kim,J.W.Cho,I.Jeon,etal.,“Synergisticallydesigned
+H.Schreiber,andC.J.Wang,“Silica-modified-fluoridebroadangle antireflectivecoverforimprovingwide-anglephotovoltaic
+antireflectioncoatings,”US9482790B2,2013. efficiencies,”Opt.Express,vol.30,no.23,pp.42406−42414,
+[34] R.KuschnereitandH.J.Paul,“Antireflectioncoatingforultraviolet 2022..
+lightatlargeanglesofincidence,”US6697194B2,2001. [42] Y.P.Hong,I.J.Hwang,D.J.Yun,D.J.Lee,andI.H.Lee,“Designof
+[35] W.Jin,R.Messina,andA.W.Rodriguez,“Overcominglimitsto single-layermetasurfacefilterbyconformationalspaceannealing
+near-fieldradiativeheattransferinuniformplanarmediathrough algorithmfor5Gmm-wavecommunications,”IEEEAccess,vol.9,
+multilayeroptimization,”Opt.Express,vol.25,no.13, pp.29764−29774,2021..
+pp.14746−14759,2017.. [43] I.J.Hwang,D.J.Yun,J.Parkil,Y.P.Hong,andI.H.Lee,“Designof
+[36] O.Ilic,P.Bermel,G.Chen,J.D.Joannopoulos,I.Celanovic,and dual-bandsingle-layermetasurfacesformillimeter-wave5G
+M.Soljacic,“Tailoringhigh-temperatureradiationandthe communicationsystems,”Appl.Phys.Lett.,vol.119,no.17,
+resurrectionoftheincandescentsource,”Nat.Nanotechnol.,vol.11, pp.174101−174109,2021..
+pp.320−324,2016..
+[37] M.He,J.R.Nolen,J.Nordlander,etal.,“Deterministicinverse
+designoftammplasmonthermalemitterswithmulti-resonant
+control,”Nat.Mater.,vol.20,pp.1663−1669,2021..
+[38] B.A.Wilson,Z.A.Kudyshev,V.Kildishev,etal.,“Machinelearning SupplementaryMaterial: Thisarticlecontainssupplementarymaterial
+frameworkforquantumsamplingofhighlyconstrained, (https://doi.org/10.1515/nanoph-2023-0102).

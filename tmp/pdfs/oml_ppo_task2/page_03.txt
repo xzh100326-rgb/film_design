@@ -1,0 +1,49 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+visible light
+infrared light
+optical multi-layer films
+Application 1: solar thermal panels Application 2: incandescent light bulb
+Figure 1. T wo energy applications of optical multi-layer films. For solar thermal panels, we can use multi-layer films as
+ultra-wideband absorbers to enhance light absorption efficiency. For incandescent light bulbs, we can coat multi-layer films on
+them to improve luminous efficiency by reflecting infrared light while transmitting visible light.
+design using the inverse design model. For our performance optimization task, the optimal design is often
+not covered by a static training dataset. Otherwise, it would mean that the optimization task has already been
+solved through the training dataset collection process. Thus, reinforcement learning is more suitable than
+deep-learning-based inverse design methods when users want to optimize the design performance.
+Because the multi-layer optical design task is equivalent to a sequence generation problem, we propose a
+DRL method called optical multi-layer proximal policy optimization (OML-PPO) that can generate
+near-optimal multi-layer structures. The proposed method uses a state-of-the-art DRL algorithm PPO to
+train a deep recurrent neural network that outputs near-optimal optical designs. W e introduce two novel
+designs for the deep recurrent neural network to allow it to efficiently explore the design space. With an
+ablation study, we show that the proposed neural network architecture enables the RL agent to explore the
+design space efficiently.
+W e applied the proposed method to two optical design tasks that are relevant to energy applications
+(figure 1): (1) ultra-wideband absorbers that can enhance light-harvesting efficiency, e.g. for thermal
+photovoltaics and photothermal energy conversion; and (2) incandescent light bulb filters that can improve
+light bulb efficiency in emitting visible light. On the task of designing ultra-wideband absorbers, we show
+that OML-PPO can reliably discover high-performance designs. A 5-layer structure with 97.64% average
+absorption over the wavelength range (400, 2000) nm is discovered by OML-PPO, outperforming a
+previously reported structure using the same number of layers with 95.37% average absorption. When
+applied to generate absorbers with more layers, OML-PPO discovers a 14-layer structure that achieves
+near-perfect 99.24% average absorption. W e also applied our method to design a 42-layer incandescent light
+bulb filter and achieved an enhancement factor of 16.60, which is 8.5% higher than a 41-layer structure
+designed by a state-of-the-art memetic algorithm. Our results demonstrate that the proposed algorithm is
+efficient at discovering near-optimal designs and is scalable to complicated design problems. W e summarize
+our contributions:
+(a) W e frame the multi-layer optical design task as a sequence generation problem and develop a DRL
+method (OML-PPO) for solving this task.
+(b) W e propose a novel deep sequence generation network that allows efficient exploration of the optical
+design space.
+(c) On two optical design tasks, we demonstrate that our method is effective in discovering near-optimal
+solutions for complicated design tasks.
+2. Related work
+Researchers have developed reinforcement learning methods for solving various combinatorial optimization
+problems. In [12], the authors trained a pointer network [ 23] to solve the traveling salesman problem (TSP).
+Khalil et al [13] combined graph embedding and RL for solving a diverse set of combinatorial optimization
+problems including the minimum vertex cover, maximum cut, and TSP . Chen and Tian [24] proposed a
+method to learn policies that can rewrite the heuristics in existing solvers for combinatorial optimization
+problems. Lu et al [17] showed that RL-based method could outperform a classic operation research
+algorithm in terms of both average cost and time efficiency.
+Many real-life applications can be formalized as sequence generation problems [ 15, 25–27]. In [25], the
+authors integrated RL and seq2seq to automatically generate a response by simulating the dialogue between
+2

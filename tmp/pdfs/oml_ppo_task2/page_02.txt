@@ -1,0 +1,67 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 https://doi.org/10.1088/2632-2153/abc327
+OPEN ACCESS
+RECEIVED
+30 June 2020
+REVISED
+30 September 2020
+ACCEPTED FOR PUBLICATION
+20 October 2020
+PUBLISHED
+3 February 2021
+Original Content from
+this work may be used
+under the terms of the
+Creative Commons
+Attribution 4.0 licence.
+Any further distribution
+of this work must
+maintain attribution to
+the author(s) and the title
+of the work, journal
+citation and DOI.
+PAPER
+Automated multi-layer optical design via deep reinforcement
+learning
+Haozhu W ang1, Zeyu Zheng1, Chengang Ji2 and L Jay Guo1
+1 Department of Electrical Engineering and Computer Science, University of Michigan, Ann Arbor, MI, United States of America
+2 Ningbo Inlight T echnology Co., Ltd, Ningbo, Zhejiang, People’s Republic of China
+E-mail: hzwang@umich.edu and guo@umich.edu
+Keywords: reinforcement learning, optical design, optimization
+Abstract
+Optical multi-layer thin films are widely used in optical and energy applications requiring
+photonic designs. Engineers often design such structures based on their physical intuition.
+However, solely relying on human experts can be time-consuming and may lead to sub-optimal
+designs, especially when the design space is large. In this work, we frame the multi-layer optical
+design task as a sequence generation problem. A deep sequence generation network is proposed for
+efficiently generating optical layer sequences. W e train the deep sequence generation network with
+proximal policy optimization to generate multi-layer structures with desired properties. The
+proposed method is applied to two energy applications. Our algorithm successfully discovered
+high-performance designs, outperforming structures designed by human experts in task 1, and a
+state-of-the-art memetic algorithm in task 2.
+1. Introduction
+Optical multi-layer films have been widely used in many applications, such as broadband filtering [ 1],
+photovoltaics [2], radiative cooling [3], and structural colors [ 4]. The design of optical multi-layer films is a
+combinatorial optimization problem that requires one to choose the best combination of materials and layer
+thicknesses to form a multi-layer structure. Researchers and engineers often make such designs based on
+their physical intuition. However, a completely human-based design process is slow and often leads to
+sub-optimal designs, especially when the design space is enormous. Thus, computational methods for
+designing optical multi-layer structures, including evolutionary algorithms [ 5–7], needle optimization [8],
+and particle swarm optimization [ 9], have been proposed to tackle this problem. All of these previous
+methods frame the optical design task as an optimization problem and aim to synthesize a structure that
+meets user-specified design criteria. However, these methods for optical design are based entirely on heuristic
+search, i.e. they do not learn a model to solve the design problems. When the heuristic approach is
+sub-optimal for a task, the search process may fail to identify a high-performance design.
+In contrast, deep reinforcement learning (DRL) is a learning framework that learns to solve complex tasks
+through an trial-and-error process. It is proven to be highly scalable for solving large-scale and complicated
+tasks [10, 11]. Researchers have successfully applied DRL to various combinatorial optimization problems
+[12–15]. Unlike heuristic-based search, reinforcement learning methods learn a model using the reward
+signal [16] and do not depend on hand-crafted heuristics. On some combinatorial optimization tasks, DRL
+has been shown to outperform classic heuristic search methods [ 17]. Recently, researchers applied DRL on
+designing optical devices with a structure template [ 18, 19], where the number of layers is fixed. However,
+when designing the optical multi-layer films, we often do not know the optimal structure template. Thus, the
+previous DRL approaches are not suitable for multi-layer designs. In addition to DRL, deep learning-enabled
+inverse design methods have seen great development in recent years [ 20–22]. These inverse design models
+learn a mapping between design targets and design parameters using a static training set, which allows users
+to efficiently retrieve designs that match design targets. However, if a design target does not lie within the
+training datasets used for training the inverse design model, we will not be able to obtain the corresponding
+© 2021 The Author(s). Published by IOP Publishing Ltd

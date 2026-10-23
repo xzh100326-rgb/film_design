@@ -1,0 +1,8 @@
+{
+  "nType": 0,
+  "kType": 0,
+  "wavelength": [300.0, 3000.0],
+  "n": [1.0, 1.0],
+  "k": [0.0, 0.0],
+  "description": "Ideal lossless air output medium for an air/coating-stack/air incandescent filter. Use substrate_thickness_nm=null; this is not a glass substrate."
+}

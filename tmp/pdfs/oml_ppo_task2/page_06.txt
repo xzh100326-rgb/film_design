@@ -1,0 +1,49 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+GRU
+MLP MLP
+GRU
+MLP MLP
+vector transfer
+concatenation non-repetitive gating
+sampling categorical distribution
+embedding
+OML-PPOBaseline
+(a)
+Remove row
+(b)
+Figure 3. Neural network architectures for generating optical multi-layer films. (a) W e show one generation step in the plot. The
+hidden state hl of the GRU is passed to two MLPs to output material and thickness probabilities, respectively. The actual material
+and thickness for layer l are sampled from categorical distributions parametrized by pml and pdl . Built-upon the baseline
+architecture, our proposed model adds a non-repetitive gating function and auto-regressive connection between the sampled
+material and the thickness MLP . (b) Illustration of how the non-repetitive gating works. Here we suppose there are a total of five
+materials. Thus, the gating matrix is of dimension 5 × 6.
+where TS (λj, δk) is the spectrum of the generated structure S at wavelength λj under incidence angle δk.
+Because T ∈ [0, 1], the cumulative reward is always non-negative. The reward value will become higher as the
+spectrum TS gets closer to the target spectrum ˜T until it reaches 1 when the structure spectrum perfectly
+matches with the target spectrum.
+During training, the sequence generator πθ actively generates new structures and receive rewards. Our
+goal is to maximize the expected rewards for structures sampled from the sequence generation network:
+J(θ) = ES∼ πθ [G(S)]. (2)
+Based on the calculated rewards for generated sequences, the agent adjusts its parameters θ with gradient
+ascent so that future rewards can be improved. Here, we use a policy gradient algorithm to compute the
+gradient ∇θJ(θ) for updating the sequence generator πθ. From the policy gradient theorem [16, 35], we have
+g = ∇θJ(θ) = ES∼ πθ [A(S)∇θ log Pθ(S)] , (3)
+where Pθ(S) = ∏N−1
+l=0 pθ(ml|sl−1, hl−1) · pθ(dl|ml, sl−1, hl−1) is the probability of sampling a structure S from
+the generator network πθ and A(S) is the estimated advantage function [ 36], which measures the
+performance of the generated sequence S compared against the average performance of structures sampled
+from πθ.
+Instead of directly updating the sequence generator using equation 3, we use a state-of-the-art policy
+gradient algorithm proximal policy optimization (PPO) [35] to compute the policy gradient from a surrogate
+objective function:
+g = ∇θES∼ πθ [min (r(θ)Aθv(S), clip (r(θ), 1 − ϵ, 1 + ϵ) Aθv(S))] , (4)
+where r(θ) = Pθ(S)
+Pθold (S) is the importance weight that measures the distance between the policies before and
+after the gradient update. The clip function disincentivizes large update steps to the policy, where ε is a
+hyperparameter that affects the actual update size. Here, the advantage Aθv is estimated by generalized
+advantage estimation (GAE) [36], which achieves a good balance between bias and variance of the estimated
+gradients. θv is the model parameters for a critic network that is trained together with the sequence
+generator. Compared to the vanilla policy gradient and actor-critic algorithms, PPO is more sample-efficient
+because it allows multi-step updates using the same batch of trajectories. Previous results show that PPO can
+achieve state-of-the-art performance on many tasks [ 35]. With the computed policy gradient, the sequence
+5

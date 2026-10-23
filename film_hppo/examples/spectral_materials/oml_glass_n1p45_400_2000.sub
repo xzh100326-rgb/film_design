@@ -1,0 +1,10 @@
+{
+  "nType": 0,
+  "kType": 0,
+  "wavelength": [400.0, 2000.0],
+  "n": [1.45, 1.45],
+  "k": [0.0, 0.0],
+  "description": "Ideal lossless Glass used in the OML-PPO authors' code; constant n=1.45, not measured glass dispersion. Configure 500 nm finite substrate with air exit medium separately.",
+  "reference": "https://github.com/hammer-wang/oml-ppo/blob/master/rl-multilayer/RLMultilayer/utils.py",
+  "task_reference": "https://github.com/hammer-wang/oml-ppo/blob/master/rl-multilayer/RLMultilayer/taskenvs/tasks.py"
+}

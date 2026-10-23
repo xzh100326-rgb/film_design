@@ -1,0 +1,12 @@
+S10 
+ 
+ 
+Figure S5. (a) The reflectivity spectrum of the 80-layer incandescent light bulb filter using SiO2 
+and Ta2O5. The green dots are the target reflectivity spectrum in the normal direction. The red 
+dotted line and the blue solid line are the normal and angle-averaged reflectivity spectrum of the 
+structure shown in Table S2, respectively. (b) Angle-dependence of the reflectivity spectrum for 
+the structure shown in Table S2. (c) Comparison between the structure in Table S2 (blue) and 
+Ref. 2 (red) given the same input power of 100 W to the emitter. The eye’s responsivity and a 
+black body’s emissive power spectrum at the same input power are plotted for reference. 
+  
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

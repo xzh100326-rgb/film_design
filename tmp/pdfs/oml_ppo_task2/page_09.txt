@@ -1,0 +1,35 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+T able 2.RL designed 14-layer structure with 99.24% average absorption.
+ID Material Thickness ID Material Thickness
+1 MgF2 123 nm 8 Si 15 nm
+2 TiO2 32 nm 9 Cr 17 nm
+3 MgF2 21 nm 10 Ge 15 nm
+4 Si 15 nm 11 TiO2 33 nm
+5 TiO2 15 nm 12 Cr 29 nm
+6 Si 15 nm 13 TiO2 81 nm
+7 Ge 15 nm 14 Cr 116 nm
+(a) (b)
+Figure 6. Absorption values before and after finetuning. finetuning improves the average absorption of every structure discovered
+in each run. (a) Average absorption values before and after finetuning for each individual run. (b) Box-plot for ten average
+absorptions values.
+(a) (b)
+Figure 7. Results on the incandescent light bulb design. (a) T arget spectrum and the average reflectivity of structures designed by
+OML-PPO and the memetic algorithm. (b) Emissive power spectrum. A good design will have high emissive power in the visible
+range (380, 780) nm. f is the view factor that equals the proportion of emitted light from the light bulb filament that can reach the
+light bulb filter. W e report results under view factors 0.95 and 1.
+set the target reflectivity to be 0% in the range (480, 700) nm, and 100% outside this range (figure 7(a)). In
+this way, the infrared light, which cannot contribute to lighting, will be reflected back to heat up the emitter.
+A similar design has been previously studied [ 6, 41]. W e choose the same seven dielectric materials as the
+available materials: Al2O3, HfO2, MgF2, SiC, SiO2, and TiO2 [6]. Similar to our previous experiment, we
+train our policy for 10 runs with different random seeds. Here, we set the maximum allowed length L = 45
+and the learning rate to be 5 × 10−5. The number of epochs and batch size are 10,000 and 3000, respectively.
+The best discovered structure is reported in table 3.
+In figure 7, we compare the average reflectivity normalized over all incidence angles (0
+◦
+–90
+◦
+) of the
+42-layer structure designed with our algorithm and the 41-layer structure designed by a memetic
+algorithm [6]. Our structure has a higher average reflectivity in the infrared range ( >780 nm) than the
+41-layer structure.
+8

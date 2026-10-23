@@ -1,0 +1,66 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+Sequence
+Generator
+<Start>
+Sequence
+Generator
+Sequence
+Generator
+...
+<EOS>
+Cr, 200 nm
+Figure 2. Optical multi-layer design as sequence generation. The generation process will stop when either the EOS token is
+sampled, or the length of the sequence reaches the maximum allowed length L.
+thicker layer. Thus, allowing the sequence generator to generate the same material for adjacent layers leads to
+redundant computation. Moreover, doing so increases the exploration space size and makes the search
+problem harder. Thus, we introduce a non-repetitive gating function that removes the logit element
+corresponding to the most recently sampled material to prevent the sequence generator from generating the
+same materials in a row. This gating function is a matrix INR ∈ R|M|× (|M|+1) formed by removing the row
+corresponding to the most recently sampled material from an identity matrix. When multiplied with the
+logits vector σml, the element corresponding to that material will be removed, i.e. σ ′
+ml = INR · σml ∈ R|M|.
+Then, we pass the transformed logit vector σ ′
+ml to the softmax layer to obtain the sampling probability. By
+doing so, we set the sampling probability for the recurring material to 0. With the non-repetitive gating, the
+generated material sequence is guaranteed to have different materials for adjacent layers. Note that, we do not
+apply the gating function for the first generation step because there is no previously sampled material.
+3.1.2. Auto-regressive generation of material and thickness
+Because the proper thickness of a layer should depend on the material, we input the sampled material ml to
+the thickness MLP in addition to the hidden state hl. A similar approach has been applied in RL problems
+where the actions are dependent on each other [ 11]. Instead of using a one-hot vector to represent the
+material, we train a material embedding matrix emb ∈ R|M|× d together with the sequence generator
+network. Each row embm ∈ Rd of the embedding matrix is a continuous representation of one material,
+where d is the embedding size. Using an embedding allows us to use a large number of materials without
+significantly increasing the dimensionality of the material representation. The material embedding vector for
+the sampled material embml is concatenated with the hidden state hl to form the input [embml, hl] to the
+material MLP .
+The full sequence generator architecture is plotted in figure 3(a). T o understand the effect of
+non-repetitive gating and modeling the dependency between the material and the thickness, we compare the
+proposed OML-PPO architecture against a baseline architecture Experiment section.
+3.2. Reinforcement learning training
+W e train the sequence generation network with reinforcement learning. The goal of reinforcement learning is
+to maximize expected cumulative rewards G = E[∑∞
+t=0 γtrt] by learning a policy πθ(a|s) that can map a state
+s to an action a. Here, γ is the discount factor that penalizes future rewards and rt is the reward at step t. The
+sequence generation network described above serves as the policy.
+W e represent the state at thelth generation step as the concatenation of the last layer information and the
+GRU hidden state, i.e. sl = [(ml−1, dl−1), hl]. The actions al correspond to the material and thickness (ml, dl)
+of the current layer. W e set the reward to be 0 for all generation steps except the final step. At the final step
+(i.e. the structure S has been completely generated), we compute the spectrum of the generated structure
+with an optical spectrum calculation package TMM [ 34] and assign the final reward based on how well the
+structure spectrum matches with the target spectrum. W e also tried to calculate the spectrum following every
+generation step and assign intermediate rewards. However, this dense-reward approach is slow and does not
+lead to improved performance. Thus, we only report the final-only approach here. W e set the discount factor
+γ = 1. Thus, the cumulative reward G for the generated sequence S is simply the reward at the final step,
+which is defined as one minus the mean absolute error between the spectrum of the generated structure and
+the target spectrum:
+G(S) = 1 − 1
+K
+∑
+k=0
+1
+J
+J−1∑
+j=0
+|TS (λj, δk) − ˜T(λj, δk)|, (1)
+4

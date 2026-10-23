@@ -1,0 +1,52 @@
+Mach. Learn.: Sci. Technol. 2 (2021) 025013 H Wang et al
+discovered by each model before finetuning are reported in table 5. Both non-repetitive gating and the
+auto-regressive material/thickness generation improve the performance of the baseline model.
+In figure 8, we plot the average absorption and maximum absorption of the structures generated in each
+epoch over the entire training trajectory. The effect of non-repetitive gating is more significant than
+auto-regressive material/thickness generation as the OML-PPO and the only-gating variants both
+significantly outperform the other two variants. The non-repetitive gating significantly improves the model
+convergence during training. When non-repetitive gating and the auto-regressive sampling are combined
+together, the model achieves the best performance.
+5. Conclusion
+W e introduced a novel sequence generation architecture and a deep reinforcement learning pipeline to
+automatically design optical multi-layer films. T o the best of our knowledge, our work is the first to apply
+deep reinforcement learning to design multi-layer optical structures with the optimal number of layers not
+known beforehand. Using a sequence generation network, the proposed method can select material and
+thickness for each layer of a multi-layer structure sequentially. On the task of designing an ultra-wideband
+absorber, we demonstrate that our method can achieve high performance robustly. The algorithm
+automatically discovered a 5-layer structure with 97.64% average absorption over the (400, 2000) nm range,
+which is 2% higher than a structure previously designed by human experts. When applied to generate a
+structure with more layers, the algorithm discovered a 14-layer structure with 99.24% average absorption,
+approaching perfect performance. On the task of designing incandescent light bulb filters, our method
+achieves 8.5% higher visible light enhancement factor than a structure designed by a state-of-art memetic
+algorithm. Though the spectral requirements of our two examples are simpler than some other real-life
+applications [42], we expect no intrinsic difficulty when applying our algorithm to tasks that require more
+complicated spectra. Because the reward function used in our method can be easily calculated for any
+arbitrarily complicated spectrum, we believe that our algorithm can be directly applied to many other
+multi-layer thin film design tasks with more complex spectral requirements. Moreover, with the recent
+development of GPUs and TPUs, reinforcement learning algorithms could become more salable than
+evolutionary approaches for solving complicated design tasks.
+Through an ablation study, we showed that customizing the sequence generation network based on
+optical design domain knowledge can greatly improve the optimization performance. Our results
+demonstrated the high performance of the proposed method on complicated optical design tasks. Because
+the proposed method does not rely on hand-crafted heuristics, we believe that it can be extended to many
+other multi-layer optical design tasks such as lens design and multi-layer metasurface design by modifying
+the action space of the sequence generation network. However, for complex designs that require micro-nano
+structures [43], simulating the optical response can be computationally expensive. Since most deep
+reinforcement learning methods have a high sample complexity, it is important to develop sample-efficient
+reinforcement learning algorithms before such methods can be widely adopted for optical design tasks
+involving micro-nano structures.
+Data availability statement
+The data that support the findings of this study are openly available at the following URL/DOI:
+https://github.com/hammer-wang/oml-ppo.
+Acknowledgments
+H W would like to thank Rackham Graduate School at University of Michigan for funding, and Dr Yu Shi for
+help with calculating the enhancement factor of incandescent light bulb filters.
+ORCID iD
+Haozhu Wang  https://orcid.org/0000-0002-9679-0144
+References
+[1] Y ang C, Chengang J, Shen W, Lee K-T, Zhang Y , Liu X and Guo L J 2016 Compact multilayer film structures for ultrabroadband,
+omnidirectional and efficient absorption ACS Photonics 3 590–6
+[2] Agrawal M and Peumans P 2008 Broadband optical absorption enhancement through coherent light trapping in thin-film
+photovoltaic cells Opt. Express 16 5385–96
+10

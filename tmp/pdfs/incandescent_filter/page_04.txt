@@ -1,0 +1,16 @@
+S4 
+ 
+infer from these observations that the search landscape of the light bulb filter merit function 
+contains much more local minima than the search landscape of the radiative cooling device, and a 
+low reselection rate in this case helps the population examine more regions of the search landscape. 
+The increase in local minima is expected because with the increase in the number of layers, the 
+search landscape contains many more degrees of freedom than the landscape in the radiative 
+cooling device optimization. In such a rugate search landscape, it is helpful to have a lower 
+reselection rate 𝑟 and higher mutation rate 𝜇 to allow the population to diversify its exploration 
+into many of the local minima.  
+ 
+Figure S2. Statistics of the light bulb filter optimization over 15 trials for varying 𝑟 and 𝜇. The 
+plot shows the median (top row) and inter-quartile range (bottom row) of the merit function 
+(M.F.) at each generation for 𝑟 =[0.80, 0.90, 0.99] and 𝜇= [0.01, 0.05, 0.10]. 
+ 
+Downloaded from pubs.​acs.​org/​apchd5/​article-supplement/​1265408/​pdf/​ph7b01136_si_001/​ by guest on 20 October 2026

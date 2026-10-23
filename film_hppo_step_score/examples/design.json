@@ -1,0 +1,6 @@
+{
+  "layers": [
+    {"material_id": 3, "thickness_nm": 35.0},
+    {"material_id": 4, "thickness_nm": 65.0}
+  ]
+}
