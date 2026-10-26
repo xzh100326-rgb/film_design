@@ -1,7 +1,7 @@
 {
-  "material_dir": "E:/AI+film design/material_example",
+  "material_dir": "../../material_example",
   "material_source": "fixed_193nm",
-  "materials": [
+  "fixed_materials_193nm": [
   {"name": "MgF2", "n": 1.440, "k": 0.0},
   {"name": "LaF3", "n": 1.640, "k": 0.0},
   {"name": "AlF3", "n": 1.394, "k": 0.0},
@@ -60,6 +60,6 @@
     "stop_value": 0.9999,
     "max_env_step": 1000000,
     "max_train_iter": 10000,
-    "exp_name": "runs/duv193__hppo__nk_v2__a00-45/20261020_170551/seed0"
+    "exp_name": "runs/duv193"
   }
 }
