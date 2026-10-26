@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-10-23T13:12:52.751947+08:00",
+  "started_at": "2026-10-26T12:04:30.988419+08:00",
   "settings": {
     "seed": 0,
     "target_score": 0.8,
@@ -29,35 +29,35 @@
   },
   "optical_files": [
     {
-      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Al2O3\\nk\\OML-PPO.yml",
+      "path": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\Al2O3\\nk\\OML-PPO.yml",
       "sha256": "866c6ea8bd2cae99b26e06e99275914e9284db16ce0c3b384345b2d50222934a"
     },
     {
-      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\HfO2\\nk\\OML-PPO.yml",
+      "path": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\HfO2\\nk\\OML-PPO.yml",
       "sha256": "e9b83d67e6e523f1ab1feb56695d3562c5cf1912082ea38adec95ce6ef690d48"
     },
     {
-      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\MgF2\\nk\\OML-PPO.yml",
+      "path": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\MgF2\\nk\\OML-PPO.yml",
       "sha256": "3e13c196fea087f7d9574d6e5ec2f2c08d046ecec7003f8bb19c89dd88c496f8"
     },
     {
-      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\SiC\\nk\\OML-PPO.yml",
+      "path": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\SiC\\nk\\OML-PPO.yml",
       "sha256": "c5ef94c686f23b74bb2ef4b321143fd84f34a191c40b78cdcb3e13205c684469"
     },
     {
-      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Si3N4\\nk\\OML-PPO.yml",
+      "path": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\Si3N4\\nk\\OML-PPO.yml",
       "sha256": "6cd7e66ab862bed4273ce8f8af997474b2c6d317b3587d656698b6965e64fddb"
     },
     {
-      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\SiO2\\nk\\OML-PPO.yml",
+      "path": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\SiO2\\nk\\OML-PPO.yml",
       "sha256": "e88885a2c630e640d388cd90ecf6ce168a6a3c60fb55822aaa4d1f2665467c48"
     },
     {
-      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\TiO2\\nk\\OML-PPO.yml",
+      "path": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\TiO2\\nk\\OML-PPO.yml",
       "sha256": "1fb4434e275010958845dc3ed23c6080b7d5a8be1ba8b2a8c2e6d2d46df7be5b"
     },
     {
-      "path": "E:\\lithography_machine_lens\\film_hppo\\examples\\spectral_materials\\air_300_3000.sub",
+      "path": "D:\\film_design\\film_hppo\\examples\\spectral_materials\\air_300_3000.sub",
       "sha256": "0dd1ac615b51e217bbfa2c7eb34b3607911e615e2fa35f2628c6ed8c902282a8"
     }
   ],
@@ -65,7 +65,7 @@
   "pure_ppo": false,
   "seed_input": {
     "design": null,
-    "design_dir": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit",
+    "design_dir": "D:\\film_design\\film_hppo\\runs\\incandescent",
     "selection": "feasible_first_then_penalized_reward"
   }
 }

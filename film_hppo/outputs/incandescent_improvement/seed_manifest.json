@@ -4,13 +4,13 @@
   "seeds": [
     {
       "rank": 1,
-      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_66ded14df42548adba28e9bdbe6a79fa.json",
+      "origin": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed2\\designs\\best_594cecb1582e48bc8588b61fb93a7411.json",
       "origin_index": null,
-      "score": 0.7050384733670537,
-      "reward": 0.7050384733670537,
+      "score": 0.719591066530965,
+      "reward": 0.719591066530965,
       "constraint_penalty": 0.0,
       "constraints_satisfied": true,
-      "layers": 22,
+      "layers": 24,
       "materials": [
         "SiC",
         "MgF2",
@@ -31,9 +31,11 @@
         "SiC",
         "MgF2",
         "SiC",
+        "MgF2",
         "TiO2",
         "MgF2",
-        "TiO2"
+        "TiO2",
+        "Al2O3"
       ],
       "target_errors": [
         {
@@ -51,15 +53,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.8053831416865695,
-          "mae": 0.1946168583134303,
-          "min_actual": 0.058679631504810946,
-          "max_actual": 0.9991862175133065,
+          "mean_actual": 0.8247567417942058,
+          "mae": 0.17524325820579426,
+          "min_actual": 0.025040274949589957,
+          "max_actual": 0.9997331831513384,
           "wavelength_count": 18,
           "angle_count": 18,
-          "mean_R": 0.8053831416865695,
-          "mean_T": 0.19461685831343073,
-          "mean_A": 9.353539301546504e-16
+          "mean_R": 0.8247567417942058,
+          "mean_T": 0.1723554949941112,
+          "mean_A": 0.002887763211683136
         },
         {
           "quantity": "T",
@@ -76,15 +78,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.4388304499238086,
-          "mae": 0.5611695500761914,
-          "min_actual": 0.001866797917035135,
-          "max_actual": 0.9981536479263073,
+          "mean_actual": 0.4745582009399247,
+          "mae": 0.5254417990600754,
+          "min_actual": 0.00023629584716292878,
+          "max_actual": 0.998722711193057,
           "wavelength_count": 23,
           "angle_count": 18,
-          "mean_R": 0.5611695500761887,
-          "mean_T": 0.4388304499238086,
-          "mean_A": 2.7728711495132884e-15
+          "mean_R": 0.5254417990600722,
+          "mean_T": 0.4745582009399247,
+          "mean_A": 3.2747076775753602e-15
         },
         {
           "quantity": "R",
@@ -101,29 +103,28 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.8709018284907828,
-          "mae": 0.1290981715092172,
-          "min_actual": 0.0049009639225632675,
-          "max_actual": 0.9996414226036516,
+          "mean_actual": 0.8594582568587649,
+          "mae": 0.1405417431412351,
+          "min_actual": 0.0528656111276612,
+          "max_actual": 0.99983499964064,
           "wavelength_count": 230,
           "angle_count": 18,
-          "mean_R": 0.8709018284907828,
-          "mean_T": 0.12909817150921674,
-          "mean_A": 9.23375498110829e-16
+          "mean_R": 0.8594582568587649,
+          "mean_T": 0.140541743141235,
+          "mean_A": 7.755389472037039e-16
         }
       ]
     },
     {
       "rank": 2,
-      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_3579b7194c7642999f55f7b0dab4c142.json",
+      "origin": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed3\\designs\\best_0e5f2382a32a4655920c97c760c0ac8c.json",
       "origin_index": null,
-      "score": 0.7040009110355074,
-      "reward": 0.7040009110355074,
+      "score": 0.7181274801360238,
+      "reward": 0.7181274801360238,
       "constraint_penalty": 0.0,
       "constraints_satisfied": true,
-      "layers": 25,
+      "layers": 20,
       "materials": [
-        "SiC",
         "MgF2",
         "SiC",
         "MgF2",
@@ -142,12 +143,8 @@
         "SiC",
         "MgF2",
         "SiC",
-        "TiO2",
         "MgF2",
-        "TiO2",
-        "MgF2",
-        "TiO2",
-        "Al2O3"
+        "HfO2"
       ],
       "target_errors": [
         {
@@ -165,15 +162,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.7889507346714956,
-          "mae": 0.21104926532850446,
-          "min_actual": 0.04209547961488494,
-          "max_actual": 0.9998051688522263,
+          "mean_actual": 0.7949843846759856,
+          "mae": 0.20501561532401436,
+          "min_actual": 0.03445427980685045,
+          "max_actual": 0.9995661726443352,
           "wavelength_count": 18,
           "angle_count": 18,
-          "mean_R": 0.7889507346714956,
-          "mean_T": 0.2063375693106576,
-          "mean_A": 0.004711696017846896
+          "mean_R": 0.7949843846759856,
+          "mean_T": 0.2050156153240142,
+          "mean_A": 8.99526737069107e-16
         },
         {
           "quantity": "T",
@@ -190,15 +187,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.45078201836322795,
-          "mae": 0.5492179816367719,
-          "min_actual": 0.0006536696152989217,
-          "max_actual": 0.9884776474953668,
+          "mean_actual": 0.4948957763816564,
+          "mae": 0.5051042236183436,
+          "min_actual": 0.0003615563902769433,
+          "max_actual": 0.9987625706491634,
           "wavelength_count": 23,
           "angle_count": 18,
-          "mean_R": 0.5492179816367692,
-          "mean_T": 0.45078201836322795,
-          "mean_A": 2.8615646486834226e-15
+          "mean_R": 0.5051042236183414,
+          "mean_T": 0.4948957763816564,
+          "mean_A": 2.4688307436213395e-15
         },
         {
           "quantity": "R",
@@ -215,24 +212,24 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.8722699800717986,
-          "mae": 0.1277300199282014,
-          "min_actual": 0.005830040787059763,
-          "max_actual": 0.9997027521072064,
+          "mean_actual": 0.8645022793504294,
+          "mae": 0.1354977206495706,
+          "min_actual": 0.02870825047703028,
+          "max_actual": 0.9997696923883497,
           "wavelength_count": 230,
           "angle_count": 18,
-          "mean_R": 0.8722699800717986,
-          "mean_T": 0.12773001992820113,
-          "mean_A": 8.846627763077788e-16
+          "mean_R": 0.8645022793504294,
+          "mean_T": 0.13549772064957014,
+          "mean_A": 9.68644454612622e-16
         }
       ]
     },
     {
       "rank": 3,
-      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_cc188d4cc1de4fe7894af99609ca0554.json",
+      "origin": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed0\\designs\\best_d39ecb3450b842679beb932e0efd24f5.json",
       "origin_index": null,
-      "score": 0.703828364072097,
-      "reward": 0.703828364072097,
+      "score": 0.7117952048510778,
+      "reward": 0.7117952048510778,
       "constraint_penalty": 0.0,
       "constraints_satisfied": true,
       "layers": 19,
@@ -273,15 +270,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.8129129970894567,
-          "mae": 0.1870870029105432,
-          "min_actual": 0.06720358904973868,
-          "max_actual": 0.9993066100814488,
+          "mean_actual": 0.8097657839597006,
+          "mae": 0.19023421604029944,
+          "min_actual": 0.02416233081121453,
+          "max_actual": 0.9995472469262829,
           "wavelength_count": 18,
           "angle_count": 18,
-          "mean_R": 0.8129129970894567,
-          "mean_T": 0.1870870029105435,
-          "mean_A": 1.0601402461229296e-15
+          "mean_R": 0.8097657839597006,
+          "mean_T": 0.19023421604029955,
+          "mean_A": 8.862639997529679e-16
         },
         {
           "quantity": "T",
@@ -298,15 +295,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.44341916761139344,
-          "mae": 0.5565808323886066,
-          "min_actual": 0.000838310999376909,
-          "max_actual": 0.9935350878575321,
+          "mean_actual": 0.46871569175583516,
+          "mae": 0.5312843082441648,
+          "min_actual": 0.0007316687884411162,
+          "max_actual": 0.9876605278402597,
           "wavelength_count": 23,
           "angle_count": 18,
-          "mean_R": 0.5565808323886043,
-          "mean_T": 0.44341916761139344,
-          "mean_A": 2.337355255247926e-15
+          "mean_R": 0.5312843082441624,
+          "mean_T": 0.46871569175583516,
+          "mean_A": 2.5642051803813957e-15
         },
         {
           "quantity": "R",
@@ -323,29 +320,28 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.855152927515441,
-          "mae": 0.14484707248455908,
-          "min_actual": 0.016199085809093655,
-          "max_actual": 0.9996541258602897,
+          "mean_actual": 0.8569041388376979,
+          "mae": 0.14309586116230216,
+          "min_actual": 0.011177562510736228,
+          "max_actual": 0.9996916896217072,
           "wavelength_count": 230,
           "angle_count": 18,
-          "mean_R": 0.855152927515441,
-          "mean_T": 0.14484707248455858,
-          "mean_A": 9.033525361924332e-16
+          "mean_R": 0.8569041388376979,
+          "mean_T": 0.14309586116230172,
+          "mean_A": 8.55294096416391e-16
         }
       ]
     },
     {
       "rank": 4,
-      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_66471da67aa845979df25512ab5b5a4f.json",
+      "origin": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed3\\designs\\best_d7579b71ca2647769d05d15819de48d0.json",
       "origin_index": null,
-      "score": 0.7032542271407384,
-      "reward": 0.7032542271407384,
+      "score": 0.7111013217066393,
+      "reward": 0.7111013217066393,
       "constraint_penalty": 0.0,
       "constraints_satisfied": true,
-      "layers": 19,
+      "layers": 20,
       "materials": [
-        "SiC",
         "MgF2",
         "SiC",
         "MgF2",
@@ -363,7 +359,9 @@
         "MgF2",
         "SiC",
         "MgF2",
-        "TiO2"
+        "SiC",
+        "MgF2",
+        "SiO2"
       ],
       "target_errors": [
         {
@@ -381,15 +379,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.7825048452704476,
-          "mae": 0.2174951547295524,
-          "min_actual": 0.013909392821647975,
-          "max_actual": 0.9997271535224997,
+          "mean_actual": 0.7772978693356767,
+          "mae": 0.22270213066432337,
+          "min_actual": 0.021168154834447485,
+          "max_actual": 0.9999175780615464,
           "wavelength_count": 18,
           "angle_count": 18,
-          "mean_R": 0.7825048452704476,
-          "mean_T": 0.21749515472955208,
-          "mean_A": 1.3904236986738301e-15
+          "mean_R": 0.7772978693356767,
+          "mean_T": 0.2227021306643234,
+          "mean_A": 9.69533989245281e-16
         },
         {
           "quantity": "T",
@@ -406,15 +404,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.4709031299502495,
-          "mae": 0.5290968700497505,
-          "min_actual": 0.0011731107163190859,
-          "max_actual": 0.9814481430756402,
+          "mean_actual": 0.5017462767964052,
+          "mae": 0.49825372320359484,
+          "min_actual": 0.0011713305847918089,
+          "max_actual": 0.9968599844523764,
           "wavelength_count": 23,
           "angle_count": 18,
-          "mean_R": 0.5290968700497476,
-          "mean_T": 0.4709031299502495,
-          "mean_A": 2.959767177052337e-15
+          "mean_R": 0.4982537232035927,
+          "mean_T": 0.5017462767964052,
+          "mean_A": 2.386590866223321e-15
         },
         {
           "quantity": "R",
@@ -431,28 +429,30 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.856354706201518,
-          "mae": 0.14364529379848198,
-          "min_actual": 0.02437257382335204,
-          "max_actual": 0.9998297378428422,
+          "mean_actual": 0.854259818987836,
+          "mae": 0.1457401810121641,
+          "min_actual": 0.07181381820091651,
+          "max_actual": 0.9998593357313716,
           "wavelength_count": 230,
           "angle_count": 18,
-          "mean_R": 0.856354706201518,
-          "mean_T": 0.14364529379848165,
-          "mean_A": 8.138758973661153e-16
+          "mean_R": 0.854259818987836,
+          "mean_T": 0.14574018101216368,
+          "mean_A": 8.9117453645726e-16
         }
       ]
     },
     {
       "rank": 5,
-      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_d1f3e2becb944cdeb594b57a488d432f.json",
+      "origin": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed2\\designs\\best_1ee3244efe094113b7ac82b2096ab0fc.json",
       "origin_index": null,
-      "score": 0.699917309802019,
-      "reward": 0.699917309802019,
+      "score": 0.7097339398996492,
+      "reward": 0.7097339398996492,
       "constraint_penalty": 0.0,
       "constraints_satisfied": true,
-      "layers": 20,
+      "layers": 24,
       "materials": [
+        "SiC",
+        "MgF2",
         "SiC",
         "MgF2",
         "SiC",
@@ -472,7 +472,9 @@
         "SiC",
         "MgF2",
         "TiO2",
-        "Al2O3"
+        "MgF2",
+        "TiO2",
+        "MgF2"
       ],
       "target_errors": [
         {
@@ -490,15 +492,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.7857479537839671,
-          "mae": 0.21425204621603278,
-          "min_actual": 0.00512081472601344,
-          "max_actual": 0.9993524420512644,
+          "mean_actual": 0.824345335069957,
+          "mae": 0.17565466493004284,
+          "min_actual": 0.1462208413662013,
+          "max_actual": 0.9997858828946766,
           "wavelength_count": 18,
           "angle_count": 18,
-          "mean_R": 0.7857479537839671,
-          "mean_T": 0.2093506551398518,
-          "mean_A": 0.0049013910761810725
+          "mean_R": 0.824345335069957,
+          "mean_T": 0.17565466493004325,
+          "mean_A": 9.00518246648451e-16
         },
         {
           "quantity": "T",
@@ -515,15 +517,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.45462517370188354,
-          "mae": 0.5453748262981164,
-          "min_actual": 0.0007394337196505302,
-          "max_actual": 0.9931044200195738,
+          "mean_actual": 0.4402223740700756,
+          "mae": 0.5597776259299245,
+          "min_actual": 0.0011514951125770716,
+          "max_actual": 0.997245078858779,
           "wavelength_count": 23,
           "angle_count": 18,
-          "mean_R": 0.5453748262981143,
-          "mean_T": 0.45462517370188354,
-          "mean_A": 2.383020593707018e-15
+          "mean_R": 0.5597776259299214,
+          "mean_T": 0.4402223740700756,
+          "mean_A": 3.178738304514496e-15
         },
         {
           "quantity": "R",
@@ -540,15 +542,15 @@
             "penalty_weight": 10.0
           },
           "target": 1.0,
-          "mean_actual": 0.8593788019202063,
-          "mae": 0.14062119807979365,
-          "min_actual": 0.09792097665594285,
-          "max_actual": 0.9996219216303499,
+          "mean_actual": 0.8646341105589148,
+          "mae": 0.13536588944108516,
+          "min_actual": 0.0020954212127861417,
+          "max_actual": 0.9999564957032285,
           "wavelength_count": 230,
           "angle_count": 18,
-          "mean_R": 0.8593788019202063,
-          "mean_T": 0.14062119807979315,
-          "mean_A": 8.938162448085917e-16
+          "mean_R": 0.8646341105589148,
+          "mean_T": 0.13536588944108485,
+          "mean_A": 9.092147096390277e-16
         }
       ]
     }

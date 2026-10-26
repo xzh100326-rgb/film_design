@@ -1,0 +1,2264 @@
+{
+  "group": "incandescent",
+  "batch_id": "20261023_121536",
+  "batch_dir": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536",
+  "run_root": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536",
+  "workers": 4,
+  "elapsed_seconds": 18247.609802299994,
+  "updated_at": "2026-10-23T17:19:44.457573+08:00",
+  "runs": [
+    {
+      "seed": 0,
+      "name": "seed0",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed0.json",
+      "config_sha256": "3890a6983cc18b74152098f98093b68ce886a0dc04d34666009cb075e5240382",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed0",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed0.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed0.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed0.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed0.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T12:15:36.848668+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed0.json",
+        "--non-interactive"
+      ],
+      "training_pid": 12568,
+      "training_seconds": 6694.930562099995,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 648676,
+        "train_iter": 10001,
+        "eval_value": 0.6667068302631378,
+        "eval_value_raw": [
+          0.6574050784111023,
+          0.6633442044258118,
+          0.6605823040008545,
+          0.6613208651542664,
+          0.6646841168403625,
+          0.6988670825958252,
+          0.6548219919204712,
+          0.6726289987564087
+        ],
+        "finish_time": "Fri Oct 23 14:07:10 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.7117952048510778,
+      "best_saved_score": 0.7117952048510778,
+      "best_saved_transmission": 0.1738624533816937,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed0.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed0\\designs\\best_d39ecb3450b842679beb932e0efd24f5.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.8261375466183057,
+      "best_saved_absorption": 1.0023878720298725e-15,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8097657839597006,
+          "mae": 0.19023421604029944,
+          "min_actual": 0.02416233081121453,
+          "max_actual": 0.9995472469262829,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.8097657839597006,
+          "mean_T": 0.19023421604029955,
+          "mean_A": 8.862639997529679e-16
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.46871569175583516,
+          "mae": 0.5312843082441648,
+          "min_actual": 0.0007316687884411162,
+          "max_actual": 0.9876605278402597,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5312843082441624,
+          "mean_T": 0.46871569175583516,
+          "mean_A": 2.5642051803813957e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8569041388376979,
+          "mae": 0.14309586116230216,
+          "min_actual": 0.011177562510736228,
+          "max_actual": 0.9996916896217072,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8569041388376979,
+          "mean_T": 0.14309586116230172,
+          "mean_A": 8.55294096416391e-16
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8097657839597006,
+          "actual_min": 0.02416233081121453,
+          "actual_max": 0.9995472469262829,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.46871569175583516,
+          "actual_min": 0.0007316687884411162,
+          "actual_max": 0.9876605278402597,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8569041388376979,
+          "actual_min": 0.011177562510736228,
+          "actual_max": 0.9996916896217072,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 19,
+      "best_total_thickness_nm": 5093.178766431307,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed0",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed0.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T14:07:14.023149+08:00",
+      "total_seconds": 6697.17030920001,
+      "best_evaluation_mean": 0.6732810735702515
+    },
+    {
+      "seed": 1,
+      "name": "seed1",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed1.json",
+      "config_sha256": "e8fd9ad7a70a60bf5e83fcdc5c5f6e292d4d8a8471cf57f63d6dec1782366aaf",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed1",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed1.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed1.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed1.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed1.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T12:15:36.848668+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed1.json",
+        "--non-interactive"
+      ],
+      "training_pid": 17216,
+      "training_seconds": 6600.615323200007,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 656372,
+        "train_iter": 10009,
+        "eval_value": 0.6594027280807495,
+        "eval_value_raw": [
+          0.6595542430877686,
+          0.666843593120575,
+          0.668533205986023,
+          0.6455358862876892,
+          0.6215056777000427,
+          0.6837761402130127,
+          0.6434407234191895,
+          0.6860323548316956
+        ],
+        "finish_time": "Fri Oct 23 14:05:36 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.7090542575554621,
+      "best_saved_score": 0.7090542575554621,
+      "best_saved_transmission": 0.1757114359770016,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed1.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed1\\designs\\best_1c0ba9c37cf2411c813135d8785ddbd4.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.824288564022998,
+      "best_saved_absorption": 1.0098288484465998e-15,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.7895455032921905,
+          "mae": 0.2104544967078094,
+          "min_actual": 0.005267939353615506,
+          "max_actual": 0.9995618607707091,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.7895455032921905,
+          "mean_T": 0.21045449670780966,
+          "mean_A": 1.0952580229721553e-15
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.48016438800431616,
+          "mae": 0.519835611995684,
+          "min_actual": 0.0008533826553032554,
+          "max_actual": 0.9947768615004322,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5198356119956814,
+          "mean_T": 0.48016438800431616,
+          "mean_A": 2.6399086804791567e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8574528813698797,
+          "mae": 0.14254711863012032,
+          "min_actual": 0.011659807037645475,
+          "max_actual": 0.9999224264665417,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8574528813698797,
+          "mean_T": 0.14254711863011993,
+          "mean_A": 8.401351037587354e-16
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.7895455032921905,
+          "actual_min": 0.005267939353615506,
+          "actual_max": 0.9995618607707091,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.48016438800431616,
+          "actual_min": 0.0008533826553032554,
+          "actual_max": 0.9947768615004322,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8574528813698797,
+          "actual_min": 0.011659807037645475,
+          "actual_max": 0.9999224264665417,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 20,
+      "best_total_thickness_nm": 5225.993023941934,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed1",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed1.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T14:05:39.627311+08:00",
+      "total_seconds": 6602.774239199993,
+      "best_evaluation_mean": 0.6731421947479248
+    },
+    {
+      "seed": 2,
+      "name": "seed2",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed2.json",
+      "config_sha256": "62ae8915f2d5a0a9019d430e2525e34f7cbe08d7ec7c79bcc6aa10cf1c679b4a",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed2",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed2.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed2.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed2.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed2.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T12:15:36.848668+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed2.json",
+        "--non-interactive"
+      ],
+      "training_pid": 15796,
+      "training_seconds": 6800.967187000002,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 685892,
+        "train_iter": 10002,
+        "eval_value": 0.6769826039671898,
+        "eval_value_raw": [
+          0.6851219534873962,
+          0.6818462014198303,
+          0.6828091740608215,
+          0.6855146884918213,
+          0.6802578568458557,
+          0.6866187453269958,
+          0.6642898321151733,
+          0.649402379989624
+        ],
+        "finish_time": "Fri Oct 23 14:08:56 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.719591066530965,
+      "best_saved_score": 0.719591066530965,
+      "best_saved_transmission": 0.17100309392618568,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed2.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed2\\designs\\best_594cecb1582e48bc8588b61fb93a7411.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.8288050989232225,
+      "best_saved_absorption": 0.0001918071505924359,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8247567417942058,
+          "mae": 0.17524325820579426,
+          "min_actual": 0.025040274949589957,
+          "max_actual": 0.9997331831513384,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.8247567417942058,
+          "mean_T": 0.1723554949941112,
+          "mean_A": 0.002887763211683136
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.4745582009399247,
+          "mae": 0.5254417990600754,
+          "min_actual": 0.00023629584716292878,
+          "max_actual": 0.998722711193057,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5254417990600722,
+          "mean_T": 0.4745582009399247,
+          "mean_A": 3.2747076775753602e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8594582568587649,
+          "mae": 0.1405417431412351,
+          "min_actual": 0.0528656111276612,
+          "max_actual": 0.99983499964064,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8594582568587649,
+          "mean_T": 0.140541743141235,
+          "mean_A": 7.755389472037039e-16
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8247567417942058,
+          "actual_min": 0.025040274949589957,
+          "actual_max": 0.9997331831513384,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.4745582009399247,
+          "actual_min": 0.00023629584716292878,
+          "actual_max": 0.998722711193057,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8594582568587649,
+          "actual_min": 0.0528656111276612,
+          "actual_max": 0.99983499964064,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 24,
+      "best_total_thickness_nm": 6222.608470657972,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed2",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed2.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T14:08:59.967060+08:00",
+      "total_seconds": 6803.11371429998,
+      "best_evaluation_mean": 0.6804906129837036
+    },
+    {
+      "seed": 3,
+      "name": "seed3",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed3.json",
+      "config_sha256": "3dd1db744ed6272e8d82e15c824d49235f2a5555d7d085f917e81b615760b293",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed3",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed3.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed3.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed3.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed3.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T12:15:36.848668+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed3.json",
+        "--non-interactive"
+      ],
+      "training_pid": 15060,
+      "training_seconds": 6231.5340902000025,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 588012,
+        "train_iter": 10023,
+        "eval_value": 0.6821684762835503,
+        "eval_value_raw": [
+          0.6985297203063965,
+          0.6756335496902466,
+          0.6588972806930542,
+          0.6912550330162048,
+          0.6741400361061096,
+          0.6851004958152771,
+          0.6727877855300903,
+          0.701003909111023
+        ],
+        "finish_time": "Fri Oct 23 13:59:27 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "best_saved_reward": 0.7181274801360238,
+      "best_saved_score": 0.7181274801360238,
+      "best_saved_transmission": 0.1706175634022564,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed3.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed3\\designs\\best_0e5f2382a32a4655920c97c760c0ac8c.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.829382436597743,
+      "best_saved_absorption": 1.09137569347394e-15,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.7949843846759856,
+          "mae": 0.20501561532401436,
+          "min_actual": 0.03445427980685045,
+          "max_actual": 0.9995661726443352,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.7949843846759856,
+          "mean_T": 0.2050156153240142,
+          "mean_A": 8.99526737069107e-16
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.4948957763816564,
+          "mae": 0.5051042236183436,
+          "min_actual": 0.0003615563902769433,
+          "max_actual": 0.9987625706491634,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5051042236183414,
+          "mean_T": 0.4948957763816564,
+          "mean_A": 2.4688307436213395e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8645022793504294,
+          "mae": 0.1354977206495706,
+          "min_actual": 0.02870825047703028,
+          "max_actual": 0.9997696923883497,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8645022793504294,
+          "mean_T": 0.13549772064957014,
+          "mean_A": 9.68644454612622e-16
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.7949843846759856,
+          "actual_min": 0.03445427980685045,
+          "actual_max": 0.9995661726443352,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.4948957763816564,
+          "actual_min": 0.0003615563902769433,
+          "actual_max": 0.9987625706491634,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8645022793504294,
+          "actual_min": 0.02870825047703028,
+          "actual_max": 0.9997696923883497,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 20,
+      "best_total_thickness_nm": 5670.342044620267,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed3",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed3.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T13:59:33.657174+08:00",
+      "total_seconds": 6236.803747500002,
+      "best_evaluation_mean": 0.6821684837341309
+    },
+    {
+      "seed": 4,
+      "name": "seed4",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed4.json",
+      "config_sha256": "71088c9c99a8d1b7b1e1e866807d40b8e1970e8d5520f9e397292c38df20077d",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed4",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed4.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed4.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed4.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed4.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T13:59:33.662173+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed4.json",
+        "--non-interactive"
+      ],
+      "training_pid": 16016,
+      "training_seconds": 6658.294911100005,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 680320,
+        "train_iter": 10025,
+        "eval_value": 0.641361802816391,
+        "eval_value_raw": [
+          0.6627393960952759,
+          0.6588555574417114,
+          0.633808970451355,
+          0.6420066356658936,
+          0.6120265126228333,
+          0.6630196571350098,
+          0.5932425856590271,
+          0.665195107460022
+        ],
+        "finish_time": "Fri Oct 23 15:50:30 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.6835954029756636,
+      "best_saved_score": 0.6835954029756636,
+      "best_saved_transmission": 0.17738852176167955,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed4.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed4\\designs\\best_1dcfdebc51204d2c9d257540776b4077.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.8226114782383197,
+      "best_saved_absorption": 1.1459637892486014e-15,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.7754234678674616,
+          "mae": 0.2245765321325383,
+          "min_actual": 0.06682950408443879,
+          "max_actual": 0.9995522159981702,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.7754234678674616,
+          "mean_T": 0.224576532132538,
+          "mean_A": 9.43725209058349e-16
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.4243610366115466,
+          "mae": 0.5756389633884534,
+          "min_actual": 0.0009168833872993413,
+          "max_actual": 0.9840956582004131,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5756389633884516,
+          "mean_T": 0.4243610366115466,
+          "mean_A": 2.0918057233694907e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8510017044479823,
+          "mae": 0.14899829555201774,
+          "min_actual": 0.04936637063978652,
+          "max_actual": 0.9995936993026064,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8510017044479823,
+          "mean_T": 0.14899829555201696,
+          "mean_A": 1.0672069629818366e-15
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.7754234678674616,
+          "actual_min": 0.06682950408443879,
+          "actual_max": 0.9995522159981702,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.4243610366115466,
+          "actual_min": 0.0009168833872993413,
+          "actual_max": 0.9840956582004131,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8510017044479823,
+          "actual_min": 0.04936637063978652,
+          "actual_max": 0.9995936993026064,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 19,
+      "best_total_thickness_nm": 5411.286055143509,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed4",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed4.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T15:50:34.269375+08:00",
+      "total_seconds": 6660.6067339,
+      "best_evaluation_mean": 0.6413618326187134
+    },
+    {
+      "seed": 5,
+      "name": "seed5",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed5.json",
+      "config_sha256": "10eb90cbfd778a86afeb0330b19eecd715d32708f14160b6d468a333e7783c00",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed5",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed5.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed5.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed5.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed5.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T14:05:39.630827+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed5.json",
+        "--non-interactive"
+      ],
+      "training_pid": 4824,
+      "training_seconds": 5597.259916500014,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 554688,
+        "train_iter": 10055,
+        "eval_value": 0.6699695736169815,
+        "eval_value_raw": [
+          0.6655393838882446,
+          0.6803383231163025,
+          0.6605195999145508,
+          0.6841442584991455,
+          0.6843504309654236,
+          0.6623014807701111,
+          0.676176130771637,
+          0.646386981010437
+        ],
+        "finish_time": "Fri Oct 23 15:38:55 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.7084410699399748,
+      "best_saved_score": 0.7084410699399748,
+      "best_saved_transmission": 0.15864466366449514,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed5.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed5\\designs\\best_c2dd7cc488ba42c7bf80fa7a6fbb7481.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.8411962775256515,
+      "best_saved_absorption": 0.0001590588098538863,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8094938810013388,
+          "mae": 0.19050611899866124,
+          "min_actual": 0.1562019220315286,
+          "max_actual": 0.9997972487263986,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.8094938810013388,
+          "mean_T": 0.1881114002503215,
+          "mean_A": 0.0023947187483397744
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.44366578765552217,
+          "mae": 0.5563342123444779,
+          "min_actual": 0.0008795258246767042,
+          "max_actual": 0.9954734080508574,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5563342123444746,
+          "mean_T": 0.44366578765552217,
+          "mean_A": 3.4278837735983414e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8721635411630633,
+          "mae": 0.12783645883693673,
+          "min_actual": 0.01689419910963707,
+          "max_actual": 0.9998864824495832,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8721635411630633,
+          "mean_T": 0.12783645883693645,
+          "mean_A": 9.061073295801433e-16
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8094938810013388,
+          "actual_min": 0.1562019220315286,
+          "actual_max": 0.9997972487263986,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.44366578765552217,
+          "actual_min": 0.0008795258246767042,
+          "actual_max": 0.9954734080508574,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8721635411630633,
+          "actual_min": 0.01689419910963707,
+          "actual_max": 0.9998864824495832,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 24,
+      "best_total_thickness_nm": 6069.2742947008865,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed5",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed5.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T15:38:59.324859+08:00",
+      "total_seconds": 5599.694260000018,
+      "best_evaluation_mean": 0.6788509488105774
+    },
+    {
+      "seed": 6,
+      "name": "seed6",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed6.json",
+      "config_sha256": "304208c5780206425ee96fe2d2473eb2893f21c61b55229aa86108f42c8ed380",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed6",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed6.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed6.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed6.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed6.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T14:07:14.024148+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed6.json",
+        "--non-interactive"
+      ],
+      "training_pid": 12212,
+      "training_seconds": 6434.634385400015,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 643440,
+        "train_iter": 10007,
+        "eval_value": 0.6440685838460922,
+        "eval_value_raw": [
+          0.6179175972938538,
+          0.6391127109527588,
+          0.654446005821228,
+          0.6736831068992615,
+          0.6430004835128784,
+          0.6576157212257385,
+          0.6176537275314331,
+          0.6491193175315857
+        ],
+        "finish_time": "Fri Oct 23 15:54:27 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.6831812065584333,
+      "best_saved_score": 0.6831812065584333,
+      "best_saved_transmission": 0.17701050246341746,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed6.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed6\\designs\\best_31703b5455e6430786802fdefc38532b.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.8228120409955358,
+      "best_saved_absorption": 0.0001774565410470934,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.7618450511536534,
+          "mae": 0.23815494884634658,
+          "min_actual": 0.003919505607845685,
+          "max_actual": 0.9997909529423767,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.7618450511536534,
+          "mean_T": 0.2354832420339339,
+          "mean_A": 0.002671706812412879
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.4343945398061431,
+          "mae": 0.5656054601938568,
+          "min_actual": 0.0001977899330129809,
+          "max_actual": 0.9987150766969805,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5656054601938554,
+          "mean_T": 0.4343945398061431,
+          "mean_A": 1.7107446688709608e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8533040287155033,
+          "mae": 0.14669597128449668,
+          "min_actual": 0.004119800370757039,
+          "max_actual": 0.9997695506863397,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8533040287155033,
+          "mean_T": 0.14669597128449577,
+          "mean_A": 1.265850419266484e-15
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.7618450511536534,
+          "actual_min": 0.003919505607845685,
+          "actual_max": 0.9997909529423767,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.4343945398061431,
+          "actual_min": 0.0001977899330129809,
+          "actual_max": 0.9987150766969805,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8533040287155033,
+          "actual_min": 0.004119800370757039,
+          "actual_max": 0.9997695506863397,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 22,
+      "best_total_thickness_nm": 6105.936152118918,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed6",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed6.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T15:54:30.950143+08:00",
+      "total_seconds": 6436.925860800024,
+      "best_evaluation_mean": 0.6440685987472534
+    },
+    {
+      "seed": 7,
+      "name": "seed7",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed7.json",
+      "config_sha256": "aa14c8214736941e30deab3d847fa6fb32a8cef63c2c95c123f68216bca2937f",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed7",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed7.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed7.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed7.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed7.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T14:08:59.969065+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed7.json",
+        "--non-interactive"
+      ],
+      "training_pid": 20932,
+      "training_seconds": 6601.724403900007,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 677528,
+        "train_iter": 10034,
+        "eval_value": 0.5348456688225269,
+        "eval_value_raw": [
+          0.5167964696884155,
+          0.5294820666313171,
+          0.4687177836894989,
+          0.5258573889732361,
+          0.5343577265739441,
+          0.5474153161048889,
+          0.5541921854019165,
+          0.6019464135169983
+        ],
+        "finish_time": "Fri Oct 23 15:59:00 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.6360680754172175,
+      "best_saved_score": 0.6484575998340145,
+      "best_saved_transmission": 0.20779404071908233,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed7.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed7\\designs\\best_140ca33e482d495d972ccc018293be73.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.7859951391195056,
+      "best_saved_absorption": 0.006210820161412334,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.6920855422338759,
+          "mae": 0.3079144577661242,
+          "min_actual": 0.023012452322219094,
+          "max_actual": 0.9998447891772767,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.6920855422338759,
+          "mean_T": 0.2144071097804424,
+          "mean_A": 0.09350734798568185
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.43758468865811184,
+          "mae": 0.5624153113418882,
+          "min_actual": 0.000559798328552552,
+          "max_actual": 0.9935877685695313,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5624153113418883,
+          "mean_T": 0.43758468865811184,
+          "mean_A": 7.170046330850304e-16
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8157025686100557,
+          "mae": 0.1842974313899442,
+          "min_actual": 0.007876016982529589,
+          "max_actual": 0.9994651366544276,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8157025686100557,
+          "mean_T": 0.1842974313899425,
+          "mean_A": 1.9685269081739004e-15
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.012389524416796938,
+      "best_constraints_satisfied": false,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.6920855422338759,
+          "actual_min": 0.023012452322219094,
+          "actual_max": 0.9998447891772767,
+          "below_mean": 0.007914457766124094,
+          "above_mean": 0.0,
+          "max_violation": 0.007914457766124094,
+          "penalty": 0.0006263864173176198,
+          "satisfied": false
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.43758468865811184,
+          "actual_min": 0.000559798328552552,
+          "actual_max": 0.9935877685695313,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8157025686100557,
+          "actual_min": 0.007876016982529589,
+          "actual_max": 0.9994651366544276,
+          "below_mean": 0.03429743138994423,
+          "above_mean": 0.0,
+          "max_violation": 0.03429743138994423,
+          "penalty": 0.011763137999479319,
+          "satisfied": false
+        }
+      ],
+      "best_layer_count": 22,
+      "best_total_thickness_nm": 6051.798039087465,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed7",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed7.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T15:59:03.398552+08:00",
+      "total_seconds": 6603.429364599986,
+      "best_evaluation_mean": 0.5348456501960754
+    },
+    {
+      "seed": 8,
+      "name": "seed8",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed8.json",
+      "config_sha256": "6d7098d345659e188a1685e7b2599ea9ee873ebd5d1e20689b517114187a24ce",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed8",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed8.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed8.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed8.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed8.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T15:38:59.328858+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed8.json",
+        "--non-interactive"
+      ],
+      "training_pid": 15264,
+      "training_seconds": 6043.636943999998,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 647720,
+        "train_iter": 10055,
+        "eval_value": 0.6742861047387123,
+        "eval_value_raw": [
+          0.6675434708595276,
+          0.6717722415924072,
+          0.6878007054328918,
+          0.6470995545387268,
+          0.6891040802001953,
+          0.6652474403381348,
+          0.6866986155509949,
+          0.6790227293968201
+        ],
+        "finish_time": "Fri Oct 23 17:19:42 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.689190281787801,
+      "best_saved_score": 0.689190281787801,
+      "best_saved_transmission": 0.18339710479445676,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed8.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed8\\designs\\best_9aab2582a195443a92d46c1de4baaa96.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.8166028952055427,
+      "best_saved_absorption": 9.600959913674816e-16,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.747754035835492,
+          "mae": 0.2522459641645079,
+          "min_actual": 0.020821030197546594,
+          "max_actual": 0.9986855504836782,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.747754035835492,
+          "mean_T": 0.25224596416450834,
+          "mean_A": 8.24803456415346e-16
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.46924132108994554,
+          "mae": 0.5307586789100545,
+          "min_actual": 0.0014228968061882714,
+          "max_actual": 0.996957039535545,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5307586789100522,
+          "mean_T": 0.46924132108994554,
+          "mean_A": 2.353564077726584e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8505754884379653,
+          "mae": 0.14942451156203473,
+          "min_actual": 0.012525125348419791,
+          "max_actual": 0.999762644763494,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8505754884379653,
+          "mean_T": 0.14942451156203426,
+          "mean_A": 8.313372941626082e-16
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.747754035835492,
+          "actual_min": 0.020821030197546594,
+          "actual_max": 0.9986855504836782,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.46924132108994554,
+          "actual_min": 0.0014228968061882714,
+          "actual_max": 0.996957039535545,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8505754884379653,
+          "actual_min": 0.012525125348419791,
+          "actual_max": 0.999762644763494,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 17,
+      "best_total_thickness_nm": 4762.9833089842505,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed8",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed8.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T17:19:44.402046+08:00",
+      "total_seconds": 6045.073447600007,
+      "best_evaluation_mean": 0.6757221817970276
+    },
+    {
+      "seed": 9,
+      "name": "seed9",
+      "group": "incandescent",
+      "batch_id": "20261023_121536",
+      "config": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed9.json",
+      "config_sha256": "52668758f36863af74ab185c0938d4cc248ac59c0d0f8e996d23dd34f0028fa7",
+      "run_dir": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed9",
+      "plot": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed9.png",
+      "record": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\status\\seed9.json",
+      "train_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed9.train.log",
+      "plot_log": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\logs\\seed9.plot.log",
+      "evaluation_metric": "penalized_reward",
+      "design_selection": "score",
+      "reward_as_transmission": false,
+      "status": "complete",
+      "started_at": "2026-10-23T15:50:34.275372+08:00",
+      "training_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "-m",
+        "film_rl",
+        "train",
+        "--config",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\configs\\seed9.json",
+        "--non-interactive"
+      ],
+      "training_pid": 12040,
+      "training_seconds": 5114.868449200003,
+      "training_exit_code": 0,
+      "result": {
+        "stop": false,
+        "env_step": 556988,
+        "train_iter": 10025,
+        "eval_value": 0.6843722686171532,
+        "eval_value_raw": [
+          0.6835805773735046,
+          0.6787934303283691,
+          0.6866068243980408,
+          0.6799381375312805,
+          0.6816722750663757,
+          0.695349931716919,
+          0.6937909722328186,
+          0.675246000289917
+        ],
+        "finish_time": "Fri Oct 23 17:15:48 2026",
+        "evaluation_metric": "penalized_reward",
+        "constraints_satisfied": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_saved_reward": 0.7090984450425324,
+      "best_saved_score": 0.7090984450425324,
+      "best_saved_transmission": 0.1670761593503333,
+      "best_design": "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\designs\\seed9.json",
+      "best_design_source": "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed9\\designs\\best_ad45eeaca1e34c21a8a5ce03b6295e4f.json",
+      "best_design_source_index": null,
+      "best_application_metrics": null,
+      "best_saved_reflection": 0.8328248318603402,
+      "best_saved_absorption": 9.900878932690569e-05,
+      "best_target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8002405472405815,
+          "mae": 0.19975945275941853,
+          "min_actual": 0.02464215804777302,
+          "max_actual": 0.9997507486191872,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.8002405472405815,
+          "mean_T": 0.19826882043123317,
+          "mean_A": 0.001490632328185359
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.46217945308376207,
+          "mae": 0.5378205469162379,
+          "min_actual": 0.0005593575283484279,
+          "max_actual": 0.9995161190167043,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5378205469162357,
+          "mean_T": 0.46217945308376207,
+          "mean_A": 2.3705781952971247e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8648753348032535,
+          "mae": 0.13512466519674649,
+          "min_actual": 0.010170690735709224,
+          "max_actual": 0.999822470875722,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8648753348032535,
+          "mean_T": 0.13512466519674607,
+          "mean_A": 8.715335790325719e-16
+        }
+      ],
+      "has_constraints": true,
+      "best_constraint_penalty": 0.0,
+      "best_constraints_satisfied": true,
+      "best_constraint_violations": [
+        {
+          "target_index": 0,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "min": 0.7,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8002405472405815,
+          "actual_min": 0.02464215804777302,
+          "actual_max": 0.9997507486191872,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 1,
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "min": 0.4,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.46217945308376207,
+          "actual_min": 0.0005593575283484279,
+          "actual_max": 0.9995161190167043,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        },
+        {
+          "target_index": 2,
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "min": 0.85,
+          "max": 1.0,
+          "scope": "band_mean",
+          "penalty_weight": 10.0,
+          "actual_mean": 0.8648753348032535,
+          "actual_min": 0.010170690735709224,
+          "actual_max": 0.999822470875722,
+          "below_mean": 0.0,
+          "above_mean": 0.0,
+          "max_violation": 0.0,
+          "penalty": 0.0,
+          "satisfied": true
+        }
+      ],
+      "best_layer_count": 20,
+      "best_total_thickness_nm": 5233.388108132989,
+      "design_count": 5,
+      "plot_command": [
+        "D:\\anaconda\\envs\\film\\python.exe",
+        "plot_training.py",
+        "--run",
+        "D:\\film_design\\film_hppo\\runs\\incandescent\\20261023_121536\\seed9",
+        "--output",
+        "D:\\film_design\\film_hppo\\outputs\\incandescent\\20261023_121536\\seed9.png",
+        "--evaluation-metric",
+        "penalized_reward"
+      ],
+      "finished_at": "2026-10-23T17:15:52.120991+08:00",
+      "total_seconds": 5117.845256900007,
+      "best_evaluation_mean": 0.6843722462654114
+    }
+  ],
+  "all_complete": true,
+  "source_config_unchanged": true,
+  "source_files_unchanged": true
+}

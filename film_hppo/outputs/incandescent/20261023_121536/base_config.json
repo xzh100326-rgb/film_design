@@ -1,0 +1,141 @@
+{
+  "_reference": {
+    "paper": "Wang et al., Automated multi-layer optical design via deep reinforcement learning, MLST 2 (2021) 025013, section 4.2",
+    "doi": "https://doi.org/10.1088/2632-2153/abc327",
+    "repository_commit": "ef63afe85e9c09cb3ccf0df01218c6264535ac9c",
+    "target": "R=0 for 480-700 nm inclusive; R=1 outside that interval. Terminal-only reward, gamma=1, no logarithmic shaping.",
+    "wavelength_grid_note": "300-3000 nm follows the plotted spectral domain in Figure 7; 10 nm sampling is an explicit implementation choice, not a verified original Task 2 sampling step.",
+    "angle_grid_note": "Paper reports averaging over 0-90 degrees. Use 0,1,...,89 degrees as a numerical approximation; exact 90 degrees is excluded by film_hppo and is a singular grazing-incidence limit. Original Task 2 angle step is not stated in the checked paper/code.",
+    "material_note": "The paper says seven materials but lists six; SiN appears in Table 3 and is included here using the repository Si3N4.csv data. Dataset interpolation remains film_hppo linear, not original OML-PPO quadratic.",
+    "constraint_note": "45 maximum layers follows section 4.2. Continuous 15-400 nm thickness is an HPPO choice that contains Table 3 thicknesses; the exact Task 2 discrete thickness grid is not provided. No total-thickness cap is imposed.",
+    "objective_note": "S is selected by each target quantity (R/T/A). score=1-sum(normalized_weight*mean(abs(S-S_target))); reward=score-sum(bound penalties) because reward_alpha=0. Current UV R:visible T:IR R weights are 1:2:1. Band-mean lower bounds are 0.70, 0.70, 0.85, each with squared-hinge penalty_weight=10; these are soft penalties, not hard guarantees. This score is not the visible-light enhancement factor chi.",
+    "training_note": "Fresh HPPO/VAC initialization; no improvement checkpoint. learning_rate=5e-5 and n_sample=3000 follow reported values. DI-engine train iterations are not identical to paper epochs. Polarization uses an unpolarized s/p average."
+  },
+  "material_dir": "D:\\film_design\\film_hppo\\examples\\spectral_materials",
+  "material_source": "refractiveindex",
+  "refractiveindex_dir": "D:\\film_design\\refractiveindex.info-database",
+  "materials": [
+    {
+      "name": "Al2O3",
+      "file": "data/main/Al2O3/nk/OML-PPO.yml"
+    },
+    {
+      "name": "HfO2",
+      "file": "data/main/HfO2/nk/OML-PPO.yml"
+    },
+    {
+      "name": "MgF2",
+      "file": "data/main/MgF2/nk/OML-PPO.yml"
+    },
+    {
+      "name": "SiC",
+      "file": "data/main/SiC/nk/OML-PPO.yml"
+    },
+    {
+      "name": "Si3N4",
+      "file": "data/main/Si3N4/nk/OML-PPO.yml"
+    },
+    {
+      "name": "SiO2",
+      "file": "data/main/SiO2/nk/OML-PPO.yml"
+    },
+    {
+      "name": "TiO2",
+      "file": "data/main/TiO2/nk/OML-PPO.yml"
+    }
+  ],
+  "substrate_file": "air_300_3000.sub",
+  "substrate_thickness_nm": null,
+  "incident_n": 1.0,
+  "wavelengths_nm": {
+    "start": 300.0,
+    "stop": 3000.0,
+    "num": 271
+  },
+  "angles_deg": {
+    "start": 0.0,
+    "stop": 89.0,
+    "num": 18
+  },
+  "polarization": "unpolarized",
+  "reward_alpha": 0.0,
+  "reward_epsilon": 1e-06,
+  "min_layers": 1,
+  "max_layers": 80,
+  "thickness_min_nm": 10.0,
+  "thickness_max_nm": 400.0,
+  "max_total_thickness_nm": null,
+  "forbid_adjacent_same_material": true,
+  "tmm_device": "cpu",
+  "spectral_targets": [
+    {
+      "quantity": "R",
+      "wavelength_range_nm": [
+        300.0,
+        470.0
+      ],
+      "target": 1.0,
+      "weight": 1.0,
+      "bounds": {
+        "min": 0.7,
+        "max": 1.0,
+        "scope": "band_mean",
+        "penalty_weight": 10.0
+      }
+    },
+    {
+      "quantity": "T",
+      "wavelength_range_nm": [
+        480.0,
+        700.0
+      ],
+      "target": 1.0,
+      "weight": 1.0,
+      "bounds": {
+        "min": 0.4,
+        "max": 1.0,
+        "scope": "band_mean",
+        "penalty_weight": 10.0
+      }
+    },
+    {
+      "quantity": "R",
+      "wavelength_range_nm": [
+        710.0,
+        3000.0
+      ],
+      "target": 1.0,
+      "weight": 1.0,
+      "bounds": {
+        "min": 0.85,
+        "max": 1.0,
+        "scope": "band_mean",
+        "penalty_weight": 10.0
+      }
+    }
+  ],
+  "training": {
+    "seed": 0,
+    "cuda": false,
+    "collector_env_num": 4,
+    "evaluator_env_num": 1,
+    "n_evaluator_episode": 8,
+    "n_sample": 3000,
+    "batch_size": 512,
+    "epoch_per_collect": 10,
+    "learning_rate": 0.0003,
+    "entropy_weight": 0.001,
+    "target_kl": 0.02,
+    "max_abs_log_ratio": 10.0,
+    "eval_freq": 100,
+    "stop_value": 0.9999,
+    "max_env_step": 30000000,
+    "max_train_iter": 10000,
+    "exp_name": "runs/incandescent_task/seed0_limit",
+    "gae_lambda": 1.0
+  },
+  "improvement": {
+    "target_score": 0.8,
+    "warm_start_steps": 0
+  }
+}
