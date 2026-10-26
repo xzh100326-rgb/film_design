@@ -1,0 +1,432 @@
+{
+  "layer_count": 28,
+  "total_thickness_nm": 7439.802569661593,
+  "score": 0.6709703108267563,
+  "reward": 0.6709703108267563,
+  "mae": 0.3290296891732437,
+  "evaluation_metric": "penalized_reward",
+  "design_format": "compact_v1",
+  "value_units": "R/T/A, target, score and reward use fractions, not percentages",
+  "averaging": "Uniform mean over the sampled angles and wavelengths within each target band",
+  "target_errors": [
+    {
+      "quantity": "R",
+      "wavelength_range_nm": [
+        300.0,
+        470.0
+      ],
+      "weight": 1.0,
+      "normalized_weight": 0.3333333333333333,
+      "bounds": {
+        "min": 0.7,
+        "max": 1.0,
+        "scope": "band_mean",
+        "penalty_weight": 10.0
+      },
+      "target": 1.0,
+      "mean_actual": 0.739070325031659,
+      "mae": 0.2609296749683411,
+      "min_actual": 0.01632911476655432,
+      "max_actual": 0.9996957609570865,
+      "wavelength_count": 18,
+      "angle_count": 18,
+      "mean_R": 0.739070325031659,
+      "mean_T": 0.25851832026704236,
+      "mean_A": 0.002411354701298692
+    },
+    {
+      "quantity": "T",
+      "wavelength_range_nm": [
+        480.0,
+        700.0
+      ],
+      "weight": 1.0,
+      "normalized_weight": 0.3333333333333333,
+      "bounds": {
+        "min": 0.4,
+        "max": 1.0,
+        "scope": "band_mean",
+        "penalty_weight": 10.0
+      },
+      "target": 1.0,
+      "mean_actual": 0.41909898208051094,
+      "mae": 0.580901017919489,
+      "min_actual": 0.0005793583791335987,
+      "max_actual": 0.9790504615569156,
+      "wavelength_count": 23,
+      "angle_count": 18,
+      "mean_R": 0.5688630039315141,
+      "mean_T": 0.41909898208051094,
+      "mean_A": 0.01203801398797496
+    },
+    {
+      "quantity": "R",
+      "wavelength_range_nm": [
+        710.0,
+        3000.0
+      ],
+      "weight": 1.0,
+      "normalized_weight": 0.3333333333333333,
+      "bounds": {
+        "min": 0.85,
+        "max": 1.0,
+        "scope": "band_mean",
+        "penalty_weight": 10.0
+      },
+      "target": 1.0,
+      "mean_actual": 0.8547416253680987,
+      "mae": 0.1452583746319012,
+      "min_actual": 0.010461703609912037,
+      "max_actual": 0.9997980727159795,
+      "wavelength_count": 230,
+      "angle_count": 18,
+      "mean_R": 0.8547416253680987,
+      "mean_T": 0.14522922817841802,
+      "mean_A": 2.9146453483629956e-05
+    }
+  ],
+  "sampling": {
+    "wavelengths_nm": {
+      "start": 300.0,
+      "stop": 3000.0,
+      "num": 271,
+      "step": 10.0
+    },
+    "angles_deg": {
+      "start": 0.0,
+      "stop": 89.0,
+      "num": 18,
+      "step": 5.235294117647059
+    }
+  },
+  "polarization": "unpolarized",
+  "objective_mode": "spectral_targets",
+  "reward_mode": "linear",
+  "reward_alpha": 0.0,
+  "reward_epsilon": 1e-06,
+  "log_reward": 0.08046081880044877,
+  "score_formula": "1 - sum_b(normalized_weight_b * mean(abs(S_b - S_target_b)))",
+  "reward_formula": "(1 - sum_b(normalized_weight_b * mean(abs(S_b - S_target_b)))) - constraint_penalty",
+  "spectral_aggregation": "weighted_band_mae",
+  "mean_transmission": 0.17599752337156702,
+  "min_transmission": 0.00020192728402028398,
+  "mean_reflection": 0.8227958995411713,
+  "min_reflection": 0.006937396108609362,
+  "mean_absorption": 0.0012065770872621232,
+  "min_absorption": 0.0,
+  "absorption_scope": "finite coating layers only; excludes the semi-infinite substrate",
+  "forbid_adjacent_same_material": true,
+  "material_source": "refractiveindex",
+  "material_reference": null,
+  "material_datasets": [
+    {
+      "material": "Al2O3",
+      "file": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\Al2O3\\nk\\OML-PPO.yml",
+      "sha256": "866c6ea8bd2cae99b26e06e99275914e9284db16ce0c3b384345b2d50222934a",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/Al2O3.csv",
+      "comments": "Converted from OML-PPO data/Al2O3.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "HfO2",
+      "file": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\HfO2\\nk\\OML-PPO.yml",
+      "sha256": "e9b83d67e6e523f1ab1feb56695d3562c5cf1912082ea38adec95ce6ef690d48",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/HfO2.csv",
+      "comments": "Converted from OML-PPO data/HfO2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "MgF2",
+      "file": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\MgF2\\nk\\OML-PPO.yml",
+      "sha256": "3e13c196fea087f7d9574d6e5ec2f2c08d046ecec7003f8bb19c89dd88c496f8",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/MgF2.csv",
+      "comments": "Converted from OML-PPO data/MgF2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "SiC",
+      "file": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\SiC\\nk\\OML-PPO.yml",
+      "sha256": "c5ef94c686f23b74bb2ef4b321143fd84f34a191c40b78cdcb3e13205c684469",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/SiC.csv",
+      "comments": "Converted from OML-PPO data/SiC.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "Si3N4",
+      "file": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\Si3N4\\nk\\OML-PPO.yml",
+      "sha256": "6cd7e66ab862bed4273ce8f8af997474b2c6d317b3587d656698b6965e64fddb",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/Si3N4.csv",
+      "comments": "Converted from OML-PPO data/Si3N4.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "SiO2",
+      "file": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\SiO2\\nk\\OML-PPO.yml",
+      "sha256": "e88885a2c630e640d388cd90ecf6ce168a6a3c60fb55822aaa4d1f2665467c48",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/SiO2.csv",
+      "comments": "Converted from OML-PPO data/SiO2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "TiO2",
+      "file": "D:\\film_design\\refractiveindex.info-database\\database\\data\\main\\TiO2\\nk\\OML-PPO.yml",
+      "sha256": "1fb4434e275010958845dc3ed23c6080b7d5a8be1ba8b2a8c2e6d2d46df7be5b",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/TiO2.csv",
+      "comments": "Converted from OML-PPO data/TiO2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    }
+  ],
+  "substrate": "air_300_3000.sub",
+  "substrate_thickness_nm": null,
+  "exit_n": null,
+  "stack_order": "incident medium -> layers in listed order -> semi-infinite substrate",
+  "termination_reason": "eos",
+  "eval_episode_return": 0.6709703108267563,
+  "episode_info": {
+    "training_reward": 0.6709703108267563,
+    "design_score": 0.6709703108267563,
+    "mean_transmission": 0.17599752337156702,
+    "mean_reflection": 0.8227958995411713,
+    "mean_absorption": 0.0012065770872621232,
+    "constraint_penalty": 0.0,
+    "constraints_satisfied": 1
+  },
+  "has_constraints": true,
+  "base_reward": 0.6709703108267563,
+  "constraint_penalty": 0.0,
+  "constraints_satisfied": true,
+  "constraint_violations": [
+    {
+      "target_index": 0,
+      "quantity": "R",
+      "wavelength_range_nm": [
+        300.0,
+        470.0
+      ],
+      "min": 0.7,
+      "max": 1.0,
+      "scope": "band_mean",
+      "penalty_weight": 10.0,
+      "actual_mean": 0.739070325031659,
+      "actual_min": 0.01632911476655432,
+      "actual_max": 0.9996957609570865,
+      "below_mean": 0.0,
+      "above_mean": 0.0,
+      "max_violation": 0.0,
+      "penalty": 0.0,
+      "satisfied": true
+    },
+    {
+      "target_index": 1,
+      "quantity": "T",
+      "wavelength_range_nm": [
+        480.0,
+        700.0
+      ],
+      "min": 0.4,
+      "max": 1.0,
+      "scope": "band_mean",
+      "penalty_weight": 10.0,
+      "actual_mean": 0.41909898208051094,
+      "actual_min": 0.0005793583791335987,
+      "actual_max": 0.9790504615569156,
+      "below_mean": 0.0,
+      "above_mean": 0.0,
+      "max_violation": 0.0,
+      "penalty": 0.0,
+      "satisfied": true
+    },
+    {
+      "target_index": 2,
+      "quantity": "R",
+      "wavelength_range_nm": [
+        710.0,
+        3000.0
+      ],
+      "min": 0.85,
+      "max": 1.0,
+      "scope": "band_mean",
+      "penalty_weight": 10.0,
+      "actual_mean": 0.8547416253680987,
+      "actual_min": 0.010461703609912037,
+      "actual_max": 0.9997980727159795,
+      "below_mean": 0.0,
+      "above_mean": 0.0,
+      "max_violation": 0.0,
+      "penalty": 0.0,
+      "satisfied": true
+    }
+  ],
+  "constraint_tolerance": 1e-08,
+  "spectra_note": "Full per-wavelength/per-angle spectra and optical-constant arrays omitted. Recompute with original config and evaluate --full-spectrum.",
+  "layers": [
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 374.7872537119747
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 267.3915996687848
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 254.3336491265612
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 386.05315231933946
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 397.3014592117737
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 386.7421207724588
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 394.70751407970886
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 362.85823092600054
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 214.1711155810353
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 330.13059492328335
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 228.29764874810962
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 323.5818587565091
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 235.83532845989774
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 240.05511822014375
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 244.100786512971
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 257.11442341667146
+    },
+    {
+      "material_id": 6,
+      "material": "TiO2",
+      "thickness_nm": 223.14837604812575
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 258.37238605448346
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 232.09042828108122
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 225.56075838026695
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 233.92792280391913
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 210.62676174333728
+    },
+    {
+      "material_id": 4,
+      "material": "Si3N4",
+      "thickness_nm": 181.69508611658486
+    },
+    {
+      "material_id": 1,
+      "material": "HfO2",
+      "thickness_nm": 237.35994473414777
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 223.57215863502026
+    },
+    {
+      "material_id": 5,
+      "material": "SiO2",
+      "thickness_nm": 215.18246014622133
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 246.8859335007399
+    },
+    {
+      "material_id": 0,
+      "material": "Al2O3",
+      "thickness_nm": 53.91849878244064
+    }
+  ]
+}
