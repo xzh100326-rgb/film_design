@@ -1,0 +1,208 @@
+{
+  "requested_count": 5,
+  "selected_count": 5,
+  "seeds": [
+    {
+      "rank": 1,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed6\\designs\\best_65f600b4c42d4bc88f6206bbeb0f3601.json",
+      "origin_index": null,
+      "score": 0.9982312134726695,
+      "reward": 0.7284759882691882,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 5,
+      "materials": [
+        "AlF3",
+        "GdF3",
+        "AlF3",
+        "MgF2",
+        "AlF3"
+      ],
+      "target_errors": [
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            193.0,
+            193.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9982312134726694,
+          "mae": 0.0017687865273304793,
+          "min_actual": 0.9956843076411124,
+          "max_actual": 0.9994950577630567,
+          "wavelength_count": 1,
+          "angle_count": 10,
+          "mean_R": 0.0017687865273297554,
+          "mean_T": 0.9982312134726694,
+          "mean_A": 8.104628079763643e-16
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed2\\designs\\best_75de94fc509547c78a43c838e814ecd2.json",
+      "origin_index": null,
+      "score": 0.9982140846841395,
+      "reward": 0.7281186371953569,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 8,
+      "materials": [
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3"
+      ],
+      "target_errors": [
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            193.0,
+            193.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9982140846841396,
+          "mae": 0.0017859153158604423,
+          "min_actual": 0.9920616131897988,
+          "max_actual": 0.9998466998537928,
+          "wavelength_count": 1,
+          "angle_count": 10,
+          "mean_R": 0.0017859153158621018,
+          "mean_T": 0.9982140846841396,
+          "mean_A": 1.3322676295501878e-16
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed2\\designs\\best_7caed3a081184a3599c4519dafba8fbd.json",
+      "origin_index": null,
+      "score": 0.9982069468255607,
+      "reward": 0.7279707093205636,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 8,
+      "materials": [
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3"
+      ],
+      "target_errors": [
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            193.0,
+            193.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9982069468255605,
+          "mae": 0.0017930531744393074,
+          "min_actual": 0.9921549766114248,
+          "max_actual": 0.9998582059257548,
+          "wavelength_count": 1,
+          "angle_count": 10,
+          "mean_R": 0.001793053174440945,
+          "mean_T": 0.9982069468255605,
+          "mean_A": 9.992007221626409e-17
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed2\\designs\\best_fb73d21bf16b4a36b8f5e06ec1317223.json",
+      "origin_index": null,
+      "score": 0.9981956712753599,
+      "reward": 0.7277381970477331,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 8,
+      "materials": [
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3"
+      ],
+      "target_errors": [
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            193.0,
+            193.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.99819567127536,
+          "mae": 0.0018043287246400919,
+          "min_actual": 0.9908288451276706,
+          "max_actual": 0.9998907155082174,
+          "wavelength_count": 1,
+          "angle_count": 10,
+          "mean_R": 0.0018043287246414623,
+          "mean_T": 0.99819567127536,
+          "mean_A": 1.887379141862766e-16
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed2\\designs\\best_337f44d195e146da99edabbc8e8de76a.json",
+      "origin_index": null,
+      "score": 0.9981924158009449,
+      "reward": 0.7276713298752113,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 8,
+      "materials": [
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3",
+        "AlF3",
+        "LaF3"
+      ],
+      "target_errors": [
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            193.0,
+            193.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9981924158009449,
+          "mae": 0.0018075841990551234,
+          "min_actual": 0.9908416503564088,
+          "max_actual": 0.9998398215957239,
+          "wavelength_count": 1,
+          "angle_count": 10,
+          "mean_R": 0.0018075841990566749,
+          "mean_T": 0.9981924158009449,
+          "mean_A": 8.881784197001253e-17
+        }
+      ]
+    }
+  ]
+}

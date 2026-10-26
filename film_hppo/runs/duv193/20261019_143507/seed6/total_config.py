@@ -1,0 +1,224 @@
+exp_config = {
+    'env': {
+        'manager': {
+            'episode_num': float("inf"),
+            'max_retry': 1,
+            'retry_type': 'reset',
+            'auto_reset': True,
+            'step_timeout': None,
+            'reset_timeout': None,
+            'retry_waiting_time': 0.1,
+            'cfg_type': 'BaseEnvManagerDict',
+            'type': 'base',
+            'shared_memory': False
+        },
+        'stop_value':
+        0.9999,
+        'n_evaluator_episode':
+        8,
+        'type':
+        'duv_film',
+        'import_names': ['film_rl.env'],
+        'material_dir':
+        'E:\\AI+film design\\material_example',
+        'material_source':
+        'fixed_193nm',
+        'fixed_materials_193nm': [{
+            'name': 'MgF2',
+            'n': 1.44,
+            'k': 0.0
+        }, {
+            'name': 'LaF3',
+            'n': 1.64,
+            'k': 0.0
+        }, {
+            'name': 'AlF3',
+            'n': 1.394,
+            'k': 0.0
+        }, {
+            'name': 'GdF3',
+            'n': 1.676,
+            'k': 0.0
+        }],
+        'fixed_materials_reference': {
+            'doi':
+            '10.1364/AO.47.00C214',
+            'table':
+            1,
+            'wavelength_nm':
+            193.0,
+            'deposition':
+            'Resistive-heating boat evaporation, substrate temperature 300 deg C',
+            'k_note':
+            'Table 1 reports n only. k=0 is an explicit lossless modeling assumption, not measured data.'
+        },
+        'material_files': [
+            'Al2O3 (190-800nm, RIT).lm', 'GdF (140-500nm, RIT).lm',
+            'HfO2 (190-800nm, RIT).lm', 'MgF2 (140-500nm, RIT).lm',
+            'SiO2 (110-800nm, RIT).lm'
+        ],
+        'substrate_file':
+        'CaF2 (110-800nm, RIT).sub',
+        'incident_n':
+        1.0,
+        'wavelengths_nm': [193.0],
+        'angles_deg': {
+            'start': 0.0,
+            'stop': 45.0,
+            'num': 10
+        },
+        'polarization':
+        'unpolarized',
+        'target_transmission':
+        1.0,
+        'reward_alpha':
+        0.5,
+        'reward_epsilon':
+        1e-06,
+        'min_layers':
+        1,
+        'max_layers':
+        20,
+        'thickness_min_nm':
+        5.0,
+        'thickness_max_nm':
+        100.0,
+        'max_total_thickness_nm':
+        400.0,
+        'forbid_adjacent_same_material':
+        True,
+        'tmm_device':
+        'cpu',
+        'collector_env_num':
+        4,
+        'evaluator_env_num':
+        1,
+        'result_dir':
+        'E:\\lithography_machine_lens\\film_hppo\\runs\\duv193_angle0-45_terminal_mix_a0p5\\20261019_143507\\seed6\\designs'
+    },
+    'policy': {
+        'model': {
+            'obs_shape': 101,
+            'action_shape': {
+                'action_type_shape': 5,
+                'action_args_shape': 4
+            },
+            'action_space': 'hybrid',
+            'encoder_hidden_size_list': [256, 256, 128],
+            'actor_head_hidden_size': 128,
+            'critic_head_hidden_size': 128,
+            'sigma_type': 'independent',
+            'bound_type': None
+        },
+        'learn': {
+            'learner': {
+                'train_iterations': 1000000000,
+                'dataloader': {
+                    'num_workers': 0
+                },
+                'log_policy': True,
+                'hook': {
+                    'load_ckpt_before_run': '',
+                    'log_show_after_iter': 100,
+                    'save_ckpt_after_iter': 10000,
+                    'save_ckpt_after_run': True
+                },
+                'cfg_type': 'BaseLearnerDict'
+            },
+            'resume_training': False,
+            'epoch_per_collect': 10,
+            'batch_size': 128,
+            'learning_rate': 0.0003,
+            'lr_scheduler': None,
+            'value_weight': 0.5,
+            'entropy_weight': 0.001,
+            'clip_ratio': 0.2,
+            'adv_norm': True,
+            'value_norm': False,
+            'ppo_param_init': True,
+            'grad_clip_type': 'clip_norm',
+            'grad_clip_value': 0.5,
+            'ignore_done': False,
+            'target_kl': 0.02,
+            'max_abs_log_ratio': 10.0
+        },
+        'collect': {
+            'collector': {
+                'deepcopy_obs': False,
+                'transform_obs': False,
+                'collect_print_freq': 100,
+                'cfg_type': 'SampleSerialCollectorDict',
+                'type': 'sample'
+            },
+            'unroll_len': 1,
+            'discount_factor': 1.0,
+            'gae_lambda': 0.95,
+            'n_sample': 1024
+        },
+        'eval': {
+            'evaluator': {
+                'eval_freq': 100,
+                'render': {
+                    'render_freq': -1,
+                    'mode': 'train_iter'
+                },
+                'figure_path': None,
+                'cfg_type': 'InteractionSerialEvaluatorDict',
+                'stop_value': 0.9999,
+                'n_episode': 8
+            }
+        },
+        'other': {
+            'replay_buffer': {
+                'type': 'advanced',
+                'replay_buffer_size': 4096,
+                'max_use': float("inf"),
+                'max_staleness': float("inf"),
+                'alpha': 0.6,
+                'beta': 0.4,
+                'anneal_step': 100000,
+                'enable_track_used_data': False,
+                'deepcopy': False,
+                'thruput_controller': {
+                    'push_sample_rate_limit': {
+                        'max': float("inf"),
+                        'min': 0
+                    },
+                    'window_seconds': 30,
+                    'sample_min_limit_ratio': 1
+                },
+                'monitor': {
+                    'sampled_data_attr': {
+                        'average_range': 5,
+                        'print_freq': 200
+                    },
+                    'periodic_thruput': {
+                        'seconds': 60
+                    }
+                },
+                'cfg_type': 'AdvancedReplayBufferDict'
+            },
+            'commander': {
+                'cfg_type': 'BaseSerialCommanderDict'
+            }
+        },
+        'on_policy': True,
+        'cuda': False,
+        'multi_gpu': False,
+        'bp_update_sync': True,
+        'traj_len_inf': False,
+        'type': 'film_hppo_command',
+        'priority': False,
+        'priority_IS_weight': False,
+        'recompute_adv': False,
+        'action_space': 'hybrid',
+        'nstep_return': False,
+        'multi_agent': False,
+        'transition_with_policy_data': True,
+        'cfg_type': 'FilmPPOCommandPolicyDict',
+        'import_names': ['film_rl.policy']
+    },
+    'exp_name':
+    'runs\\duv193_angle0-45_terminal_mix_a0p5\\20261019_143507\\seed6',
+    'seed': 6
+}

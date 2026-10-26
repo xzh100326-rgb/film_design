@@ -1,0 +1,81 @@
+{
+  "initial_score": 0.9982312134726695,
+  "initial_reward": 0.7284759882691882,
+  "best_score": 0.9995651220543578,
+  "mean_absorption": 6.217248937900876e-16,
+  "target_score": 0.9999,
+  "search_target_reached": false,
+  "best_reward": 0.7799186124058661,
+  "constraint_penalty": 0.0,
+  "constraints_satisfied": null,
+  "absorption_above_95_percent": false,
+  "elapsed_seconds": 123.39465249999193,
+  "candidates": 146,
+  "gradient_calls": 9318,
+  "tmm_design_evaluations": 343,
+  "method": "HPPO design seeds + structure mutation + exact TMM thickness gradients",
+  "pure_ppo": false,
+  "policy": null,
+  "seed_refinements": [
+    {
+      "rank": 1,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed6\\designs\\best_65f600b4c42d4bc88f6206bbeb0f3601.json",
+      "origin_index": null,
+      "initial_score": 0.9982312134726695,
+      "refined_score": 0.999243368750917,
+      "initial_reward": 0.7284759882691882,
+      "refined_reward": 0.7597146615578645,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "design": "C:\\film_design\\film_hppo\\outputs\\duv193_improvement\\refined_seeds\\seed1.json"
+    },
+    {
+      "rank": 2,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed2\\designs\\best_75de94fc509547c78a43c838e814ecd2.json",
+      "origin_index": null,
+      "initial_score": 0.9982140846841395,
+      "refined_score": 0.998839266041512,
+      "initial_reward": 0.7281186371953569,
+      "refined_reward": 0.7440252421568518,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "design": "C:\\film_design\\film_hppo\\outputs\\duv193_improvement\\refined_seeds\\seed2.json"
+    },
+    {
+      "rank": 3,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed2\\designs\\best_7caed3a081184a3599c4519dafba8fbd.json",
+      "origin_index": null,
+      "initial_score": 0.9982069468255607,
+      "refined_score": 0.998839266041644,
+      "initial_reward": 0.7279707093205636,
+      "refined_reward": 0.7440252421610354,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "design": "C:\\film_design\\film_hppo\\outputs\\duv193_improvement\\refined_seeds\\seed3.json"
+    },
+    {
+      "rank": 4,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed2\\designs\\best_fb73d21bf16b4a36b8f5e06ec1317223.json",
+      "origin_index": null,
+      "initial_score": 0.9981956712753599,
+      "refined_score": 0.998839266042174,
+      "initial_reward": 0.7277381970477331,
+      "refined_reward": 0.7440252421778266,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "design": "C:\\film_design\\film_hppo\\outputs\\duv193_improvement\\refined_seeds\\seed4.json"
+    },
+    {
+      "rank": 5,
+      "origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed2\\designs\\best_337f44d195e146da99edabbc8e8de76a.json",
+      "origin_index": null,
+      "initial_score": 0.9981924158009449,
+      "refined_score": 0.9988392660387315,
+      "initial_reward": 0.7276713298752113,
+      "refined_reward": 0.7440252420687703,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "design": "C:\\film_design\\film_hppo\\outputs\\duv193_improvement\\refined_seeds\\seed5.json"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "seed": 5,
+  "name": "seed5",
+  "group": "duv193__hppo__nk_v2__a00-45",
+  "batch_id": "20261019_143507",
+  "config": "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\configs\\seed5.json",
+  "config_sha256": "24ee698bfb74c13d1ec1bf091265ef8bef12de33b664a1d36f60ace9d5d544b5",
+  "run_dir": "E:\\lithography_machine_lens\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed5",
+  "plot": "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed5.png",
+  "record": "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\status\\seed5.json",
+  "train_log": "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\logs\\seed5.train.log",
+  "plot_log": "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\logs\\seed5.plot.log",
+  "reward_as_transmission": true,
+  "status": "complete",
+  "started_at": "2026-10-19T15:13:47.560417+08:00",
+  "training_command": [
+    "C:\\Users\\xxxxx\\.conda\\envs\\yolov11\\python.exe",
+    "-m",
+    "film_rl",
+    "train",
+    "--config",
+    "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\configs\\seed5.json"
+  ],
+  "training_pid": 684,
+  "training_seconds": 1246.8044324000002,
+  "training_exit_code": 0,
+  "result": {
+    "stop": false,
+    "env_step": 269364,
+    "train_iter": 10014,
+    "eval_value": 0.9811896830797195,
+    "eval_value_raw": [
+      0.9819201231002808,
+      0.9812305569648743,
+      0.9787185788154602,
+      0.9809733033180237,
+      0.9815605878829956,
+      0.9814678430557251,
+      0.9818757772445679,
+      0.9817706942558289
+    ],
+    "finish_time": "Mon Oct 19 15:34:33 2026"
+  },
+  "best_saved_reward": 0.7125080968439854,
+  "best_saved_score": 0.9972859458220036,
+  "best_saved_transmission": 0.9972859458220036,
+  "best_design": "E:\\lithography_machine_lens\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed5\\designs\\best_c3b5691f3de94be4873bee76513dadaa.json",
+  "best_layer_count": 3,
+  "best_total_thickness_nm": 96.94852240034449,
+  "design_count": 5,
+  "plot_command": [
+    "C:\\Users\\xxxxx\\.conda\\envs\\yolov11\\python.exe",
+    "plot_training.py",
+    "--run",
+    "E:\\lithography_machine_lens\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed5",
+    "--output",
+    "E:\\lithography_machine_lens\\film_hppo\\outputs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed5.png",
+    "--reward-as-transmission"
+  ],
+  "finished_at": "2026-10-19T15:34:36.750003+08:00",
+  "total_seconds": 1249.1896011999997
+}

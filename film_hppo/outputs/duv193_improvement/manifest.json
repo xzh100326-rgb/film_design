@@ -1,0 +1,43 @@
+{
+  "started_at": "2026-10-26T16:55:05.298719+08:00",
+  "settings": {
+    "seed": 0,
+    "target_score": 0.9999,
+    "seed_limit": 5,
+    "structure_rounds": 6,
+    "candidates_per_round": 24,
+    "beam_width": 3,
+    "max_thickness_iterations": 80,
+    "warm_start_steps": 0
+  },
+  "problem_fingerprint": "05d0783553f62a65f8ee77a60e352f89831171eb66d83d81b6d27ee3e0d11113",
+  "sources": {
+    "__init__.py": "1e85711840b5cd51ee0458a71a59bf06b94765b2e6ce471b7891f15c5df30e91",
+    "__main__.py": "e2ce7c9bb32965e36666f98900ec1077de8331e6241fe2b6715a08bb3631fa38",
+    "bounded_training.py": "716cd9077188cb96a0608d73ba74e482e2acb7c7c7da8ab48e1d6ce059f8c972",
+    "config.py": "ddf03e97d91215301a850b5d73b6521dcc056aef1717e047c8fa85459767a0e8",
+    "design.py": "c4812d45fc28533d341f451dcbf10f632845d75f92d5ac04ce14f01475c41e0b",
+    "enhancement.py": "7dec8f3e238bbd81e5a780bda25d16e82710524e6d5de125f62e7b397cd58a1e",
+    "env.py": "050dee276e2f376bb2d38c40bbe0cccae08ab22aa47966cdf79fdf881644be9c",
+    "hppo.py": "7714b6f62d028c0e50d6556eb069bb05f74c47124488301f33cf4b97a7d0d312",
+    "improve.py": "308e4effbb69a94245b968abfabed2820940e6c656a4e20e9061a88417468aec",
+    "lamp_metrics.py": "8c36cd3188ba1b66061e084fd8e0d0895c44c09c3e04b4af32b4ef4ae63f5cd3",
+    "optics.py": "f6721d957e907390bc10abe18612d306f83befd2eedac2c05753a48918f501dd",
+    "policy.py": "f6a58b359fe16589345738dd112032ec98c94eb7e533c35322744a9f0cdf2996",
+    "refractiveindex.py": "2c286cff7b4a3dea963014dfe08b0a39ac235d49d5ccf938b0605b3f8de18b47",
+    "targets.py": "658df089a13171ed70e38c46890010e436f69c549c560c1820e0997d5326910a"
+  },
+  "optical_files": [
+    {
+      "path": "C:\\film_design\\material_example\\CaF2 (110-800nm, RIT).sub",
+      "sha256": "65efeffd3891e5c3820257cefb5952eeffe7f169614e8c41b7cbf3af307331b6"
+    }
+  ],
+  "method": "HPPO design seeds + structure mutation + exact TMM thickness gradients",
+  "pure_ppo": false,
+  "seed_input": {
+    "design": null,
+    "design_dir": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45",
+    "selection": "current_score_top_k"
+  }
+}

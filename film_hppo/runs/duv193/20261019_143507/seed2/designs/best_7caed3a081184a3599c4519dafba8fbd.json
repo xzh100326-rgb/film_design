@@ -1,0 +1,255 @@
+{
+  "layer_count": 8,
+  "total_thickness_nm": 399.99451108024584,
+  "reward": 0.7279707093205636,
+  "score": 0.9982069468255607,
+  "log_reward": 0.4577344718155667,
+  "reward_mode": "linear_log_mixture",
+  "reward_alpha": 0.5,
+  "reward_epsilon": 1e-06,
+  "mae": 0.0017930531744393074,
+  "mean_transmission": 0.9982069468255605,
+  "min_transmission": 0.9921549766114248,
+  "wavelengths_nm": [
+    193.0
+  ],
+  "angles_deg": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0
+  ],
+  "polarization": "unpolarized",
+  "target_transmission": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "T": [
+    [
+      0.9986878745767477
+    ],
+    [
+      0.9989911961358267
+    ],
+    [
+      0.9996018861813774
+    ],
+    [
+      0.9998582059257548
+    ],
+    [
+      0.9993421558628521
+    ],
+    [
+      0.9984394819634889
+    ],
+    [
+      0.998138763339637
+    ],
+    [
+      0.998711927749275
+    ],
+    [
+      0.9981429999092226
+    ],
+    [
+      0.9921549766114248
+    ]
+  ],
+  "R": [
+    [
+      0.0013121254232550394
+    ],
+    [
+      0.0010088038641733327
+    ],
+    [
+      0.0003981138186242526
+    ],
+    [
+      0.0001417940742486792
+    ],
+    [
+      0.0006578441371509343
+    ],
+    [
+      0.0015605180365144814
+    ],
+    [
+      0.0018612366603640434
+    ],
+    [
+      0.001288072250726752
+    ],
+    [
+      0.001857000090776403
+    ],
+    [
+      0.007845023388575532
+    ]
+  ],
+  "A": [
+    [
+      -2.7755575615628914e-15
+    ],
+    [
+      0.0
+    ],
+    [
+      -1.5543122344752192e-15
+    ],
+    [
+      -3.4416913763379853e-15
+    ],
+    [
+      -3.1086244689504383e-15
+    ],
+    [
+      -3.3306690738754696e-15
+    ],
+    [
+      -1.1102230246251565e-15
+    ],
+    [
+      -1.7763568394002505e-15
+    ],
+    [
+      9.992007221626409e-16
+    ],
+    [
+      -3.3306690738754696e-16
+    ]
+  ],
+  "forbid_adjacent_same_material": true,
+  "material_source": "fixed_193nm",
+  "material_reference": {
+    "doi": "10.1364/AO.47.00C214",
+    "table": 1,
+    "wavelength_nm": 193.0,
+    "deposition": "Resistive-heating boat evaporation, substrate temperature 300 deg C",
+    "k_note": "Table 1 reports n only. k=0 is an explicit lossless modeling assumption, not measured data."
+  },
+  "coating_optical_constants": [
+    {
+      "material": "MgF2",
+      "n": [
+        1.44
+      ],
+      "k": [
+        0.0
+      ]
+    },
+    {
+      "material": "LaF3",
+      "n": [
+        1.64
+      ],
+      "k": [
+        0.0
+      ]
+    },
+    {
+      "material": "AlF3",
+      "n": [
+        1.394
+      ],
+      "k": [
+        0.0
+      ]
+    },
+    {
+      "material": "GdF3",
+      "n": [
+        1.676
+      ],
+      "k": [
+        0.0
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 39.040683770472896
+    },
+    {
+      "material_id": 1,
+      "material": "LaF3",
+      "thickness_nm": 99.90235964739837
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 16.008854208878624
+    },
+    {
+      "material_id": 1,
+      "material": "LaF3",
+      "thickness_nm": 99.99556594916464
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 7.016303747985537
+    },
+    {
+      "material_id": 1,
+      "material": "LaF3",
+      "thickness_nm": 99.99909364515085
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 7.0803000110857415
+    },
+    {
+      "material_id": 1,
+      "material": "LaF3",
+      "thickness_nm": 30.95135010010922
+    }
+  ],
+  "substrate": "CaF2 (110-800nm, RIT).sub",
+  "stack_order": "incident medium -> layers in listed order -> semi-infinite substrate",
+  "termination_reason": "thickness_budget",
+  "eval_episode_return": 0.9982069468255607,
+  "episode_info": {
+    "training_reward": 0.7279707093205636,
+    "design_score": 0.9982069468255607,
+    "mean_transmission": 0.9982069468255605
+  }
+}

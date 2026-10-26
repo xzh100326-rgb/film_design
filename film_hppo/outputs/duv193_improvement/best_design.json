@@ -1,0 +1,140 @@
+{
+  "layer_count": 12,
+  "total_thickness_nm": 388.2872972465285,
+  "score": 0.9995651220543578,
+  "reward": 0.7799186124058661,
+  "mae": 0.00043487794564223137,
+  "evaluation_metric": "transmission",
+  "design_format": "compact_v1",
+  "value_units": "R/T/A, target, score and reward use fractions, not percentages",
+  "averaging": "Uniform mean over the sampled angles and wavelengths within each target band",
+  "target_errors": [
+    {
+      "quantity": "T",
+      "wavelength_range_nm": [
+        193.0,
+        193.0
+      ],
+      "weight": 1.0,
+      "normalized_weight": 1.0,
+      "target": 1.0,
+      "mean_actual": 0.9995651220543577,
+      "mae": 0.00043487794564223137,
+      "min_actual": 0.9979130662812838,
+      "max_actual": 0.9999959185705222,
+      "wavelength_count": 1,
+      "angle_count": 10,
+      "mean_R": 0.0004348779456422908,
+      "mean_T": 0.9995651220543577,
+      "mean_A": 6.217248937900876e-16
+    }
+  ],
+  "sampling": {
+    "wavelengths_nm": {
+      "start": 193.0,
+      "stop": 193.0,
+      "num": 1
+    },
+    "angles_deg": {
+      "start": 0.0,
+      "stop": 45.0,
+      "num": 10,
+      "step": 5.0
+    }
+  },
+  "polarization": "unpolarized",
+  "objective_mode": "spectral_targets",
+  "reward_mode": "linear_log_mixture",
+  "reward_alpha": 0.5,
+  "reward_epsilon": 1e-06,
+  "log_reward": 0.5602721027573746,
+  "score_formula": "1 - sum_b(normalized_weight_b * mean(abs(S_b - S_target_b)))",
+  "reward_formula": "(1 - reward_alpha) * score + reward_alpha * log_reward",
+  "spectral_aggregation": "weighted_band_mae",
+  "mean_transmission": 0.9995651220543577,
+  "min_transmission": 0.9979130662812838,
+  "mean_reflection": 0.0004348779456422908,
+  "min_reflection": 4.081429476572763e-06,
+  "mean_absorption": 6.217248937900876e-16,
+  "min_absorption": 0.0,
+  "absorption_scope": "finite coating layers only; excludes the semi-infinite substrate",
+  "forbid_adjacent_same_material": true,
+  "material_source": "fixed_193nm",
+  "material_reference": {
+    "doi": "10.1364/AO.47.00C214",
+    "table": 1,
+    "wavelength_nm": 193.0,
+    "deposition": "Resistive-heating boat evaporation, substrate temperature 300 deg C",
+    "k_note": "Table 1 reports n only. k=0 is an explicit lossless modeling assumption, not measured data.",
+    "values_note": "Historical comparison constants with user-adjusted MgF2 and LaF3 values; not all values reproduce Table 1 of the cited paper."
+  },
+  "material_datasets": [],
+  "substrate": "CaF2 (110-800nm, RIT).sub",
+  "substrate_thickness_nm": null,
+  "exit_n": null,
+  "stack_order": "incident medium -> layers in listed order -> semi-infinite substrate",
+  "search_origin": "round6:insert",
+  "spectra_note": "Full per-wavelength/per-angle spectra and optical-constant arrays omitted. Recompute with original config and evaluate --full-spectrum.",
+  "layers": [
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 34.38663661438122
+    },
+    {
+      "material_id": 1,
+      "material": "LaF3",
+      "thickness_nm": 31.070412999631262
+    },
+    {
+      "material_id": 0,
+      "material": "MgF2",
+      "thickness_nm": 5.0
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 34.18728828835542
+    },
+    {
+      "material_id": 1,
+      "material": "LaF3",
+      "thickness_nm": 38.93377945444343
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 62.824020691947595
+    },
+    {
+      "material_id": 3,
+      "material": "GdF3",
+      "thickness_nm": 37.852040313747
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 6.506181586132452
+    },
+    {
+      "material_id": 0,
+      "material": "MgF2",
+      "thickness_nm": 32.137531264029924
+    },
+    {
+      "material_id": 1,
+      "material": "LaF3",
+      "thickness_nm": 71.78949641553791
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 15.895774884740769
+    },
+    {
+      "material_id": 1,
+      "material": "LaF3",
+      "thickness_nm": 17.704134733581512
+    }
+  ]
+}

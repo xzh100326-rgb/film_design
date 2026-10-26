@@ -1,0 +1,113 @@
+{
+  "layer_count": 5,
+  "total_thickness_nm": 214.07478132246737,
+  "score": 0.999243368750917,
+  "reward": 0.7597146615578645,
+  "mae": 0.0007566312490829618,
+  "evaluation_metric": "transmission",
+  "design_format": "compact_v1",
+  "value_units": "R/T/A, target, score and reward use fractions, not percentages",
+  "averaging": "Uniform mean over the sampled angles and wavelengths within each target band",
+  "target_errors": [
+    {
+      "quantity": "T",
+      "wavelength_range_nm": [
+        193.0,
+        193.0
+      ],
+      "weight": 1.0,
+      "normalized_weight": 1.0,
+      "target": 1.0,
+      "mean_actual": 0.999243368750917,
+      "mae": 0.0007566312490829618,
+      "min_actual": 0.9966179874578143,
+      "max_actual": 0.9999034826211816,
+      "wavelength_count": 1,
+      "angle_count": 10,
+      "mean_R": 0.0007566312490825575,
+      "mean_T": 0.999243368750917,
+      "mean_A": 5.440092820663267e-16
+    }
+  ],
+  "sampling": {
+    "wavelengths_nm": {
+      "start": 193.0,
+      "stop": 193.0,
+      "num": 1
+    },
+    "angles_deg": {
+      "start": 0.0,
+      "stop": 45.0,
+      "num": 10,
+      "step": 5.0
+    }
+  },
+  "polarization": "unpolarized",
+  "objective_mode": "spectral_targets",
+  "reward_mode": "linear_log_mixture",
+  "reward_alpha": 0.5,
+  "reward_epsilon": 1e-06,
+  "log_reward": 0.5201859543648119,
+  "score_formula": "1 - sum_b(normalized_weight_b * mean(abs(S_b - S_target_b)))",
+  "reward_formula": "(1 - reward_alpha) * score + reward_alpha * log_reward",
+  "spectral_aggregation": "weighted_band_mae",
+  "mean_transmission": 0.999243368750917,
+  "min_transmission": 0.9966179874578143,
+  "mean_reflection": 0.0007566312490825575,
+  "min_reflection": 9.651737881868768e-05,
+  "mean_absorption": 5.440092820663267e-16,
+  "min_absorption": 0.0,
+  "absorption_scope": "finite coating layers only; excludes the semi-infinite substrate",
+  "forbid_adjacent_same_material": true,
+  "material_source": "fixed_193nm",
+  "material_reference": {
+    "doi": "10.1364/AO.47.00C214",
+    "table": 1,
+    "wavelength_nm": 193.0,
+    "deposition": "Resistive-heating boat evaporation, substrate temperature 300 deg C",
+    "k_note": "Table 1 reports n only. k=0 is an explicit lossless modeling assumption, not measured data.",
+    "values_note": "Historical comparison constants with user-adjusted MgF2 and LaF3 values; not all values reproduce Table 1 of the cited paper."
+  },
+  "material_datasets": [],
+  "substrate": "CaF2 (110-800nm, RIT).sub",
+  "substrate_thickness_nm": null,
+  "exit_n": null,
+  "stack_order": "incident medium -> layers in listed order -> semi-infinite substrate",
+  "optimization": {
+    "method": "SLSQP with TMM-fast autograd",
+    "gradient_calls": 18,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "initial_score": 0.9982312134726695
+  },
+  "seed_origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed6\\designs\\best_65f600b4c42d4bc88f6206bbeb0f3601.json",
+  "search_origin": "C:\\film_design\\film_hppo\\runs\\duv193__hppo__nk_v2__a00-45\\20261019_143507\\seed6\\designs\\best_65f600b4c42d4bc88f6206bbeb0f3601.json",
+  "spectra_note": "Full per-wavelength/per-angle spectra and optical-constant arrays omitted. Recompute with original config and evaluate --full-spectrum.",
+  "layers": [
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 36.14283039733574
+    },
+    {
+      "material_id": 3,
+      "material": "GdF3",
+      "thickness_nm": 30.552354661892174
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 37.460398678521486
+    },
+    {
+      "material_id": 0,
+      "material": "MgF2",
+      "thickness_nm": 62.13580113191856
+    },
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 47.78339645279939
+    }
+  ]
+}
