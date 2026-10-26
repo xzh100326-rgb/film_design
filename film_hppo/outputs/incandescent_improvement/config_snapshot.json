@@ -11,9 +11,9 @@
     "objective_note": "S is selected by each target quantity (R/T/A). score=1-sum(normalized_weight*mean(abs(S-S_target))); reward=score-sum(bound penalties) because reward_alpha=0. Current UV R:visible T:IR R weights are 1:2:1. Band-mean lower bounds are 0.70, 0.70, 0.85, each with squared-hinge penalty_weight=10; these are soft penalties, not hard guarantees. This score is not the visible-light enhancement factor chi.",
     "training_note": "Fresh HPPO/VAC initialization; no improvement checkpoint. learning_rate=5e-5 and n_sample=3000 follow reported values. DI-engine train iterations are not identical to paper epochs. Polarization uses an unpolarized s/p average."
   },
-  "material_dir": "D:\\film_design\\film_hppo\\examples\\spectral_materials",
+  "material_dir": "../../examples/spectral_materials",
   "material_source": "refractiveindex",
-  "refractiveindex_dir": "D:\\film_design\\refractiveindex.info-database",
+  "refractiveindex_dir": "../../../refractiveindex.info-database",
   "materials": [
     {
       "name": "Al2O3",

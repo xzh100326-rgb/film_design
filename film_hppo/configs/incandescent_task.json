@@ -40,11 +40,11 @@
   "tmm_device": "cpu",
   "spectral_targets": [
     {"quantity": "R", "wavelength_range_nm": [300.0, 470.0], "target": 1.0, "weight": 1.0,
-     "bounds": {"min": 0.70, "max": 1.0, "scope": "band_mean", "penalty_weight": 10.0}},
+     "bounds": {"min": 0.80, "max": 1.0, "scope": "band_mean", "penalty_weight": 10.0}},
     {"quantity": "T", "wavelength_range_nm": [480.0, 700.0], "target": 1.0, "weight": 1.0,
      "bounds": {"min": 0.40, "max": 1.0, "scope": "band_mean", "penalty_weight": 10.0}},
     {"quantity": "R", "wavelength_range_nm": [710.0, 3000.0], "target": 1.0, "weight": 1.0,
-     "bounds": {"min": 0.85, "max": 1.0, "scope": "band_mean", "penalty_weight": 10.0}}
+     "bounds": {"min": 0.9, "max": 1.0, "scope": "band_mean", "penalty_weight": 10.0}}
   ],
   "training": {
     "seed": 0,
@@ -67,7 +67,7 @@
     "gae_lambda": 1.0
   },
   "improvement": {
-    "target_score": 0.8,
+    "target_score": 0.9,
     "warm_start_steps": 0
   }
 }
