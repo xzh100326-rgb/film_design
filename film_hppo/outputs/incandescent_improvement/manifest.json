@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-10-23T13:12:52.751947+08:00",
+  "settings": {
+    "seed": 0,
+    "target_score": 0.8,
+    "seed_limit": 5,
+    "structure_rounds": 6,
+    "candidates_per_round": 24,
+    "beam_width": 3,
+    "max_thickness_iterations": 80,
+    "warm_start_steps": 0
+  },
+  "problem_fingerprint": "7cbe626919c28c6bb863141bb261c2b47ea9c2119e383050d83fa700a1023c97",
+  "sources": {
+    "__init__.py": "058131516460bf9f32e21c655b0ab70505c4693dcea9a2f5d2177d69a057abe8",
+    "__main__.py": "314fd019d24ffefa8dddd2405addfb97736891911b0db0079967199ccc6a737e",
+    "bounded_training.py": "6049c4c45b431229687cb87f93c893f55bd05e04f11e4db3fbc56fd0d1365af7",
+    "config.py": "a991b7bcc39a3f3a12875287748c9eb61e9518a0f52bd71bc3e5a65437475b8b",
+    "design.py": "4e4ff87f186efa25b41e1a0414e608c9d5d0e301d37740e09c3b8eba6b0b81aa",
+    "enhancement.py": "ba0317154adb14a8063ca4f5f185c323101e50e2bfdd557f266fe78aeba07231",
+    "env.py": "6d849eb4d8dfb90852f63b8c031bf6eaeb51b26a0417ebe63dff8d972b521586",
+    "hppo.py": "d971ef7b5f1426c6c29cdc175c7df80b883590237ef4b1fdebdcecc9b3298c50",
+    "improve.py": "c11939a694addc7c79132c362a39d0f8bb3bc1c557149afeae464dd5ee94f0c0",
+    "lamp_metrics.py": "a859a7f0041b14faf864784a0824d9455115f76e348215eedf201b2b3c9c6136",
+    "optics.py": "e8a0ef7a6a684045a0964466c300e020240df048db8faa763014573e3ae243d2",
+    "policy.py": "9c330225fb103afa644e23a768bc1f41cbf57cc868eb512ef39c57ed3575768d",
+    "refractiveindex.py": "9865f73a2625c4496aa17e9bc7963ba7746060b19bd511a7ba885ca7c17bfd91",
+    "targets.py": "a505ca3fcfde318119c5baaeedbb6b90dfcce3ad8226edffdea4eeede29008df"
+  },
+  "optical_files": [
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Al2O3\\nk\\OML-PPO.yml",
+      "sha256": "866c6ea8bd2cae99b26e06e99275914e9284db16ce0c3b384345b2d50222934a"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\HfO2\\nk\\OML-PPO.yml",
+      "sha256": "e9b83d67e6e523f1ab1feb56695d3562c5cf1912082ea38adec95ce6ef690d48"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\MgF2\\nk\\OML-PPO.yml",
+      "sha256": "3e13c196fea087f7d9574d6e5ec2f2c08d046ecec7003f8bb19c89dd88c496f8"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\SiC\\nk\\OML-PPO.yml",
+      "sha256": "c5ef94c686f23b74bb2ef4b321143fd84f34a191c40b78cdcb3e13205c684469"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Si3N4\\nk\\OML-PPO.yml",
+      "sha256": "6cd7e66ab862bed4273ce8f8af997474b2c6d317b3587d656698b6965e64fddb"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\SiO2\\nk\\OML-PPO.yml",
+      "sha256": "e88885a2c630e640d388cd90ecf6ce168a6a3c60fb55822aaa4d1f2665467c48"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\TiO2\\nk\\OML-PPO.yml",
+      "sha256": "1fb4434e275010958845dc3ed23c6080b7d5a8be1ba8b2a8c2e6d2d46df7be5b"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\film_hppo\\examples\\spectral_materials\\air_300_3000.sub",
+      "sha256": "0dd1ac615b51e217bbfa2c7eb34b3607911e615e2fa35f2628c6ed8c902282a8"
+    }
+  ],
+  "method": "HPPO design seeds + structure mutation + exact TMM thickness gradients",
+  "pure_ppo": false,
+  "seed_input": {
+    "design": null,
+    "design_dir": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit",
+    "selection": "feasible_first_then_penalized_reward"
+  }
+}

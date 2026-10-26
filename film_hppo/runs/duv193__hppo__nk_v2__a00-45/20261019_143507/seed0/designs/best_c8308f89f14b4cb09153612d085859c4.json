@@ -1,0 +1,225 @@
+{
+  "layer_count": 2,
+  "total_thickness_nm": 66.8023105752684,
+  "reward": 0.7229294844489829,
+  "score": 0.9979463598535574,
+  "log_reward": 0.44791260904440827,
+  "reward_mode": "linear_log_mixture",
+  "reward_alpha": 0.5,
+  "reward_epsilon": 1e-06,
+  "mae": 0.0020536401464426477,
+  "mean_transmission": 0.9979463598535574,
+  "min_transmission": 0.9922013233201136,
+  "wavelengths_nm": [
+    193.0
+  ],
+  "angles_deg": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0
+  ],
+  "polarization": "unpolarized",
+  "target_transmission": [
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ],
+    [
+      1.0
+    ]
+  ],
+  "T": [
+    [
+      0.998578702807128
+    ],
+    [
+      0.9986592424544547
+    ],
+    [
+      0.9988776934260553
+    ],
+    [
+      0.999165310935317
+    ],
+    [
+      0.9994094834856215
+    ],
+    [
+      0.9994543082942714
+    ],
+    [
+      0.999095399275584
+    ],
+    [
+      0.9980604177505003
+    ],
+    [
+      0.9959617167865278
+    ],
+    [
+      0.9922013233201136
+    ]
+  ],
+  "R": [
+    [
+      0.001421297192871505
+    ],
+    [
+      0.0013407575455459159
+    ],
+    [
+      0.0011223065739452858
+    ],
+    [
+      0.0008346890646831057
+    ],
+    [
+      0.0005905165143786903
+    ],
+    [
+      0.0005456917057284588
+    ],
+    [
+      0.00090460072441563
+    ],
+    [
+      0.0019395822495006897
+    ],
+    [
+      0.004038283213472597
+    ],
+    [
+      0.007798676679886688
+    ]
+  ],
+  "A": [
+    [
+      4.440892098500626e-16
+    ],
+    [
+      -6.661338147750939e-16
+    ],
+    [
+      -5.551115123125783e-16
+    ],
+    [
+      -1.1102230246251565e-16
+    ],
+    [
+      -2.220446049250313e-16
+    ],
+    [
+      1.1102230246251565e-16
+    ],
+    [
+      3.3306690738754696e-16
+    ],
+    [
+      -8.881784197001252e-16
+    ],
+    [
+      -3.3306690738754696e-16
+    ],
+    [
+      -2.220446049250313e-16
+    ]
+  ],
+  "forbid_adjacent_same_material": true,
+  "material_source": "fixed_193nm",
+  "material_reference": {
+    "doi": "10.1364/AO.47.00C214",
+    "table": 1,
+    "wavelength_nm": 193.0,
+    "deposition": "Resistive-heating boat evaporation, substrate temperature 300 deg C",
+    "k_note": "Table 1 reports n only. k=0 is an explicit lossless modeling assumption, not measured data."
+  },
+  "coating_optical_constants": [
+    {
+      "material": "MgF2",
+      "n": [
+        1.44
+      ],
+      "k": [
+        0.0
+      ]
+    },
+    {
+      "material": "LaF3",
+      "n": [
+        1.64
+      ],
+      "k": [
+        0.0
+      ]
+    },
+    {
+      "material": "AlF3",
+      "n": [
+        1.394
+      ],
+      "k": [
+        0.0
+      ]
+    },
+    {
+      "material": "GdF3",
+      "n": [
+        1.676
+      ],
+      "k": [
+        0.0
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "material_id": 2,
+      "material": "AlF3",
+      "thickness_nm": 35.91829464691707
+    },
+    {
+      "material_id": 3,
+      "material": "GdF3",
+      "thickness_nm": 30.884015928351328
+    }
+  ],
+  "substrate": "CaF2 (110-800nm, RIT).sub",
+  "stack_order": "incident medium -> layers in listed order -> semi-infinite substrate",
+  "termination_reason": "eos",
+  "eval_episode_return": 0.9979463598535574,
+  "episode_info": {
+    "training_reward": 0.7229294844489829,
+    "design_score": 0.9979463598535574,
+    "mean_transmission": 0.9979463598535574
+  }
+}

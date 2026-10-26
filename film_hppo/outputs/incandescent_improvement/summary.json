@@ -1,0 +1,81 @@
+{
+  "initial_score": 0.7050384733670537,
+  "initial_reward": 0.7050384733670537,
+  "best_score": 0.758152785357119,
+  "mean_absorption": 0.0013804486813719168,
+  "target_score": 0.8,
+  "search_target_reached": false,
+  "best_reward": 0.758152785357119,
+  "constraint_penalty": 0.0,
+  "constraints_satisfied": true,
+  "absorption_above_95_percent": false,
+  "elapsed_seconds": 5357.105243799999,
+  "candidates": 149,
+  "gradient_calls": 24639,
+  "tmm_design_evaluations": 453,
+  "method": "HPPO design seeds + structure mutation + exact TMM thickness gradients",
+  "pure_ppo": false,
+  "policy": null,
+  "seed_refinements": [
+    {
+      "rank": 1,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_66ded14df42548adba28e9bdbe6a79fa.json",
+      "origin_index": null,
+      "initial_score": 0.7050384733670537,
+      "refined_score": 0.7273946991376244,
+      "initial_reward": 0.7050384733670537,
+      "refined_reward": 0.7273946991376244,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "design": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_improvement\\refined_seeds\\seed1.json"
+    },
+    {
+      "rank": 2,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_3579b7194c7642999f55f7b0dab4c142.json",
+      "origin_index": null,
+      "initial_score": 0.7040009110355074,
+      "refined_score": 0.7280233722873273,
+      "initial_reward": 0.7040009110355074,
+      "refined_reward": 0.7280233722873273,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "design": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_improvement\\refined_seeds\\seed2.json"
+    },
+    {
+      "rank": 3,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_cc188d4cc1de4fe7894af99609ca0554.json",
+      "origin_index": null,
+      "initial_score": 0.703828364072097,
+      "refined_score": 0.7357589944222769,
+      "initial_reward": 0.703828364072097,
+      "refined_reward": 0.7357589944222769,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "design": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_improvement\\refined_seeds\\seed3.json"
+    },
+    {
+      "rank": 4,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_66471da67aa845979df25512ab5b5a4f.json",
+      "origin_index": null,
+      "initial_score": 0.7032542271407384,
+      "refined_score": 0.7236934000892612,
+      "initial_reward": 0.7032542271407384,
+      "refined_reward": 0.7236934000892612,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "design": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_improvement\\refined_seeds\\seed4.json"
+    },
+    {
+      "rank": 5,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_d1f3e2becb944cdeb594b57a488d432f.json",
+      "origin_index": null,
+      "initial_score": 0.699917309802019,
+      "refined_score": 0.7235426476979838,
+      "initial_reward": 0.699917309802019,
+      "refined_reward": 0.7235426476979838,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "design": "E:\\lithography_machine_lens\\film_hppo\\outputs\\incandescent_improvement\\refined_seeds\\seed5.json"
+    }
+  ]
+}

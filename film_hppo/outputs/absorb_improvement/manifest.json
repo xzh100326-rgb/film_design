@@ -1,0 +1,63 @@
+{
+  "started_at": "2026-10-23T12:30:48.735424+08:00",
+  "settings": {
+    "seed": 1,
+    "target_score": 0.995,
+    "seed_limit": 5,
+    "structure_rounds": 6,
+    "candidates_per_round": 24,
+    "beam_width": 3,
+    "max_thickness_iterations": 80,
+    "warm_start_steps": 0
+  },
+  "problem_fingerprint": "521a42a3b7c9ac15e70fba4195df7ac9ba1c3a9985f6365a94a66b9ba34318af",
+  "sources": {
+    "__init__.py": "058131516460bf9f32e21c655b0ab70505c4693dcea9a2f5d2177d69a057abe8",
+    "__main__.py": "314fd019d24ffefa8dddd2405addfb97736891911b0db0079967199ccc6a737e",
+    "bounded_training.py": "6049c4c45b431229687cb87f93c893f55bd05e04f11e4db3fbc56fd0d1365af7",
+    "config.py": "a991b7bcc39a3f3a12875287748c9eb61e9518a0f52bd71bc3e5a65437475b8b",
+    "design.py": "4e4ff87f186efa25b41e1a0414e608c9d5d0e301d37740e09c3b8eba6b0b81aa",
+    "enhancement.py": "ba0317154adb14a8063ca4f5f185c323101e50e2bfdd557f266fe78aeba07231",
+    "env.py": "6d849eb4d8dfb90852f63b8c031bf6eaeb51b26a0417ebe63dff8d972b521586",
+    "hppo.py": "d971ef7b5f1426c6c29cdc175c7df80b883590237ef4b1fdebdcecc9b3298c50",
+    "improve.py": "c11939a694addc7c79132c362a39d0f8bb3bc1c557149afeae464dd5ee94f0c0",
+    "lamp_metrics.py": "a859a7f0041b14faf864784a0824d9455115f76e348215eedf201b2b3c9c6136",
+    "optics.py": "e8a0ef7a6a684045a0964466c300e020240df048db8faa763014573e3ae243d2",
+    "policy.py": "9c330225fb103afa644e23a768bc1f41cbf57cc868eb512ef39c57ed3575768d",
+    "refractiveindex.py": "9865f73a2625c4496aa17e9bc7963ba7746060b19bd511a7ba885ca7c17bfd91",
+    "targets.py": "a505ca3fcfde318119c5baaeedbb6b90dfcce3ad8226edffdea4eeede29008df"
+  },
+  "optical_files": [
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\MgF2\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "2baf5c66438955db0910a5abdae651401854d055ef6a09a00adbee9b9e967fe4"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\TiO2\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "8acb097ed3d387aa0ce0f70e85a59d0dc839237bd3f506947da87a1c4c526912"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Si\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "99d9bbde48f4ddc803641454b2e9f84af02b52c66e5e25bf5488ee6336d9ed67"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Ge\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "a82f5cb2769a13ab2f5726f245cb5a2d42cb84d487356d6a7929bd39158800b1"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Cr\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "d9f78f65c8b5860b0b4e70e51921a4b0e3b6961efcfca79d0ac712f86b819716"
+    },
+    {
+      "path": "E:\\lithography_machine_lens\\film_hppo\\examples\\spectral_materials\\oml_glass_n1p45_400_2000.sub",
+      "sha256": "f1d917daa9937ffd8a6da11bf2dd50c0e3effdfe079a022a8d89dabcfa7da582"
+    }
+  ],
+  "method": "HPPO design seeds + structure mutation + exact TMM thickness gradients",
+  "pure_ppo": false,
+  "seed_input": {
+    "design": null,
+    "design_dir": "E:\\lithography_machine_lens\\film_hppo\\runs\\absorb",
+    "selection": "current_score_top_k"
+  }
+}

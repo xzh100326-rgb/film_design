@@ -1,0 +1,556 @@
+{
+  "requested_count": 5,
+  "selected_count": 5,
+  "seeds": [
+    {
+      "rank": 1,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_66ded14df42548adba28e9bdbe6a79fa.json",
+      "origin_index": null,
+      "score": 0.7050384733670537,
+      "reward": 0.7050384733670537,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "layers": 22,
+      "materials": [
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "TiO2",
+        "MgF2",
+        "TiO2"
+      ],
+      "target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8053831416865695,
+          "mae": 0.1946168583134303,
+          "min_actual": 0.058679631504810946,
+          "max_actual": 0.9991862175133065,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.8053831416865695,
+          "mean_T": 0.19461685831343073,
+          "mean_A": 9.353539301546504e-16
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.4388304499238086,
+          "mae": 0.5611695500761914,
+          "min_actual": 0.001866797917035135,
+          "max_actual": 0.9981536479263073,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5611695500761887,
+          "mean_T": 0.4388304499238086,
+          "mean_A": 2.7728711495132884e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8709018284907828,
+          "mae": 0.1290981715092172,
+          "min_actual": 0.0049009639225632675,
+          "max_actual": 0.9996414226036516,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8709018284907828,
+          "mean_T": 0.12909817150921674,
+          "mean_A": 9.23375498110829e-16
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_3579b7194c7642999f55f7b0dab4c142.json",
+      "origin_index": null,
+      "score": 0.7040009110355074,
+      "reward": 0.7040009110355074,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "layers": 25,
+      "materials": [
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "TiO2",
+        "MgF2",
+        "TiO2",
+        "MgF2",
+        "TiO2",
+        "Al2O3"
+      ],
+      "target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.7889507346714956,
+          "mae": 0.21104926532850446,
+          "min_actual": 0.04209547961488494,
+          "max_actual": 0.9998051688522263,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.7889507346714956,
+          "mean_T": 0.2063375693106576,
+          "mean_A": 0.004711696017846896
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.45078201836322795,
+          "mae": 0.5492179816367719,
+          "min_actual": 0.0006536696152989217,
+          "max_actual": 0.9884776474953668,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5492179816367692,
+          "mean_T": 0.45078201836322795,
+          "mean_A": 2.8615646486834226e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8722699800717986,
+          "mae": 0.1277300199282014,
+          "min_actual": 0.005830040787059763,
+          "max_actual": 0.9997027521072064,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8722699800717986,
+          "mean_T": 0.12773001992820113,
+          "mean_A": 8.846627763077788e-16
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_cc188d4cc1de4fe7894af99609ca0554.json",
+      "origin_index": null,
+      "score": 0.703828364072097,
+      "reward": 0.703828364072097,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "layers": 19,
+      "materials": [
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "TiO2"
+      ],
+      "target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8129129970894567,
+          "mae": 0.1870870029105432,
+          "min_actual": 0.06720358904973868,
+          "max_actual": 0.9993066100814488,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.8129129970894567,
+          "mean_T": 0.1870870029105435,
+          "mean_A": 1.0601402461229296e-15
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.44341916761139344,
+          "mae": 0.5565808323886066,
+          "min_actual": 0.000838310999376909,
+          "max_actual": 0.9935350878575321,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5565808323886043,
+          "mean_T": 0.44341916761139344,
+          "mean_A": 2.337355255247926e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.855152927515441,
+          "mae": 0.14484707248455908,
+          "min_actual": 0.016199085809093655,
+          "max_actual": 0.9996541258602897,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.855152927515441,
+          "mean_T": 0.14484707248455858,
+          "mean_A": 9.033525361924332e-16
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_66471da67aa845979df25512ab5b5a4f.json",
+      "origin_index": null,
+      "score": 0.7032542271407384,
+      "reward": 0.7032542271407384,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "layers": 19,
+      "materials": [
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "TiO2"
+      ],
+      "target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.7825048452704476,
+          "mae": 0.2174951547295524,
+          "min_actual": 0.013909392821647975,
+          "max_actual": 0.9997271535224997,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.7825048452704476,
+          "mean_T": 0.21749515472955208,
+          "mean_A": 1.3904236986738301e-15
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.4709031299502495,
+          "mae": 0.5290968700497505,
+          "min_actual": 0.0011731107163190859,
+          "max_actual": 0.9814481430756402,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5290968700497476,
+          "mean_T": 0.4709031299502495,
+          "mean_A": 2.959767177052337e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.856354706201518,
+          "mae": 0.14364529379848198,
+          "min_actual": 0.02437257382335204,
+          "max_actual": 0.9998297378428422,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.856354706201518,
+          "mean_T": 0.14364529379848165,
+          "mean_A": 8.138758973661153e-16
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_d1f3e2becb944cdeb594b57a488d432f.json",
+      "origin_index": null,
+      "score": 0.699917309802019,
+      "reward": 0.699917309802019,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": true,
+      "layers": 20,
+      "materials": [
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "SiC",
+        "MgF2",
+        "TiO2",
+        "Al2O3"
+      ],
+      "target_errors": [
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            300.0,
+            470.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.7,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.7857479537839671,
+          "mae": 0.21425204621603278,
+          "min_actual": 0.00512081472601344,
+          "max_actual": 0.9993524420512644,
+          "wavelength_count": 18,
+          "angle_count": 18,
+          "mean_R": 0.7857479537839671,
+          "mean_T": 0.2093506551398518,
+          "mean_A": 0.0049013910761810725
+        },
+        {
+          "quantity": "T",
+          "wavelength_range_nm": [
+            480.0,
+            700.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.4,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.45462517370188354,
+          "mae": 0.5453748262981164,
+          "min_actual": 0.0007394337196505302,
+          "max_actual": 0.9931044200195738,
+          "wavelength_count": 23,
+          "angle_count": 18,
+          "mean_R": 0.5453748262981143,
+          "mean_T": 0.45462517370188354,
+          "mean_A": 2.383020593707018e-15
+        },
+        {
+          "quantity": "R",
+          "wavelength_range_nm": [
+            710.0,
+            3000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 0.3333333333333333,
+          "bounds": {
+            "min": 0.85,
+            "max": 1.0,
+            "scope": "band_mean",
+            "penalty_weight": 10.0
+          },
+          "target": 1.0,
+          "mean_actual": 0.8593788019202063,
+          "mae": 0.14062119807979365,
+          "min_actual": 0.09792097665594285,
+          "max_actual": 0.9996219216303499,
+          "wavelength_count": 230,
+          "angle_count": 18,
+          "mean_R": 0.8593788019202063,
+          "mean_T": 0.14062119807979315,
+          "mean_A": 8.938162448085917e-16
+        }
+      ]
+    }
+  ]
+}

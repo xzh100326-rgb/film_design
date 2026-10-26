@@ -1,0 +1,305 @@
+{
+  "model": "OML-PPO Appendix B reflection-only, equal-input-power blackbody model",
+  "assumptions": [
+    "Unpolarized hemispherical R: integral of 2*sin(theta)*cos(theta)*R(theta).",
+    "Effective emission = 1 - view_factor^2 * R; film absorption/re-emission is not modeled.",
+    "Eye-weighted visible integral: 400-780 nm; training score/weights/bounds are not inputs.",
+    "Default two emitting faces is an inferred normalization, not a specified paper geometry.",
+    "Outside the optical window, R is constant at outside_reflectance (default 0); no nk extrapolation."
+  ],
+  "design": {
+    "path": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\designs\\best_66ded14df42548adba28e9bdbe6a79fa.json",
+    "sha256": "751ad142628725fef511647097955e55f310dba8b6a4ad2d74b8aa8e692120c5"
+  },
+  "config": {
+    "path": "E:\\lithography_machine_lens\\film_hppo\\runs\\incandescent_task\\seed0_limit\\total_config.py",
+    "sha256": "df32558356dd1b1ecd3c71e0df6198c547f70eb72a72d0e6805fd5f16b4bd634"
+  },
+  "layer_count": 22,
+  "total_thickness_nm": 6021.268065183286,
+  "layers": [
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 374.2441770429326
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 251.3410084304083
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 396.3254712750828
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 243.22608735404006
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 396.42717755583686
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 260.35965844917484
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 366.7976294576884
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 253.8267258507193
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 342.8064093588755
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 248.73886311116183
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 279.52436870571375
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 229.60285129202114
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 209.94243617930573
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 254.1931198121297
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 242.65138778457754
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 224.46677618581552
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 212.53489154492965
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 213.39675606259706
+    },
+    {
+      "material_id": 3,
+      "material": "SiC",
+      "thickness_nm": 227.17742881371288
+    },
+    {
+      "material_id": 6,
+      "material": "TiO2",
+      "thickness_nm": 348.19026405525847
+    },
+    {
+      "material_id": 2,
+      "material": "MgF2",
+      "thickness_nm": 275.1808771577805
+    },
+    {
+      "material_id": 6,
+      "material": "TiO2",
+      "thickness_nm": 170.31369970352375
+    }
+  ],
+  "material_datasets": [
+    {
+      "material": "Al2O3",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Al2O3\\nk\\OML-PPO.yml",
+      "sha256": "866c6ea8bd2cae99b26e06e99275914e9284db16ce0c3b384345b2d50222934a",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/Al2O3.csv",
+      "comments": "Converted from OML-PPO data/Al2O3.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "HfO2",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\HfO2\\nk\\OML-PPO.yml",
+      "sha256": "e9b83d67e6e523f1ab1feb56695d3562c5cf1912082ea38adec95ce6ef690d48",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/HfO2.csv",
+      "comments": "Converted from OML-PPO data/HfO2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "MgF2",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\MgF2\\nk\\OML-PPO.yml",
+      "sha256": "3e13c196fea087f7d9574d6e5ec2f2c08d046ecec7003f8bb19c89dd88c496f8",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/MgF2.csv",
+      "comments": "Converted from OML-PPO data/MgF2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "SiC",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\SiC\\nk\\OML-PPO.yml",
+      "sha256": "c5ef94c686f23b74bb2ef4b321143fd84f34a191c40b78cdcb3e13205c684469",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/SiC.csv",
+      "comments": "Converted from OML-PPO data/SiC.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "Si3N4",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Si3N4\\nk\\OML-PPO.yml",
+      "sha256": "6cd7e66ab862bed4273ce8f8af997474b2c6d317b3587d656698b6965e64fddb",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/Si3N4.csv",
+      "comments": "Converted from OML-PPO data/Si3N4.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "SiO2",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\SiO2\\nk\\OML-PPO.yml",
+      "sha256": "e88885a2c630e640d388cd90ecf6ce168a6a3c60fb55822aaa4d1f2665467c48",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/SiO2.csv",
+      "comments": "Converted from OML-PPO data/SiO2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "TiO2",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\TiO2\\nk\\OML-PPO.yml",
+      "sha256": "1fb4434e275010958845dc3ed23c6080b7d5a8be1ba8b2a8c2e6d2d46df7be5b",
+      "reference": "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/TiO2.csv",
+      "comments": "Converted from OML-PPO data/TiO2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred.",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    }
+  ],
+  "material_hashes_checked": true,
+  "numerics": {
+    "wavelength_step_nm": 2.0,
+    "wavelength_count": 1351,
+    "angle_order": 64,
+    "wavelength_chunk_size": 128,
+    "device": "cpu"
+  },
+  "visible_480_700_hemispherical_mean": {
+    "R": 0.5113797035625878,
+    "T": 0.48862029643740934,
+    "A": 2.961556373813527e-15
+  },
+  "enhancement": [
+    {
+      "chi": 8.001436646203354,
+      "view_factor": 1.0,
+      "temperature_k": 3596.5447601681662,
+      "bare_temperature_k": 2576.808046736584,
+      "power_w": 100.0,
+      "area_mm2_per_face": 20.0,
+      "radiating_sides": 2.0,
+      "outside_reflectance": 0.0,
+      "visible_range_nm": [
+        400.0,
+        780.0
+      ],
+      "thermal_R_window_nm": [
+        300.0,
+        3000.0
+      ],
+      "power_balance_residual_w": 7.105427357601002e-14,
+      "blackbody_power_fraction_outside_window": 0.0721930383178867,
+      "eye_response": {
+        "reference": "Sharpe et al. 2005, doi:10.1167/5.11.3, Eq.5",
+        "formula": "V_e(lambda)=(1.624340*l_e(lambda)+m_e(lambda))/2.525598",
+        "source_cone_data": "https://raw.githubusercontent.com/colour-science/colour/v0.4.6/colour/colorimetry/datasets/cmfs.py",
+        "source_sha256": "a53076b9e6be4843443067986c925898d40a3c32c4eef9cb32ff08ca42e6493d",
+        "derivation": "Stockman & Sharpe 2000 2-degree energy cone fundamentals; equation reconstructed, not the unavailable original CVRL V table",
+        "data_sha256": "49966627fcbc3eac3b921b8b3723a6e6c9311bef290bbccc52df3a15fc14b5a3",
+        "license": "Cone data extracted from Colour v0.4.6 BSD-3-Clause; see COLOUR_LICENSE.txt",
+        "range_nm": [
+          390,
+          830
+        ],
+        "step_nm": 1,
+        "file": "E:\\lithography_machine_lens\\film_hppo\\film_rl\\data\\sharpe2005_vlambda.csv",
+        "sha256": "49966627fcbc3eac3b921b8b3723a6e6c9311bef290bbccc52df3a15fc14b5a3"
+      }
+    },
+    {
+      "chi": 5.738753423008196,
+      "view_factor": 0.95,
+      "temperature_k": 3389.108920784201,
+      "bare_temperature_k": 2576.808046736584,
+      "power_w": 100.0,
+      "area_mm2_per_face": 20.0,
+      "radiating_sides": 2.0,
+      "outside_reflectance": 0.0,
+      "visible_range_nm": [
+        400.0,
+        780.0
+      ],
+      "thermal_R_window_nm": [
+        300.0,
+        3000.0
+      ],
+      "power_balance_residual_w": -1.2747136679536197e-10,
+      "blackbody_power_fraction_outside_window": 0.08288496667654521,
+      "eye_response": {
+        "reference": "Sharpe et al. 2005, doi:10.1167/5.11.3, Eq.5",
+        "formula": "V_e(lambda)=(1.624340*l_e(lambda)+m_e(lambda))/2.525598",
+        "source_cone_data": "https://raw.githubusercontent.com/colour-science/colour/v0.4.6/colour/colorimetry/datasets/cmfs.py",
+        "source_sha256": "a53076b9e6be4843443067986c925898d40a3c32c4eef9cb32ff08ca42e6493d",
+        "derivation": "Stockman & Sharpe 2000 2-degree energy cone fundamentals; equation reconstructed, not the unavailable original CVRL V table",
+        "data_sha256": "49966627fcbc3eac3b921b8b3723a6e6c9311bef290bbccc52df3a15fc14b5a3",
+        "license": "Cone data extracted from Colour v0.4.6 BSD-3-Clause; see COLOUR_LICENSE.txt",
+        "range_nm": [
+          390,
+          830
+        ],
+        "step_nm": 1,
+        "file": "E:\\lithography_machine_lens\\film_hppo\\film_rl\\data\\sharpe2005_vlambda.csv",
+        "sha256": "49966627fcbc3eac3b921b8b3723a6e6c9311bef290bbccc52df3a15fc14b5a3"
+      }
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+exp_config = {
+    'env': {
+        'manager': {
+            'episode_num': float("inf"),
+            'max_retry': 1,
+            'retry_type': 'reset',
+            'auto_reset': True,
+            'step_timeout': None,
+            'reset_timeout': None,
+            'retry_waiting_time': 0.1,
+            'cfg_type': 'BaseEnvManagerDict',
+            'type': 'base',
+            'shared_memory': False
+        },
+        'stop_value':
+        0.9999,
+        'n_evaluator_episode':
+        8,
+        'type':
+        'duv_film',
+        'import_names': ['film_rl.env'],
+        'material_dir':
+        'E:\\lithography_machine_lens\\film_hppo\\examples\\spectral_materials',
+        'material_source':
+        'refractiveindex',
+        'refractiveindex_dir':
+        'E:\\lithography_machine_lens\\refractiveindex.info-database',
+        'materials': [{
+            'name': 'MgF2',
+            'file': 'data/main/MgF2/nk/Yang2016_FigS5_digitized.yml'
+        }, {
+            'name': 'TiO2',
+            'file': 'data/main/TiO2/nk/Yang2016_FigS5_digitized.yml'
+        }, {
+            'name': 'Si',
+            'file': 'data/main/Si/nk/Yang2016_FigS5_digitized.yml'
+        }, {
+            'name': 'Ge',
+            'file': 'data/main/Ge/nk/Yang2016_FigS5_digitized.yml'
+        }, {
+            'name': 'Cr',
+            'file': 'data/main/Cr/nk/Yang2016_FigS5_digitized.yml'
+        }],
+        'substrate_file':
+        'oml_glass_n1p45_400_2000.sub',
+        'substrate_thickness_nm':
+        500.0,
+        'exit_n':
+        1.0,
+        'incident_n':
+        1.0,
+        'wavelengths_nm': {
+            'start': 400.0,
+            'stop': 2000.0,
+            'num': 161
+        },
+        'angles_deg': {
+            'start': 0.0,
+            'stop': 0.0,
+            'num': 1
+        },
+        'polarization':
+        'unpolarized',
+        'reward_alpha':
+        0.0,
+        'reward_epsilon':
+        1e-06,
+        'min_layers':
+        1,
+        'max_layers':
+        30,
+        'thickness_min_nm':
+        10.0,
+        'thickness_max_nm':
+        200.0,
+        'max_total_thickness_nm':
+        600.0,
+        'forbid_adjacent_same_material':
+        True,
+        'tmm_device':
+        'cpu',
+        'spectral_targets': [{
+            'quantity': 'A',
+            'wavelength_range_nm': [400.0, 2000.0],
+            'target': 1.0,
+            'weight': 1.0
+        }],
+        'improvement': {
+            'target_score': 0.995,
+            'warm_start_steps': 0
+        },
+        'collector_env_num':
+        4,
+        'evaluator_env_num':
+        1,
+        'result_dir':
+        'E:\\lithography_machine_lens\\film_hppo\\runs\\absorb\\20261023_103934\\seed5\\designs'
+    },
+    'policy': {
+        'model': {
+            'obs_shape': 181,
+            'action_shape': {
+                'action_type_shape': 6,
+                'action_args_shape': 5
+            },
+            'action_space': 'hybrid',
+            'encoder_hidden_size_list': [256, 256, 128],
+            'actor_head_hidden_size': 128,
+            'critic_head_hidden_size': 128,
+            'sigma_type': 'independent',
+            'bound_type': None
+        },
+        'learn': {
+            'learner': {
+                'train_iterations': 1000000000,
+                'dataloader': {
+                    'num_workers': 0
+                },
+                'log_policy': True,
+                'hook': {
+                    'load_ckpt_before_run': '',
+                    'log_show_after_iter': 100,
+                    'save_ckpt_after_iter': 10000,
+                    'save_ckpt_after_run': True
+                },
+                'cfg_type': 'BaseLearnerDict'
+            },
+            'resume_training': False,
+            'epoch_per_collect': 10,
+            'batch_size': 128,
+            'learning_rate': 0.0003,
+            'lr_scheduler': None,
+            'value_weight': 0.5,
+            'entropy_weight': 0.001,
+            'clip_ratio': 0.2,
+            'adv_norm': True,
+            'value_norm': False,
+            'ppo_param_init': True,
+            'grad_clip_type': 'clip_norm',
+            'grad_clip_value': 0.5,
+            'ignore_done': False,
+            'target_kl': 0.02,
+            'max_abs_log_ratio': 10.0,
+            'entropy_weight_discrete': 0.001,
+            'entropy_weight_continuous': 0.001,
+            'initial_sigma': None
+        },
+        'collect': {
+            'collector': {
+                'deepcopy_obs': False,
+                'transform_obs': False,
+                'collect_print_freq': 100,
+                'cfg_type': 'SampleSerialCollectorDict',
+                'type': 'sample'
+            },
+            'unroll_len': 1,
+            'discount_factor': 1.0,
+            'gae_lambda': 0.95,
+            'n_sample': 1024
+        },
+        'eval': {
+            'evaluator': {
+                'eval_freq': 100,
+                'render': {
+                    'render_freq': -1,
+                    'mode': 'train_iter'
+                },
+                'figure_path': None,
+                'cfg_type': 'InteractionSerialEvaluatorDict',
+                'stop_value': 0.9999,
+                'n_episode': 8
+            }
+        },
+        'other': {
+            'replay_buffer': {
+                'type': 'advanced',
+                'replay_buffer_size': 4096,
+                'max_use': float("inf"),
+                'max_staleness': float("inf"),
+                'alpha': 0.6,
+                'beta': 0.4,
+                'anneal_step': 100000,
+                'enable_track_used_data': False,
+                'deepcopy': False,
+                'thruput_controller': {
+                    'push_sample_rate_limit': {
+                        'max': float("inf"),
+                        'min': 0
+                    },
+                    'window_seconds': 30,
+                    'sample_min_limit_ratio': 1
+                },
+                'monitor': {
+                    'sampled_data_attr': {
+                        'average_range': 5,
+                        'print_freq': 200
+                    },
+                    'periodic_thruput': {
+                        'seconds': 60
+                    }
+                },
+                'cfg_type': 'AdvancedReplayBufferDict'
+            },
+            'commander': {
+                'cfg_type': 'BaseSerialCommanderDict'
+            }
+        },
+        'on_policy': True,
+        'cuda': False,
+        'multi_gpu': False,
+        'bp_update_sync': True,
+        'traj_len_inf': False,
+        'type': 'film_hppo_command',
+        'priority': False,
+        'priority_IS_weight': False,
+        'recompute_adv': False,
+        'action_space': 'hybrid',
+        'nstep_return': False,
+        'multi_agent': False,
+        'transition_with_policy_data': True,
+        'cfg_type': 'FilmPPOCommandPolicyDict',
+        'import_names': ['film_rl.policy']
+    },
+    'exp_name': 'runs\\absorb\\20261023_103934\\seed5',
+    'seed': 5
+}

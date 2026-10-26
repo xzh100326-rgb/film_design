@@ -1,0 +1,240 @@
+{
+  "requested_count": 5,
+  "selected_count": 5,
+  "seeds": [
+    {
+      "rank": 1,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\absorb\\20261023_103934\\seed9\\designs\\best_8cab4768f2944f1fa5508cbe8d2e91ba.json",
+      "origin_index": null,
+      "score": 0.9294303956332386,
+      "reward": 0.9294303956332386,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 10,
+      "materials": [
+        "MgF2",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si"
+      ],
+      "target_errors": [
+        {
+          "quantity": "A",
+          "wavelength_range_nm": [
+            400.0,
+            2000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9294303956332386,
+          "mae": 0.07056960436676145,
+          "min_actual": 0.4964897949513433,
+          "max_actual": 0.9954220038782967,
+          "wavelength_count": 161,
+          "angle_count": 1,
+          "mean_R": 0.06640058635357068,
+          "mean_T": 0.004169018013190746,
+          "mean_A": 0.9294303956332386
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\absorb\\20261023_103934\\seed9\\designs\\best_54420d90fcdb40cf8983ac23bb7d00ad.json",
+      "origin_index": null,
+      "score": 0.9271219815836027,
+      "reward": 0.9271219815836027,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 14,
+      "materials": [
+        "TiO2",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "TiO2",
+        "MgF2",
+        "TiO2"
+      ],
+      "target_errors": [
+        {
+          "quantity": "A",
+          "wavelength_range_nm": [
+            400.0,
+            2000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9271219815836025,
+          "mae": 0.07287801841639735,
+          "min_actual": 0.6018194843451729,
+          "max_actual": 0.9790934529943761,
+          "wavelength_count": 161,
+          "angle_count": 1,
+          "mean_R": 0.07276125090887509,
+          "mean_T": 0.00011676750752228585,
+          "mean_A": 0.9271219815836025
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\absorb\\20261023_103934\\seed9\\designs\\best_23173efa548043f8bda8e823a22462f3.json",
+      "origin_index": null,
+      "score": 0.9263157082082172,
+      "reward": 0.9263157082082172,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 18,
+      "materials": [
+        "TiO2",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "TiO2",
+        "Si",
+        "Cr",
+        "TiO2",
+        "Si",
+        "Cr",
+        "Si",
+        "TiO2"
+      ],
+      "target_errors": [
+        {
+          "quantity": "A",
+          "wavelength_range_nm": [
+            400.0,
+            2000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9263157082082171,
+          "mae": 0.07368429179178278,
+          "min_actual": 0.5732078019289002,
+          "max_actual": 0.9767657283366508,
+          "wavelength_count": 161,
+          "angle_count": 1,
+          "mean_R": 0.07365999024261978,
+          "mean_T": 2.4301549163001047e-05,
+          "mean_A": 0.9263157082082171
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\absorb\\20261023_103934\\seed9\\designs\\best_97912762ab604f4d85c8116f0dc8c3fe.json",
+      "origin_index": null,
+      "score": 0.9260139245404442,
+      "reward": 0.9260139245404442,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 14,
+      "materials": [
+        "TiO2",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "TiO2",
+        "Si",
+        "Cr",
+        "TiO2"
+      ],
+      "target_errors": [
+        {
+          "quantity": "A",
+          "wavelength_range_nm": [
+            400.0,
+            2000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9260139245404441,
+          "mae": 0.07398607545955584,
+          "min_actual": 0.5548791213291547,
+          "max_actual": 0.9708534231582786,
+          "wavelength_count": 161,
+          "angle_count": 1,
+          "mean_R": 0.0739683487357286,
+          "mean_T": 1.7726723827224564e-05,
+          "mean_A": 0.9260139245404441
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "origin": "E:\\lithography_machine_lens\\film_hppo\\runs\\absorb\\20261023_103934\\seed9\\designs\\best_971ee80a76f2489ca93ace190c87e65b.json",
+      "origin_index": null,
+      "score": 0.9260098620627493,
+      "reward": 0.9260098620627493,
+      "constraint_penalty": 0.0,
+      "constraints_satisfied": null,
+      "layers": 13,
+      "materials": [
+        "TiO2",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "Cr",
+        "Si",
+        "TiO2",
+        "Si",
+        "Cr"
+      ],
+      "target_errors": [
+        {
+          "quantity": "A",
+          "wavelength_range_nm": [
+            400.0,
+            2000.0
+          ],
+          "weight": 1.0,
+          "normalized_weight": 1.0,
+          "target": 1.0,
+          "mean_actual": 0.9260098620627493,
+          "mae": 0.07399013793725068,
+          "min_actual": 0.5581193504073594,
+          "max_actual": 0.9840269304784901,
+          "wavelength_count": 161,
+          "angle_count": 1,
+          "mean_R": 0.07365499379046894,
+          "mean_T": 0.00033514414678174177,
+          "mean_A": 0.9260098620627493
+        }
+      ]
+    }
+  ]
+}

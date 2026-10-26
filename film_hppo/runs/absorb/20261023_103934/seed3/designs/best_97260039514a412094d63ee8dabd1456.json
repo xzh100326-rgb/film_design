@@ -1,0 +1,207 @@
+{
+  "layer_count": 13,
+  "total_thickness_nm": 597.4477496916845,
+  "score": 0.8998993410168853,
+  "reward": 0.8998993410168853,
+  "mae": 0.10010065898311468,
+  "evaluation_metric": "absorption",
+  "design_format": "compact_v1",
+  "value_units": "R/T/A, target, score and reward use fractions, not percentages",
+  "averaging": "Uniform mean over the sampled angles and wavelengths within each target band",
+  "target_errors": [
+    {
+      "quantity": "A",
+      "wavelength_range_nm": [
+        400.0,
+        2000.0
+      ],
+      "weight": 1.0,
+      "normalized_weight": 1.0,
+      "target": 1.0,
+      "mean_actual": 0.8998993410168853,
+      "mae": 0.10010065898311468,
+      "min_actual": 0.49203291871891564,
+      "max_actual": 0.991846642985999,
+      "wavelength_count": 161,
+      "angle_count": 1,
+      "mean_R": 0.10009948228607249,
+      "mean_T": 1.1766970421774908e-06,
+      "mean_A": 0.8998993410168853
+    }
+  ],
+  "sampling": {
+    "wavelengths_nm": {
+      "start": 400.0,
+      "stop": 2000.0,
+      "num": 161,
+      "step": 10.0
+    },
+    "angles_deg": {
+      "start": 0.0,
+      "stop": 0.0,
+      "num": 1
+    }
+  },
+  "polarization": "unpolarized",
+  "objective_mode": "spectral_targets",
+  "reward_mode": "linear",
+  "reward_alpha": 0.0,
+  "reward_epsilon": 1e-06,
+  "log_reward": 0.16659384391030946,
+  "score_formula": "1 - sum_b(normalized_weight_b * mean(abs(S_b - S_target_b)))",
+  "reward_formula": "1 - sum_b(normalized_weight_b * mean(abs(S_b - S_target_b)))",
+  "spectral_aggregation": "weighted_band_mae",
+  "mean_transmission": 1.1766970421774908e-06,
+  "min_transmission": 2.3663009351553543e-22,
+  "mean_reflection": 0.10009948228607249,
+  "min_reflection": 0.008153357014000988,
+  "mean_absorption": 0.8998993410168853,
+  "min_absorption": 0.49203291871891564,
+  "absorption_scope": "finite coating layers and finite substrate",
+  "forbid_adjacent_same_material": true,
+  "material_source": "refractiveindex",
+  "material_reference": null,
+  "material_datasets": [
+    {
+      "material": "MgF2",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\MgF2\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "2baf5c66438955db0910a5abdae651401854d055ef6a09a00adbee9b9e967fe4",
+      "reference": "C. Yang et al., ACS Photonics 3, 590-596 (2016). DOI: 10.1021/acsphotonics.5b00689. Supplement Fig. S5; https://doi.org/10.1021/acsphotonics.5b00689.s001",
+      "comments": "Approximate curve digitization, NOT original measured optical constants. MgF2 k=0: curves unresolved from zero at the resolution of Fig. S5; not a measured zero-loss assertion",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "TiO2",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\TiO2\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "8acb097ed3d387aa0ce0f70e85a59d0dc839237bd3f506947da87a1c4c526912",
+      "reference": "C. Yang et al., ACS Photonics 3, 590-596 (2016). DOI: 10.1021/acsphotonics.5b00689. Supplement Fig. S5; https://doi.org/10.1021/acsphotonics.5b00689.s001",
+      "comments": "Approximate curve digitization, NOT original measured optical constants. TiO2 k=0: curves unresolved from zero at the resolution of Fig. S5; not a measured zero-loss assertion",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "Si",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Si\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "99d9bbde48f4ddc803641454b2e9f84af02b52c66e5e25bf5488ee6336d9ed67",
+      "reference": "C. Yang et al., ACS Photonics 3, 590-596 (2016). DOI: 10.1021/acsphotonics.5b00689. Supplement Fig. S5; https://doi.org/10.1021/acsphotonics.5b00689.s001",
+      "comments": "Approximate curve digitization, NOT original measured optical constants. Si k below figure resolution after about 979 nm: set to zero; not resolved experimentally",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "Ge",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Ge\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "a82f5cb2769a13ab2f5726f245cb5a2d42cb84d487356d6a7929bd39158800b1",
+      "reference": "C. Yang et al., ACS Photonics 3, 590-596 (2016). DOI: 10.1021/acsphotonics.5b00689. Supplement Fig. S5; https://doi.org/10.1021/acsphotonics.5b00689.s001",
+      "comments": "Approximate curve digitization, NOT original measured optical constants. Ge k below figure resolution after about 1611 nm: set to zero; not resolved experimentally",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    },
+    {
+      "material": "Cr",
+      "file": "E:\\lithography_machine_lens\\refractiveindex.info-database\\database\\data\\main\\Cr\\nk\\Yang2016_FigS5_digitized.yml",
+      "sha256": "d9f78f65c8b5860b0b4e70e51921a4b0e3b6961efcfca79d0ac712f86b819716",
+      "reference": "C. Yang et al., ACS Photonics 3, 590-596 (2016). DOI: 10.1021/acsphotonics.5b00689. Supplement Fig. S5; https://doi.org/10.1021/acsphotonics.5b00689.s001",
+      "comments": "Approximate curve digitization, NOT original measured optical constants. ",
+      "conditions": {},
+      "data_types": [
+        "tabulated nk"
+      ],
+      "assumed_zero_k": false
+    }
+  ],
+  "substrate": "oml_glass_n1p45_400_2000.sub",
+  "substrate_thickness_nm": 500.0,
+  "exit_n": 1.0,
+  "stack_order": "incident medium -> layers in listed order -> finite substrate -> exit medium",
+  "termination_reason": "thickness_budget",
+  "eval_episode_return": 0.8998993410168853,
+  "episode_info": {
+    "training_reward": 0.8998993410168853,
+    "design_score": 0.8998993410168853,
+    "mean_transmission": 1.1766970421774908e-06,
+    "mean_reflection": 0.10009948228607249,
+    "mean_absorption": 0.8998993410168853
+  },
+  "spectra_note": "Full per-wavelength/per-angle spectra and optical-constant arrays omitted. Recompute with original config and evaluate --full-spectrum.",
+  "layers": [
+    {
+      "material_id": 1,
+      "material": "TiO2",
+      "thickness_nm": 113.88864299457111
+    },
+    {
+      "material_id": 3,
+      "material": "Ge",
+      "thickness_nm": 28.648407618215266
+    },
+    {
+      "material_id": 4,
+      "material": "Cr",
+      "thickness_nm": 19.42080851678456
+    },
+    {
+      "material_id": 3,
+      "material": "Ge",
+      "thickness_nm": 28.64007703375775
+    },
+    {
+      "material_id": 4,
+      "material": "Cr",
+      "thickness_nm": 39.46877979685085
+    },
+    {
+      "material_id": 3,
+      "material": "Ge",
+      "thickness_nm": 19.417626148170584
+    },
+    {
+      "material_id": 4,
+      "material": "Cr",
+      "thickness_nm": 42.6540547576675
+    },
+    {
+      "material_id": 3,
+      "material": "Ge",
+      "thickness_nm": 17.71805276050669
+    },
+    {
+      "material_id": 4,
+      "material": "Cr",
+      "thickness_nm": 98.91044973014077
+    },
+    {
+      "material_id": 3,
+      "material": "Ge",
+      "thickness_nm": 56.28396184258334
+    },
+    {
+      "material_id": 4,
+      "material": "Cr",
+      "thickness_nm": 105.22260721105044
+    },
+    {
+      "material_id": 3,
+      "material": "Ge",
+      "thickness_nm": 15.659722530988853
+    },
+    {
+      "material_id": 1,
+      "material": "TiO2",
+      "thickness_nm": 11.514558750396821
+    }
+  ]
+}
