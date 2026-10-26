@@ -1,0 +1,14 @@
+# Converted local dataset; wavelength in micrometres.
+REFERENCES: "H. Wang et al. Automated multi-layer optical design via deep reinforcement learning. Machine Learning: Science and Technology 2 (2021), 025013. https://doi.org/10.1088/2632-2153/abc327\nSource: https://raw.githubusercontent.com/hammer-wang/oml-ppo/ef63afe85e9c09cb3ccf0df01218c6264535ac9c/data/TiO2.csv"
+COMMENTS: "Converted from OML-PPO data/TiO2.csv; commit ef63afe85e9c09cb3ccf0df01218c6264535ac9c. Original wavelength unit: um; YAML unit: micrometre. Original numeric samples retained, with no new resampling or extrapolation. Source CSV may contain constant extensions or sparse sampling already added upstream; its numeric coverage is not proof of measured physical validity. Repository training code uses quadratic interpolation; film_hppo currently uses linear interpolation. Not an official refractiveindex.info dataset; underlying experimental provenance is not inferred."
+DATA:
+  - type: tabulated nk
+    data: |
+      0.29999999999999999 2.3799999999999999 0
+      0.40000000000000002 2.3799999999999999 0
+      0.5 2.2200000000000002 0
+      0.59999999999999998 2.1800000000000002 0
+      0.69999999999999996 2.1400000000000001 0
+      2.1000000000000001 2.1400000000000001 0
+      8 2.1400000000000001 0
+      15 2.1400000000000001 0

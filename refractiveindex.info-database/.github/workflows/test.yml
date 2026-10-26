@@ -1,0 +1,34 @@
+# This `test.yml` file defines a GitHub action that will run for all pull requests,
+# and for all pushes to dev. It installs the python test libraries and then runs the `pytest` command.
+# This automatically detects `test_*.py` files and executes tests therein.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
+  # schedule:
+  #     - cron: "0 13 * * 1"  # Every Monday at 9AM EST
+
+jobs:
+  test-parsing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+
+      - name: Run tests
+        run: uv run pytest tests
