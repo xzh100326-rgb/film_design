@@ -10,11 +10,14 @@ def design_key(report):
     score = float(report.get('score', report.get('reward', 0.)))
     if report.get('has_constraints', False):
         return (int(report['constraints_satisfied']), float(report['reward']))
+    if report.get('reward_objective') == 'enhancement':
+        return (1, float(report['reward']))
     return (1, score)
 
 
 def search_target_reached(report, target_score):
-    return (report['score'] >= target_score and
+    metric = report['reward'] if report.get('reward_objective') == 'enhancement' else report['score']
+    return (metric >= target_score and
             (not report.get('has_constraints', False) or report['constraints_satisfied']))
 
 
@@ -40,7 +43,9 @@ def compact_design(report):
         "layer_count", "total_thickness_nm", "score", "reward", "mae", "evaluation_metric"
     ) if key in report}
     compact["design_format"] = "compact_v1"
-    compact["value_units"] = "R/T/A, target, score and reward use fractions, not percentages"
+    compact["value_units"] = ("R/T/A, targets and score are fractions; enhancement_factor is a ratio; reward=chi-penalty"
+                              if report.get('reward_objective') == 'enhancement' else
+                              "R/T/A, target, score and reward use fractions, not percentages")
     compact["averaging"] = "Uniform mean over the sampled angles and wavelengths within each target band"
     spectra = {q: np.asarray(report[q], dtype=float) for q in "RTA" if q in report}
     wave = np.asarray(report.get("wavelengths_nm", []), dtype=float)
@@ -69,6 +74,7 @@ def compact_design(report):
     compact["sampling"] = {key: _grid_summary(report[key]) for key in ("wavelengths_nm", "angles_deg") if key in report}
     for key in (
         "polarization", "objective_mode", "reward_mode", "reward_alpha", "reward_epsilon", "log_reward",
+        "reward_objective", "enhancement_factor", "enhancement", "enhancement_settings",
         "score_formula", "reward_formula", "spectral_aggregation",
         "mean_transmission", "min_transmission", "mean_reflection", "min_reflection", "mean_absorption",
         "min_absorption", "absorption_scope", "forbid_adjacent_same_material", "material_source",

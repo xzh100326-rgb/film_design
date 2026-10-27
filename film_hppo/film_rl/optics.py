@@ -49,6 +49,17 @@ class FilmOptics:
         self.incident_index = np.full(self.wavelengths_nm.shape, complex(cfg["incident_n"]))
         self.objective = SpectralObjective(cfg, self.wavelengths_nm, self.angles_deg)
         self.target = self.objective.legacy_target
+        self.enhancement_mode = cfg.get('reward_objective', 'spectral') == 'enhancement'
+        self.solver_angles = self.angles_deg
+        if self.enhancement_mode:
+            from .enhancement import reward_settings, hemisphere_quadrature
+            if not np.allclose(self.substrate_index, 1., rtol=0., atol=1e-12):
+                raise ValueError('Enhancement reward requires air on both sides')
+            self.enhancement_settings = reward_settings(cfg)
+            thermal_angles, self.thermal_weights = hemisphere_quadrature(self.enhancement_settings['angle_order'])
+            self.solver_angles, inverse = np.unique(np.r_[self.angles_deg, thermal_angles], return_inverse=True)
+            self.target_angle_indices = inverse[:len(self.angles_deg)]
+            self.thermal_angle_indices = inverse[len(self.angles_deg):]
         self.evaluation_count = 0
 
     def evaluate(self, layers):
@@ -88,11 +99,24 @@ class FilmOptics:
         results = []
         with torch.no_grad():
             for pol in pols:
-                result = coh_tmm(pol, n_stack.copy(), thickness_m.copy(), np.deg2rad(self.angles_deg),
+                result = coh_tmm(pol, n_stack.copy(), thickness_m.copy(), np.deg2rad(self.solver_angles),
                                  self.wavelengths_nm * 1e-9, device=self.cfg["tmm_device"])
                 results.append({key: self._array(result[key])[0] for key in ("R", "T")})
         reflection = np.mean([r["R"] for r in results], axis=0)
         transmission = np.mean([r["T"] for r in results], axis=0)
+        enhancement_result = None
+        if self.enhancement_mode:
+            # Validate the full union grid, including angles used only for chi.
+            if (not np.isfinite(reflection).all() or not np.isfinite(transmission).all()
+                    or np.min(reflection) < -1e-7 or np.min(transmission) < -1e-7
+                    or np.max(reflection+transmission) > 1+1e-7):
+                raise RuntimeError('Invalid hemispherical TMM spectra')
+            from .enhancement import enhancement
+            settings = {k: v for k, v in self.enhancement_settings.items() if k != 'angle_order'}
+            enhancement_result = enhancement(self.wavelengths_nm,
+                self.thermal_weights @ np.clip(reflection[self.thermal_angle_indices], 0, 1), **settings)
+            reflection = reflection[self.target_angle_indices]
+            transmission = transmission[self.target_angle_indices]
         for name, spectrum in (("R", reflection), ("T", transmission)):
             if spectrum.shape != self.objective.shape or not np.isfinite(spectrum).all():
                 raise RuntimeError(f"Invalid TMM {name} shape or nonfinite result")
@@ -113,10 +137,18 @@ class FilmOptics:
         reward = (1.0 - alpha) * score + alpha * log_reward
         reward_formula = (objective["score_formula"] if alpha == 0.0 else
                           "(1 - reward_alpha) * score + reward_alpha * log_reward")
+        if self.enhancement_mode:
+            reward = enhancement_result['chi']
+            reward_formula = 'enhancement_factor - constraint_penalty'
+            objective.update(enhancement_factor=reward, enhancement=enhancement_result,
+                             enhancement_settings=self.enhancement_settings,
+                             evaluation_metric='enhancement_minus_penalty',
+                             base_reward=reward, constraint_penalty=objective.get('constraint_penalty', 0.))
         if self.objective.has_constraints:
             objective['base_reward'] = reward
             reward -= objective['constraint_penalty']
-            reward_formula = '(' + reward_formula + ') - constraint_penalty'
+            if not self.enhancement_mode:
+                reward_formula = '(' + reward_formula + ') - constraint_penalty'
             if not math.isfinite(reward):
                 raise FloatingPointError('Nonfinite reward after spectral-bound penalties')
         self.evaluation_count += 1
@@ -124,7 +156,9 @@ class FilmOptics:
             "reward": reward,
             "reward_formula": reward_formula,
             "log_reward": log_reward,
-            "reward_mode": "linear" if alpha == 0.0 else "log" if alpha == 1.0 else "linear_log_mixture",
+            "reward_objective": self.cfg.get('reward_objective', 'spectral'),
+            "reward_mode": ('enhancement' if self.enhancement_mode else
+                            'linear' if alpha == 0.0 else 'log' if alpha == 1.0 else 'linear_log_mixture'),
             "reward_alpha": alpha,
             "reward_epsilon": epsilon,
             **objective,

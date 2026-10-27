@@ -288,3 +288,60 @@ Get-Content "outputs/实验组/批次时间/logs/seed0.train.log" -Tail 40 -Wait
 | `tests/` | 独立合成 YAML、环境、策略保护、目标光谱和绘图回归测试 |
 
 材料改变、编号改变或状态维度改变后，不应直接套用旧 checkpoint。历史结果及其他项目副本保留，本项目不修改原始材料数据库。
+
+## 可选增强因子奖励（2026-10-26）
+
+默认不变：不写 `reward_objective`，或设为 `"spectral"`，继续使用原光谱 MAE / 对数混合奖励，再减现有 `bounds` 惩罚。
+
+设为 `"reward_objective": "enhancement"` 时：
+
+```text
+base_reward = enhancement_factor (chi)
+reward = chi - constraint_penalty
+```
+
+这里的惩罚仅为已有 `spectral_targets[].bounds` 的越界平方惩罚，不包括目标光谱 MAE。不设置 bounds 时 P=0。`reward_alpha` / `reward_epsilon` 在此模式不影响奖励；原始 `score` 和 `mae` 继续表示光谱匹配程度，另外导出 `enhancement_factor`、`enhancement`（温度等）、`reward_objective` 和公式。奖励可超过 1，保持终止时给奖励，中间步骤为 0。
+
+可选热参数（以下也是默认值）：
+
+```json
+{
+  "reward_objective": "enhancement",
+  "enhancement_reward": {
+    "view_factor": 0.95,
+    "power_w": 100.0,
+    "area_mm2": 20.0,
+    "radiating_sides": 2.0,
+    "outside_reflectance": 0.0,
+    "angle_order": 64
+  }
+}
+```
+
+此模式复用当前波长网格，一次 TMM 使用配置角度与半球 Gauss-Legendre 角度的并集：原配置角度仍用于目标谱 MAE/边界检查；半球权重用于 chi。必须覆盖 400–780 nm，非偏振、空气/膜系/空气且无有限基底。这里使用项目已有 reflection-only 黑体回收模型，并未增加膜吸收/再发射模型；有吸收时不能把结果解释为已验证的真实灯泡效率。波段外反射率与双面面积仍是显式模型假设。最终候选应使用独立脚本加密波长和角度重新验证。
+
+`training.stop_value`、`improvement.target_score` 在增强模式均以扣罚后的 reward 为单位（例如 12，而非 0.99）。有边界时，依然要求所有评估 episode 满足边界才能提前停止；最佳设计依然优先可行，再按 reward 排序。无边界时直接按 reward 排序。`design_selection` 保持 `score`，内部会根据奖励模式选择实际排序指标，不能使用 `lamp_pareto` 覆盖 chi 排序。奖励模式及热参数进入预训练模型的问题指纹，不能直接加载原光谱任务的预训练快照。
+
+现成独立配置：`configs/incandescent_enhancement.json`，保留原 29 层设计对应的物理条件和光谱边界，仅切换奖励，停止目标示例为 12。原配置及历史设计均未切换。运行（在 film_hppo 目录、film 环境）：
+
+```powershell
+# 单设计评估；不训练
+python -m film_rl evaluate --config configs/incandescent_enhancement.json --design outputs/incandescent_improvement/best_design.json --output outputs/enhancement_reward_evaluation.json
+
+# 显式启动训练
+python -m film_rl train --config configs/incandescent_enhancement.json
+```
+
+`improve` 的增强模式使用 SLSQP 数值差分梯度，每次扰动都会重新计算 chi，明显慢于原光谱目标的 TMM 自动微分；原光谱模式仍走原自动微分路径。绘制增强模式评估曲线时不要使用 `--reward-as-transmission`，reward 不是透射率百分比。
+
+## 批量运行的 DLL 启动检查与补绘图
+
+批处理启动前会在同一 Python 环境检查 torch、matplotlib、TensorBoard 是否可导入；失败则在启动训练前停止。`complete_plot_failed` 表示训练已完成、只有绘图失败，模型和设计保留；`training_status` / `plot_status` 单独记录。增强因子曲线支持 `enhancement_minus_penalty`，不按百分比绘制。
+
+只补绘已完成训练（不会重训，也不会启动尚未运行的 seed）：
+
+```powershell
+python run_seed_batch.py --recover-plots outputs/incandescent_enhancement/20261026_204554
+```
+
+原绘图错误日志保留，补绘日志为 `logs/seedN.recovery.plot.log`。若 Windows Smart App Control 正在拦截 DLL，补绘前也会检查并报错，须先处理系统拦截。应用程序控制策略不同于 Python 奖励或模型错误，不要通过修改 DLL 名称、清空安全日志或关闭杀毒软件来掩盖问题。

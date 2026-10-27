@@ -30,6 +30,7 @@ def summarize(batch):
             "group": entry.get("group", manifest.get("group")),
             "batch_id": entry.get("batch_id", manifest.get("batch_id")),
             "seed": entry["seed"], "run": entry["name"], "status": entry["status"],
+            "training_status": entry.get('training_status'), "plot_status": entry.get('plot_status'),
             "optimizer_updates": result.get("train_iter") or latest_match(
                 run / "log/learner/learner_logger.txt", r"Training Iteration (\d+) Result"),
             "env_steps": result.get("env_step") or latest_match(
@@ -55,6 +56,8 @@ def summarize(batch):
                                   if entry.get("best_target_errors") is not None else None,
             "best_saved_design_score": entry.get("best_saved_score", entry.get("best_saved_reward")),
             "best_saved_training_reward": entry.get("best_saved_reward"),
+            "reward_objective": entry.get('reward_objective', 'spectral'),
+            "best_enhancement_factor": entry.get('best_enhancement_factor'),
             "best_layer_count": entry.get("best_layer_count"),
             "best_total_thickness_nm": entry.get("best_total_thickness_nm"),
             "last_evaluation_mean": result.get("eval_value"),

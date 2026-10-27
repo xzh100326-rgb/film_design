@@ -63,7 +63,7 @@ def check(cfg, output, full_spectrum=False):
     assert env.optics.evaluation_count == 1, "TMM must evaluate once per completed stack"
     assert np.isclose(float(timestep.reward[0]), timestep.info["reward"])
     assert timestep.info['eval_episode_return'] == (
-        timestep.info['reward'] if env.has_constraints else timestep.info['score'])
+        timestep.info['reward'] if env.has_constraints or env.enhancement_mode else timestep.info['score'])
     assert all(torch.equal(tensor, before[name]) for name, tensor in model.state_dict().items())
     summary = deepcopy(timestep.info)
     summary["validation"] = {"config_compiled": True, "policy_forward": True, "training_executed": False,
@@ -104,6 +104,7 @@ def check(cfg, output, full_spectrum=False):
                       "R_mean": summary["mean_reflection"], "A_mean": summary["mean_absorption"],
                       "evaluation_metric": summary["evaluation_metric"],
                       "eval_score": summary["score"], "reward_alpha": summary["reward_alpha"],
+                      **{k: summary[k] for k in ('reward_objective', 'enhancement_factor') if k in summary},
                       **{k: summary[k] for k in ('base_reward', 'constraint_penalty', 'constraints_satisfied') if k in summary},
                       "output": str(Path(output).resolve())}, indent=2))
 
@@ -132,6 +133,7 @@ def evaluate(cfg, design, output, full_spectrum=False):
                       "mean_reflection": report["mean_reflection"], "mean_absorption": report["mean_absorption"],
                       "evaluation_metric": report["evaluation_metric"],
                       "score": report["score"], "reward_alpha": report["reward_alpha"],
+                      **{k: report[k] for k in ('reward_objective', 'enhancement_factor') if k in report},
                       **{k: report[k] for k in ('base_reward', 'constraint_penalty', 'constraints_satisfied') if k in report},
                       "output": str(Path(output).resolve())}, indent=2))
 

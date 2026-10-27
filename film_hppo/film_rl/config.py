@@ -56,6 +56,21 @@ def optical_data_files(cfg):
 
 
 def validate(cfg):
+    mode = cfg.get('reward_objective', 'spectral')
+    if mode not in ('spectral', 'enhancement'):
+        raise ValueError("reward_objective must be spectral or enhancement")
+    if mode == 'enhancement':
+        from .enhancement import reward_settings
+        reward_settings(cfg)
+        wave = grid(cfg['wavelengths_nm'], 'wavelengths_nm')
+        if wave[0] > 400 or wave[-1] < 780:
+            raise ValueError('Enhancement reward requires wavelengths covering 400-780 nm')
+        if cfg['polarization'] != 'unpolarized' or cfg.get('substrate_thickness_nm') is not None:
+            raise ValueError('Enhancement reward requires unpolarized light and no finite substrate')
+        if complex(cfg['incident_n']) != 1:
+            raise ValueError('Enhancement reward requires air incidence')
+        if cfg.get('design_selection', 'score') != 'score':
+            raise ValueError('Enhancement reward requires design_selection=score (select by enhancement reward)')
     if cfg.get('design_selection', 'score') not in ('score', 'lamp_pareto'):
         raise ValueError('design_selection must be score or lamp_pareto')
     sigma = cfg.get('training', {}).get('initial_sigma')

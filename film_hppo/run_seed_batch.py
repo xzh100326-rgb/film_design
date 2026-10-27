@@ -91,7 +91,8 @@ def prepare(config=None, group=None, seeds=None):
     # Choose versions once in the parent, before configs are sent to workers.
     from film_rl.optics import FilmOptics
     FilmOptics(cfg)
-    evaluation_metric = objective_for_config(cfg).evaluation_metric
+    evaluation_metric = ('enhancement_minus_penalty' if cfg.get('reward_objective') == 'enhancement'
+                         else objective_for_config(cfg).evaluation_metric)
     seeds = list(range(10)) if seeds is None else list(seeds)
     if not seeds or any(type(seed) is not int or seed < 0 for seed in seeds) or len(set(seeds)) != len(seeds):
         raise ValueError("Seeds must be distinct nonnegative integers")
@@ -180,7 +181,7 @@ def select_saved_design(run, selection="score"):
                 key = lamp_key(design["application_metrics"])
             else:
                 key = (score,)
-            if design.get('has_constraints', False):
+            if design.get('has_constraints', False) or design.get('reward_objective') == 'enhancement':
                 key = design_key(design) + (key if selection == 'lamp_pareto' else ())
             candidates.append((key, path, index, design))
     if not candidates:
@@ -212,7 +213,8 @@ def run_one(entry, batch, runtime_environment):
             entry["training_pid"] = process.pid
             write_json(record, entry)
             return_code = process.wait()
-        entry.update(training_seconds=time.perf_counter() - started, training_exit_code=return_code)
+        entry.update(training_seconds=time.perf_counter() - started, training_exit_code=return_code,
+                     training_status='complete' if return_code == 0 else 'failed')
         if return_code != 0:
             raise RuntimeError(f"Training exited {return_code}; see {train_log}")
         run = Path(entry["run_dir"])
@@ -232,6 +234,8 @@ def run_one(entry, batch, runtime_environment):
         best_path = batch / "designs" / f"{entry['name']}.json"
         write_json(best_path, best)
         entry.update(best_saved_reward=float(best["reward"]), best_saved_score=score,
+                     reward_objective=best.get('reward_objective', 'spectral'),
+                     best_enhancement_factor=best.get('enhancement_factor'),
                      best_saved_transmission=float(best["mean_transmission"]), best_design=str(best_path),
                      best_design_source=str(source_path), best_design_source_index=source_index,
                      design_selection=selection,
@@ -247,6 +251,8 @@ def run_one(entry, batch, runtime_environment):
                      design_count=design_count, status="plotting")
         write_json(record, entry)
         command = [sys.executable, "plot_training.py", "--run", entry["run_dir"], "--output", entry["plot"]]
+        if best.get('evaluation_metric'):
+            entry['evaluation_metric'] = best['evaluation_metric']
         if entry.get("evaluation_metric"):
             command.extend(["--evaluation-metric", entry["evaluation_metric"]])
         elif entry.get("reward_as_transmission", True):
@@ -258,9 +264,13 @@ def run_one(entry, batch, runtime_environment):
             plotted = subprocess.run(command, cwd=PROJECT, env=environment, stdout=stream, stderr=subprocess.STDOUT)
         if plotted.returncode or not Path(entry["plot"]).is_file() or not Path(entry["plot"]).with_suffix(".csv").is_file():
             raise RuntimeError(f"Plotting failed: exit={plotted.returncode}; see {plot_log}")
-        entry["status"] = "complete"
+        entry.update(status='complete', plot_status='complete')
     except Exception as error:
-        entry.update(status="failed", error=str(error))
+        if entry.get('status') == 'plotting':
+            entry.update(status='complete_plot_failed', training_status='complete',
+                         plot_status='failed', error=str(error))
+        else:
+            entry.update(status='failed', error=str(error))
     entry.update(finished_at=now().isoformat(), total_seconds=time.perf_counter() - started)
     write_json(record, entry)
     print(f"{entry['status'].upper()} {entry['name']}: {entry['total_seconds']:.1f}s, "
@@ -282,6 +292,8 @@ def refresh_summary(batch, manifest, workers, started):
         "batch_dir": str(batch), "run_root": manifest.get("run_root"), "workers": workers,
         "elapsed_seconds": time.perf_counter() - started, "updated_at": now().isoformat(), "runs": entries,
         "all_complete": all(entry["status"] == "complete" for entry in entries),
+        "training_complete_count": sum(entry.get('training_exit_code') == 0 for entry in entries),
+        "plot_failed_count": sum(entry.get('status') == 'complete_plot_failed' for entry in entries),
     }
     source_config = Path(manifest.get("source_config", PROJECT / "configs/duv193.json"))
     summary["source_config_unchanged"] = source_config.is_file() and digest(source_config) == manifest["base_config_sha256"]
@@ -290,13 +302,70 @@ def refresh_summary(batch, manifest, workers, started):
     write_json(batch / "summary.json", summary)
     finished = sum(entry["status"] == "complete" for entry in entries)
     failed = sum(entry["status"] == "failed" for entry in entries)
-    print(f"Progress: {finished}/{len(entries)} complete, {failed} failed; {batch / 'results.csv'}", flush=True)
+    print(f"Progress: {finished}/{len(entries)} fully complete, {summary['plot_failed_count']} trained but plot failed, "
+          f"{failed} failed; {batch / 'results.csv'}", flush=True)
     return summary
+
+
+def runtime_check(training=True):
+    """Fail before allocating a batch of expensive jobs if imports are blocked."""
+    imports = ('import torch; ' if training else '') + 'import matplotlib; from tensorboard.backend.event_processing.event_accumulator import EventAccumulator; print("RUNTIME_OK")'
+    environment = dict(os.environ, PYTHONIOENCODING='utf-8')
+    result = subprocess.run([sys.executable, '-c', imports], cwd=PROJECT,
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                            encoding='utf-8', errors='replace', timeout=120, env=environment)
+    if result.returncode:
+        raise RuntimeError('Python runtime preflight failed; no training started.\n' + result.stdout)
+
+
+def recover_plots(batch, check=True):
+    """Only replot completed runs. Never starts training or loads a checkpoint."""
+    batch = project_path(batch)
+    manifest = json.loads((batch/'manifest.json').read_text(encoding='utf-8'))
+    if check:
+        runtime_check(training=False)
+    environment = os.environ.copy()
+    environment.update(manifest.get('runtime_environment', {}))
+    environment.update(PYTHONIOENCODING='utf-8', MPLBACKEND='Agg')
+    for source in manifest['runs']:
+        record = Path(source.get('record', batch/f"{source['name']}.json"))
+        if not record.exists():
+            continue
+        entry = json.loads(record.read_text(encoding='utf-8'))
+        if entry.get('training_exit_code') != 0 or not (Path(entry['run_dir'])/'result.pkl').exists():
+            continue
+        if entry.get('status') == 'complete':
+            continue
+        best_path = entry.get('best_design')
+        best = json.loads(Path(best_path).read_text(encoding='utf-8-sig')) if best_path else {}
+        metric = best.get('evaluation_metric', entry.get('evaluation_metric', 'score'))
+        command = [sys.executable, 'plot_training.py', '--run', entry['run_dir'],
+                   '--output', entry['plot'], '--evaluation-metric', metric]
+        # Preserve the original failure log as evidence.
+        plot_log = batch/'logs'/f"{entry['name']}.recovery.plot.log"
+        plot_log.parent.mkdir(parents=True, exist_ok=True)
+        with plot_log.open('w', encoding='utf-8') as stream:
+            result = subprocess.run(command, cwd=PROJECT, env=environment, stdout=stream, stderr=subprocess.STDOUT)
+        passed = (result.returncode == 0 and Path(entry['plot']).exists()
+                  and Path(entry['plot']).with_suffix('.csv').exists())
+        entry.update(training_status='complete', plot_status='complete' if passed else 'failed',
+                     status='complete' if passed else 'complete_plot_failed', evaluation_metric=metric,
+                     recovery_plot_command=command, recovery_plot_log=str(plot_log), recovered_at=now().isoformat())
+        if passed:
+            if entry.get('error'):
+                entry['previous_error'] = entry.pop('error')
+        else:
+            entry['error'] = f'Plot recovery failed: exit={result.returncode}; see {plot_log}'
+        write_json(record, entry)
+    previous = json.loads((batch/'summary.json').read_text(encoding='utf-8')) if (batch/'summary.json').exists() else {}
+    return refresh_summary(batch, manifest, previous.get('workers', 0),
+                           time.perf_counter()-previous.get('elapsed_seconds', 0.))
 
 
 def execute(batch, workers):
     if type(workers) is not int or workers < 1:
         raise ValueError("workers must be a positive integer")
+    runtime_check()
     batch = project_path(batch)
     manifest = json.loads((batch / "manifest.json").read_text(encoding="utf-8"))
     for relative, expected in manifest["source_hashes"].items():
@@ -335,17 +404,28 @@ def main(argv=None):
     parser.add_argument("--workers", type=int, default=3, help="Concurrent training processes (default: 3)")
     parser.add_argument("--prepare-only", action="store_true", help="Create configs and directories without training")
     parser.add_argument("--batch-dir", type=Path, help="Execute an existing, not-yet-started prepared batch")
+    parser.add_argument('--recover-plots', type=Path, help='Only regenerate plots for completed training in this batch')
     args = parser.parse_args(argv)
+    if args.recover_plots:
+        if args.batch_dir or args.prepare_only or any(x is not None for x in (args.config, args.group, args.seeds)):
+            parser.error('--recover-plots cannot be combined with training/preparation options')
+        try:
+            summary = recover_plots(args.recover_plots)
+            return 1 if summary['plot_failed_count'] else 0
+        except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
+            parser.error(str(error))
     if args.workers < 1:
         parser.error("--workers must be positive")
     if args.batch_dir and any(value is not None for value in (args.config, args.group, args.seeds)):
         parser.error("--batch-dir uses saved settings; do not combine with --config, --group or --seeds")
     try:
+        if not args.batch_dir:
+            runtime_check()
         batch = project_path(args.batch_dir) if args.batch_dir else prepare(args.config, args.group, args.seeds)
         if args.batch_dir and not (batch / "manifest.json").is_file():
             raise ValueError(f"Batch manifest missing: {batch}")
         return 0 if args.prepare_only else execute(batch, args.workers)
-    except (ValueError, FileNotFoundError) as error:
+    except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
         parser.error(str(error))
 
 

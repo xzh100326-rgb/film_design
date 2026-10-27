@@ -23,6 +23,8 @@ def evaluation_status(info, target, expected_count):
     """Fail closed: every evaluated episode must pass, not just the mean flag."""
     passed = np.asarray(info.get('constraints_satisfied', []), dtype=float).reshape(-1)
     scores = np.asarray(info.get('design_score', []), dtype=float).reshape(-1)
+    if 'stopping_metric' in info:
+        scores = np.asarray(info['stopping_metric'], dtype=float).reshape(-1)
     rewards = np.asarray(info.get('training_reward', []), dtype=float).reshape(-1)
     complete = len(passed) == len(scores) == len(rewards) == expected_count
     if not complete or not all(np.isfinite(x).all() for x in (passed, scores, rewards)):
@@ -91,7 +93,8 @@ def serial_pipeline_bounded(input_cfg, seed=0, model=None, max_train_iter=int(1e
             pickle.dump({'stop': stop, 'env_step': collector.envstep, 'train_iter': learner.train_iter,
                          'eval_value': float(np.mean(values)) if len(values) else None,
                          'eval_value_raw': values, 'finish_time': time.ctime(),
-                         'evaluation_metric': 'penalized_reward',
+                         'evaluation_metric': ('enhancement_minus_penalty' if cfg.env.get('reward_objective') == 'enhancement'
+                                               else 'penalized_reward'),
                          'constraints_satisfied': eval_info.get('constraints_satisfied', [])}, stream)
         return policy
     finally:

@@ -17,6 +17,24 @@ DATA_DIR = Path(__file__).with_name("data")
 PAPER_URL = "https://arxiv.org/html/2006.11940#A2"
 
 
+def reward_settings(cfg):
+    """Fixed thermal assumptions for opt-in chi-minus-spectral-penalty reward."""
+    settings = dict(view_factor=.95, power_w=100., area_mm2=20.,
+                    radiating_sides=2., outside_reflectance=0., angle_order=64)
+    supplied = cfg.get('enhancement_reward', {})
+    if not isinstance(supplied, dict) or set(supplied)-set(settings):
+        raise ValueError('enhancement_reward contains unsupported settings')
+    settings.update(supplied)
+    for key in ('power_w', 'area_mm2', 'radiating_sides'):
+        positive(settings[key], key)
+    for key in ('view_factor', 'outside_reflectance'):
+        value = settings[key]
+        if isinstance(value, bool) or not np.isfinite(value) or not 0 <= value <= 1:
+            raise ValueError(f'{key} must be within [0,1]')
+    hemisphere_quadrature(settings['angle_order'])
+    return settings
+
+
 def positive(value, name):
     if isinstance(value, bool) or not np.isfinite(value) or value <= 0:
         raise ValueError(f"{name} must be positive and finite")

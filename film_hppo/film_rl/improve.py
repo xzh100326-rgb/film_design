@@ -67,6 +67,7 @@ class ThicknessObjective:
     """Differentiable exact configured target score, using native TMM-fast."""
     def __init__(self, optics, material_ids):
         self.optics = optics
+        self.material_ids = material_ids
         device = optics.cfg["tmm_device"]
         indices = [optics.incident_index] + [optics.material_indices[i] for i in material_ids]
         indices.append(optics.substrate_index)
@@ -81,6 +82,8 @@ class ThicknessObjective:
         self.best_key = None
 
     def __call__(self, values):
+        if self.optics.enhancement_mode:
+            return self._enhancement_objective(values)
         x = torch.tensor(values, dtype=torch.float64, device=self.indices.device, requires_grad=True)
         pieces = [x.new_tensor([np.inf]), x]
         if self.optics.substrate_thickness_nm is not None:
@@ -113,6 +116,39 @@ class ThicknessObjective:
                     self.best_key, self.best_values = key, np.asarray(values).copy()
         return float(error.detach()), gradient.detach().cpu().numpy()
 
+    def _enhancement_objective(self, values):
+        """Finite differences include the hemisphere TMM and thermal root solve.
+
+        Disable only the total budget for derivative probes; SLSQP enforces it.
+        Only feasible probes can become saved intermediate candidates.
+        """
+        values = np.asarray(values, dtype=float)
+        cfg = self.optics.cfg
+        budget = cfg.get('max_total_thickness_nm')
+        def evaluate(x):
+            feasible = budget is None or x.sum() <= budget + 1e-9
+            try:
+                cfg['max_total_thickness_nm'] = None
+                report = self.optics.evaluate(list(zip(self.material_ids, x)))
+            finally:
+                cfg['max_total_thickness_nm'] = budget
+            self.calls += 1
+            key = design_key(report)
+            if feasible and (self.best_key is None or key > self.best_key):
+                self.best_key, self.best_values = key, x.copy()
+            return -report['reward']
+        value = evaluate(values)
+        gradient = np.empty_like(values)
+        for i, thickness in enumerate(values):
+            step = max(1e-4, abs(thickness)*1e-5)
+            left, right = values.copy(), values.copy()
+            left[i] = max(cfg['thickness_min_nm'], thickness-step)
+            right[i] = min(cfg['thickness_max_nm'], thickness+step)
+            gradient[i] = (evaluate(right)-evaluate(left))/(right[i]-left[i])
+        if not np.isfinite(value) or not np.isfinite(gradient).all():
+            raise FloatingPointError('Nonfinite enhancement objective/gradient')
+        return value, gradient
+
 
 def refine(optics, layers, max_iterations=80):
     from scipy.optimize import minimize
@@ -143,7 +179,8 @@ def refine(optics, layers, max_iterations=80):
     # A failed/constrained optimizer must never replace the incumbent with a worse design.
     if design_key(report) < design_key(initial):
         report = initial
-    report["optimization"] = {"method": "SLSQP with TMM-fast autograd", "gradient_calls": objective.calls,
+    report["optimization"] = {"method": ("SLSQP with finite-difference enhancement gradient" if optics.enhancement_mode
+                                        else "SLSQP with TMM-fast autograd"), "gradient_calls": objective.calls,
                               "success": bool(result.success), "message": str(result.message),
                               "initial_score": initial["score"]}
     return report
@@ -313,7 +350,8 @@ def train_warm_start(cfg, best, directory, steps=1800):
         ce = torch.nn.functional.cross_entropy(logits["action_type"], target_kind)
         predicted = (logits["action_args"]["mu"][row, selected].tanh()+1)/2
         mse = (predicted[active]-target_fraction[active]).square().mean()
-        critic_target = best['reward'] if best.get('has_constraints', False) else best['score']
+        critic_target = (best['reward'] if best.get('has_constraints', False)
+                         or best.get('reward_objective') == 'enhancement' else best['score'])
         value_loss = (output["value"]-critic_target).square().mean()
         loss = ce + 20*mse + .1*value_loss
         optimizer.zero_grad()
@@ -367,7 +405,8 @@ def train_warm_start(cfg, best, directory, steps=1800):
 
 def improve(cfg, output, design=None, *, design_dir=None, top_k=None):
     started = time.perf_counter()
-    settings = {"seed": cfg["training"]["seed"], "target_score": .96,
+    enhancement_mode = cfg.get('reward_objective', 'spectral') == 'enhancement'
+    settings = {"seed": cfg["training"]["seed"], "target_score": cfg['training']['stop_value'] if enhancement_mode else .96,
                 "seed_limit": 6, "structure_rounds": 6, "candidates_per_round": 24,
                 "beam_width": 3, "max_thickness_iterations": 80, "warm_start_steps": 1800}
     settings.update(cfg.get("improvement", {}))
@@ -379,8 +418,9 @@ def improve(cfg, output, design=None, *, design_dir=None, top_k=None):
         if not Path(design_dir).is_dir():
             raise ValueError(f"Design directory does not exist: {design_dir}")
         settings["seed_limit"] = 5 if top_k is None else top_k
-    if not 0 < float(settings["target_score"]) <= 1:
-        raise ValueError("improvement.target_score must be in (0, 1]")
+    target = float(settings['target_score'])
+    if not np.isfinite(target) or target <= 0 or (not enhancement_mode and target > 1):
+        raise ValueError('improvement.target_score must be positive/finite (spectral mode: <= 1)')
     for key in ("seed_limit", "structure_rounds", "candidates_per_round", "beam_width",
                 "max_thickness_iterations", "warm_start_steps"):
         if isinstance(settings[key], bool) or not isinstance(settings[key], int) or settings[key] < 0:
@@ -400,7 +440,8 @@ def improve(cfg, output, design=None, *, design_dir=None, top_k=None):
                 "sources": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in source_files},
                 "optical_files": [{"path": str(p), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}
                                   for p in optical_data_files(cfg)],
-                "method": ("HPPO design seeds + structure mutation + exact TMM thickness gradients"
+                "method": ("HPPO design seeds + structure mutation + " +
+                           ("finite-difference enhancement gradients" if enhancement_mode else "exact TMM thickness gradients")
                            + (" + VAC imitation" if settings["warm_start_steps"] else "")),
                 "pure_ppo": False,
                 "seed_input": {"design": str(Path(design).resolve()) if design is not None else None,

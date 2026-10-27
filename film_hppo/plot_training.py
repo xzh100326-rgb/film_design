@@ -18,7 +18,7 @@ def main():
     metric_options = parser.add_mutually_exclusive_group()
     metric_options.add_argument("--reward-as-transmission", action="store_true",
                         help="Only for target T=1; plot the evaluator's untransformed score as percent transmission")
-    metric_options.add_argument("--evaluation-metric", choices=["score", "transmission", "reflection", "absorption", "penalized_reward"],
+    metric_options.add_argument("--evaluation-metric", choices=["score", "transmission", "reflection", "absorption", "penalized_reward", "enhancement_minus_penalty"],
                                 help="Default: infer the metric from saved designs; mixed targets use score")
     args = parser.parse_args()
     project_dir = Path(__file__).resolve().parent
@@ -32,7 +32,7 @@ def main():
             candidate = json.loads(path.read_text(encoding="utf-8-sig")).get("evaluation_metric")
         except (OSError, ValueError):
             continue
-        if candidate in ("score", "transmission", "reflection", "absorption", "penalized_reward"):
+        if candidate in ("score", "transmission", "reflection", "absorption", "penalized_reward", "enhancement_minus_penalty"):
             inferred_metric = candidate
             break
     metric = "transmission" if args.reward_as_transmission else args.evaluation_metric or inferred_metric or "score"
@@ -42,7 +42,8 @@ def main():
                     "transmission": "Target-band transmittance (%)",
                     "reflection": "Target-band reflectance (%)",
                     "absorption": "Target-band absorptance (%)",
-                    "penalized_reward": "Reward after spectral-bound penalties"}[metric]
+                    "penalized_reward": "Reward after spectral-bound penalties",
+                    "enhancement_minus_penalty": "Enhancement factor minus constraint penalty"}[metric]
     log_dir = args.run / "log" / "serial"
     if not log_dir.is_dir() or not any(log_dir.glob("*tfevents*")):
         runs_dir = project_dir / "runs"
@@ -59,7 +60,7 @@ def main():
     panels = [
         (metric_title,
          [("evaluator_iter/reward_mean", "Mean"),
-          ("evaluator_iter/reward_max", "Best in evaluation")], 1 if metric in ("score", "penalized_reward") else 100),
+          ("evaluator_iter/reward_max", "Best in evaluation")], 1 if metric in ("score", "penalized_reward", "enhancement_minus_penalty") else 100),
         ("Total loss", [("learner_iter/total_loss_avg", "Total")], 1),
         ("Policy loss", [("learner_iter/policy_loss_avg", "Policy")], 1),
         ("Value loss", [("learner_iter/value_loss_avg", "Value")], 1),

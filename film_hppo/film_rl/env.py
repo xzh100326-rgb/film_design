@@ -37,7 +37,9 @@ class ThinFilmEnv(BaseEnv):
             "action_args": gym.spaces.Box(-np.inf, np.inf, shape=(self.material_count,), dtype=np.float32),
         })
         self.has_constraints = objective_for_config(self.cfg).has_constraints
-        self.reward_space = gym.spaces.Box(-np.inf if self.has_constraints else 0, 1, shape=(1,), dtype=np.float32)
+        self.enhancement_mode = self.cfg.get('reward_objective', 'spectral') == 'enhancement'
+        self.reward_space = gym.spaces.Box(-np.inf if self.has_constraints else 0,
+                                         np.inf if self.enhancement_mode else 1, shape=(1,), dtype=np.float32)
         self.optics = None
         self.layers = []
         self._done = True
@@ -126,11 +128,14 @@ class ThinFilmEnv(BaseEnv):
             # Legacy evaluation reports raw score. Bounded evaluation reports
             # penalized reward and separately gates stopping on feasibility/score.
             info.update(termination_reason=reason,
-                        eval_episode_return=reward if self.has_constraints else info['score'],
+                        eval_episode_return=reward if self.has_constraints or self.enhancement_mode else info['score'],
                         episode_info={"training_reward": reward, "design_score": info["score"],
                                       "mean_transmission": info["mean_transmission"],
                                       "mean_reflection": info["mean_reflection"],
                                       "mean_absorption": info["mean_absorption"]})
+            if self.enhancement_mode:
+                info['episode_info'].update(enhancement_factor=info['enhancement_factor'],
+                                            stopping_metric=reward)
             if self.has_constraints:
                 info['episode_info'].update(constraint_penalty=info['constraint_penalty'],
                                             constraints_satisfied=int(info['constraints_satisfied']))

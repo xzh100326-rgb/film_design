@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from run_seed_batch import run_one, select_saved_design, write_json
+from run_seed_batch import run_one, select_saved_design, write_json, recover_plots, runtime_check
 from summarize_seed_batch import summarize
 
 
@@ -100,6 +100,47 @@ class SeedBatchTests(unittest.TestCase):
             self.assertEqual(rows[0]["best_evaluation_mean"], .8)
             with (batch / "results.csv").open(encoding="utf-8-sig", newline="") as stream:
                 self.assertEqual(next(csv.DictReader(stream))["visible_T"], "0.76")
+
+    def test_plot_failure_preserves_completed_training_and_recovery_never_trains(self):
+        import subprocess
+        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'outputs') as temporary:
+            batch=Path(temporary)
+            run=batch/'run'
+            entry={'seed':0,'name':'seed0','run_dir':str(run),'config':str(batch/'cfg.json'),
+                   'record':str(batch/'status/seed0.json'),'plot':str(batch/'seed0.png'),
+                   'evaluation_metric':'score','design_selection':'score','status':'pending'}
+            write_json(batch/'manifest.json',{'runs':[entry],'source_config':str(batch/'cfg.json'),
+                'base_config_sha256':'unused','source_hashes':{}})
+            class FakeTrain:
+                pid=123
+                def __init__(self,*a,**kw):
+                    data=candidate(.8);data.update(reward_objective='enhancement',evaluation_metric='enhancement_minus_penalty',reward=8.)
+                    write_json(run/'designs/best_a.json',data)
+                    with (run/'result.pkl').open('wb') as f:pickle.dump({'train_iter':10000},f)
+                def wait(self):return 0
+            with patch('run_seed_batch.subprocess.Popen',FakeTrain), patch('run_seed_batch.subprocess.run',return_value=subprocess.CompletedProcess([],1)):
+                result=run_one(entry,batch,{})
+            self.assertEqual(result['status'],'complete_plot_failed')
+            self.assertEqual(result['training_status'],'complete')
+            self.assertEqual(result['plot_status'],'failed')
+            self.assertEqual(result['evaluation_metric'],'enhancement_minus_penalty')
+            def plot(command,**kw):
+                self.assertEqual(command[1],'plot_training.py')
+                path=Path(command[command.index('--output')+1]);path.write_bytes(b'mock')
+                path.with_suffix('.csv').write_text('tag,value\nevaluator_iter/reward_mean,8\n')
+                return subprocess.CompletedProcess(command,0)
+            with patch('run_seed_batch.subprocess.Popen',side_effect=AssertionError('must not train')), patch('run_seed_batch.subprocess.run',plot):
+                summary=recover_plots(batch,check=False)
+            self.assertTrue(summary['all_complete'])
+            final=json.loads(Path(entry['record']).read_text())
+            self.assertEqual(final['status'],'complete')
+            self.assertIn('previous_error',final)
+
+    def test_runtime_preflight_reports_dll_failure(self):
+        import subprocess
+        with patch('run_seed_batch.subprocess.run',return_value=subprocess.CompletedProcess([],1,'WinError 4551')):
+            with self.assertRaisesRegex(RuntimeError,'no training started'):
+                runtime_check()
 
 
 if __name__ == "__main__":
