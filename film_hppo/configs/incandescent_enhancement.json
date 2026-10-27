@@ -50,7 +50,7 @@
   "wavelengths_nm": {
     "start": 300.0,
     "stop": 3000.0,
-    "num": 271
+    "num": 135
   },
   "angles_deg": {
     "start": 0.0,
@@ -61,7 +61,7 @@
   "reward_alpha": 0.0,
   "reward_epsilon": 1e-06,
   "min_layers": 1,
-  "max_layers": 80,
+  "max_layers": 50,
   "thickness_min_nm": 10.0,
   "thickness_max_nm": 400.0,
   "max_total_thickness_nm": null,
@@ -127,7 +127,7 @@
     "entropy_weight": 0.001,
     "target_kl": 0.02,
     "max_abs_log_ratio": 10.0,
-    "eval_freq": 100,
+    "eval_freq": 200,
     "stop_value": 12.0,
     "max_env_step": 30000000,
     "max_train_iter": 10000,
@@ -145,7 +145,7 @@
     "area_mm2": 20.0,
     "radiating_sides": 2.0,
     "outside_reflectance": 0.0,
-    "angle_order": 64
+    "angle_order": 32
   },
   "design_selection": "score",
   "_enhancement_note": "reward=chi-constraint_penalty; score remains spectral score. Reflection-only model. Default original spectral reward is unchanged when reward_objective is absent or spectral. Stop/target values use penalized chi in enhancement mode."
